@@ -32,13 +32,13 @@ class ComponentWinFabulyPostanovPdr {
 		}; 
  
  
-		//cns( 'var', 'arrListPatrolPdr', arrListPatrolPdr );
+		//cns( 'var', 'arrListSheriffPdr', arrListSheriffPdr );
 
-		let item = arrListPatrolPdr.find( k => k.id == '2_9_a' );
+		let item = arrListSheriffPdr.find( k => k.id == '2_9_a' );
 
 
 		let htmlOptionPdrType = '';
-		arrListPatrolFabulyType.forEach( k => {
+		arrListSheriffFabulyType.forEach( k => {
 			htmlOptionPdrType += `<option value="${ k.id }">${ k.title }</option>`;
 		});
 
@@ -70,16 +70,16 @@ class ComponentWinFabulyPostanovPdr {
 		const name = this.name + '.clc()'; 
  
 
-		let objFabula = arrListPatrolFabuly.find( k => {
+		let objFabula = arrListSheriffFabuly.find( k => {
 
 			if ( k.id == data.dataset.id )
 				return true;
 		});
 
-		//cns( 'var', 'arrListPatrolFabuly[ data.dataset.id ]', arrListPatrolFabuly ); 
+		//cns( 'var', 'arrListSheriffFabuly[ data.dataset.id ]', arrListSheriffFabuly ); 
 		//cns( 'var', 'fabula', objFabula ); 
 
-		//objListPatrolKupap[ data.dataset.id ];
+		//objListSheriffKupap[ data.dataset.id ];
 		ComponentFabula.insFabula( objFabula );
 
 	} 
@@ -112,10 +112,10 @@ class ComponentWinFabulyPostanovPdr {
 		let selectedFabuly = [];
 
 		if ( txt == 'all' ) 
-			selectedFabuly = arrListPatrolFabuly.filter( k => true );
+			selectedFabuly = arrListSheriffFabuly.filter( k => true );
 
 		else 
-			selectedFabuly = arrListPatrolFabuly.filter( k => k.type == txt );
+			selectedFabuly = arrListSheriffFabuly.filter( k => k.type == txt );
 
 
 
@@ -125,7 +125,7 @@ class ComponentWinFabulyPostanovPdr {
 			let sign = k.sign ? `<div><b>Знак: ${ k.sign }</b></div>` : '';
 			let marking = k.marking ? `<div><b>Розмітка: ${ k.marking }</b></div>` : '';
 			let descr = k.descr ? `<div class="descr">${ k.descr }...</div>` : '';
-			//let offenseType = k.type ? `<div class="offense-type type-${ k.type }">${ objListPatrolFabulyType[ k.type ].title }</div>` : '';
+			//let offenseType = k.type ? `<div class="offense-type type-${ k.type }">${ objListSheriffFabulyType[ k.type ].title }</div>` : '';
 			//${ offenseType }
 
 

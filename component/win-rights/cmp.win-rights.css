@@ -1,0 +1,36 @@
+/* © 2023 DJS */ 
+ 
+ 
+cmp-win-rights { 
+	color: #fff;
+} 
+	cmp-win-rights .clc { 
+		cursor: pointer; 
+	} 
+		cmp-win-rights .clc:hover { 
+			color: yellow; 
+		} 
+
+
+ 
+	cmp-win-rights a { 
+
+		text-decoration: none;
+		color: #ff0;
+
+	} 
+
+
+
+
+
+	cmp-win-rights .law { 
+	 
+		margin: 0 0 20px 0;
+
+	}
+	 
+ 
+ 
+ 
+ 

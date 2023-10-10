@@ -1,4 +1,4 @@
-const arrListPatrolFabulyType = [
+const arrListSheriffFabulyType = [
 
 	{ id: 'all' 			, title: 'Всі' 				, },
 	{ id: 'move' 			, title: 'Рух ТЗ' 			, },
@@ -12,9 +12,9 @@ const arrListPatrolFabulyType = [
 
 
 
-let objListPatrolFabulyType = {};
-arrListPatrolFabulyType.forEach( k => {
-	objListPatrolFabulyType[ k.id ] = k;
+let objListSheriffFabulyType = {};
+arrListSheriffFabulyType.forEach( k => {
+	objListSheriffFabulyType[ k.id ] = k;
 });
 
 
@@ -29,7 +29,7 @@ arrListPatrolFabulyType.forEach( k => {
 
 
 
-const arrListPatrolFabuly = [
+const arrListSheriffFabuly = [
 
 /*
 { 

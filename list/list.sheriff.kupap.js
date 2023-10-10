@@ -29,7 +29,7 @@ const objListOrgan = {
 
 
 
-const arrListPatrolKupap = [
+const arrListSheriffKupap = [
 
 
 
@@ -275,9 +275,9 @@ const arrListPatrolKupap = [
 
 
 
-let objListPatrolKupap = {};
-arrListPatrolKupap.forEach( k => {
-	objListPatrolKupap[ k.id ] = k;
+let objListSheriffKupap = {};
+arrListSheriffKupap.forEach( k => {
+	objListSheriffKupap[ k.id ] = k;
 });
 
 

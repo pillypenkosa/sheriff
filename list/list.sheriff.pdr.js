@@ -21,7 +21,7 @@
 
 
 
-const arrListPatrolPdr = [
+const arrListSheriffPdr = [
 
 {
 	id: '1', chapter: '1',
@@ -500,9 +500,9 @@ const arrListPatrolPdr = [
 
 
 
-let objListPatrolPdr = {};
-arrListPatrolPdr.forEach( k => {
-	objListPatrolPdr[ k.id ] = k;
+let objListSheriffPdr = {};
+arrListSheriffPdr.forEach( k => {
+	objListSheriffPdr[ k.id ] = k;
 });
 
 

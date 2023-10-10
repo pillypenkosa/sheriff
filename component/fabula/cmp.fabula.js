@@ -97,7 +97,7 @@ class ComponentFabula {
 		//cns( 'var', 'data', data ); 
 
 		const kupapID 			= data.kupap.art + '_' + data.kupap.part;
-		const htmlPartKupap 	= this.paintKupap( objListPatrolKupap[ kupapID ].article, objListPatrolKupap[ kupapID ].part, objListPatrolKupap[ kupapID ].href ? objListPatrolKupap[ kupapID ].href : '' );
+		const htmlPartKupap 	= this.paintKupap( objListSheriffKupap[ kupapID ].article, objListSheriffKupap[ kupapID ].part, objListSheriffKupap[ kupapID ].href ? objListSheriffKupap[ kupapID ].href : '' );
 			 	
 		const htmlItemPdr  		= `<span class="item-border item-pdr">${ data.pdr }</span>`;
 
@@ -114,8 +114,8 @@ class ComponentFabula {
 
 		// розглядають справу
 		let htmlOrgan = '';
-		if ( objListPatrolKupap[ kupapID ].organ) 
-			 htmlOrgan = `<div class="organ">Розглядають справу: <b>${ objListOrgan[ objListPatrolKupap[ kupapID ].organ ] }</b></div>`;
+		if ( objListSheriffKupap[ kupapID ].organ) 
+			 htmlOrgan = `<div class="organ">Розглядають справу: <b>${ objListOrgan[ objListSheriffKupap[ kupapID ].organ ] }</b></div>`;
 
 
 
@@ -123,9 +123,9 @@ class ComponentFabula {
 		let objKupapRepeat 	= {};
 
 
-		if ( objListPatrolKupap[ kupapID ].repeat ) {
+		if ( objListSheriffKupap[ kupapID ].repeat ) {
 
-			objKupapRepeat = arrListPatrolKupap.find( k => k.id == objListPatrolKupap[ kupapID ].repeat );
+			objKupapRepeat = arrListSheriffKupap.find( k => k.id == objListSheriffKupap[ kupapID ].repeat );
 
 			//let minKupap = objKupapRepeat.min ? : '';
 			let htmlMinMax = `<span class="item-border min"><b>${ objKupapRepeat.min }</b></span>`;
@@ -182,7 +182,7 @@ class ComponentFabula {
 
 
 
-		//cns( 'var', 'href_sign', objListPatrolPdr[ 'sign_' + data.sign ].href_sign );
+		//cns( 'var', 'href_sign', objListSheriffPdr[ 'sign_' + data.sign ].href_sign );
 
 
 
@@ -241,8 +241,8 @@ class ComponentFabula {
 							<div>${ htmlInfoSign }</div>
 							<div>${ htmlMarkingInfo }</div>
 							<div>КУпАП: ${ htmlPartKupap }</div>
-							<div><span class="item-border min"><b>${ objListPatrolKupap[ kupapID ].min }</b></span> мінімумів</div>
-							<div><span class="item-border penalty"><b>${ objListPatrolKupap[ kupapID ].min * livingWage }</b> грн</span></div>
+							<div><span class="item-border min"><b>${ objListSheriffKupap[ kupapID ].min }</b></span> мінімумів</div>
+							<div><span class="item-border penalty"><b>${ objListSheriffKupap[ kupapID ].min * livingWage }</b> грн</span></div>
 						</div>
 					</div>
 					
@@ -273,19 +273,19 @@ class ComponentFabula {
 
 		if ( txt ) {
 
-			if ( objListPatrolPdr[ 'sign_' + txt ] ){
+			if ( objListSheriffPdr[ 'sign_' + txt ] ){
 
-				if ( objListPatrolPdr[ 'sign_' + txt ].sign ) 
-					textNum += objListPatrolPdr[ 'sign_' + txt ].sign;
+				if ( objListSheriffPdr[ 'sign_' + txt ].sign ) 
+					textNum += objListSheriffPdr[ 'sign_' + txt ].sign;
 
-				if ( objListPatrolPdr[ 'sign_' + txt ].part ) 
-					textNum += '.' + objListPatrolPdr[ 'sign_' + txt ].part;
+				if ( objListSheriffPdr[ 'sign_' + txt ].part ) 
+					textNum += '.' + objListSheriffPdr[ 'sign_' + txt ].part;
 
-				if ( objListPatrolPdr[ 'sign_' + txt ].paragraph ) 
-					textNum += '.' + objListPatrolPdr[ 'sign_' + txt ].paragraph;
+				if ( objListSheriffPdr[ 'sign_' + txt ].paragraph ) 
+					textNum += '.' + objListSheriffPdr[ 'sign_' + txt ].paragraph;
 
-				if ( objListPatrolPdr[ 'sign_' + txt ].item ) 
-					textNum += '.' + objListPatrolPdr[ 'sign_' + txt ].item;
+				if ( objListSheriffPdr[ 'sign_' + txt ].item ) 
+					textNum += '.' + objListSheriffPdr[ 'sign_' + txt ].item;
 
 			}
 		}
@@ -305,7 +305,7 @@ class ComponentFabula {
 
 
 		if ( txt ) 
-			textNum = this.getFullNumSign( txt ) + ' «' + objListPatrolPdr[ 'sign_' + txt ].title + '»';
+			textNum = this.getFullNumSign( txt ) + ' «' + objListSheriffPdr[ 'sign_' + txt ].title + '»';
 
 		return textNum;
 	}

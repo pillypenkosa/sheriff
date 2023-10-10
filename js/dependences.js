@@ -17,9 +17,10 @@ const dependences = [
 
 	// масиви-списки з ЦЬОГО проекту ( свої ) -------------------------------------------------------------------------------------
 
-	{ arr: 'patrol.pdr' 	, },
-	{ arr: 'patrol.kupap' 	, }, 	
-	{ arr: 'patrol.fabuly' 	, }, 	
+	{ arr: 'sheriff.pdr' 			, },
+	{ arr: 'sheriff.kupap' 			, }, 	
+	{ arr: 'sheriff.fabuly' 		, }, 	
+	{ arr: 'sheriff.constitution' 	, }, 	
 
 
 
@@ -51,8 +52,7 @@ const dependences = [
 	{ cmp: 'Win-Fabuly-Postanov-Pdr' 	, regexp: /^fabuly-postanov-pdr$/ 		, },
 	{ cmp: 'Win-Fabuly-Protokoliv-Pdr' 	, regexp: /^fabuly-protokoliv-pdr$/ 	, },
 	{ cmp: 'Win-Kupap' 					, regexp: /^kupap$/ 					, },
-
-
+	{ cmp: 'Win-Rights' 				, regexp: /^rights$/ 					, },
 
 
 
