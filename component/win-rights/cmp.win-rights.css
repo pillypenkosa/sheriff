@@ -14,23 +14,18 @@ cmp-win-rights {
 
  
 	cmp-win-rights a { 
-
 		text-decoration: none;
 		color: #ff0;
-
 	} 
 
 
-
-
-
 	cmp-win-rights .law { 
-	 
 		margin: 0 0 20px 0;
-
 	}
-	 
- 
- 
+		cmp-win-rights .law .title-link {
+			font-size: 110%;
+			text-align: center;
+		}
+		 
  
  
