@@ -346,18 +346,6 @@ class ComponentFabula {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 	// фарбувати текст знаку
 	static paintSign( txt = '' ) { 	// signID - txt
 		const name = this.name + '.txtBorderSign()'; 

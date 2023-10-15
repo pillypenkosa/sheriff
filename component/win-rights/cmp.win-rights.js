@@ -124,7 +124,7 @@ class ComponentWinRights {
 				<div class="articles">
 					<div class="article-each">
 						<p>
-							<a href="" target="_blank">
+							<a href="https://zakon.rada.gov.ua/laws/show/2341-14#n2739" target="_blank">
 								<b>Стаття 383.${ symbolLink }</b> 
 							</a>
 							Завідомо неправдиве повідомлення про вчинення кримінального правопорушення
@@ -141,7 +141,7 @@ class ComponentWinRights {
 				<div class="articles">
 					<div class="article-each">
 						<p>
-							<a href="" target="_blank">
+							<a href="https://zakon.rada.gov.ua/laws/show/2341-14#n2745" target="_blank">
 								<b>Стаття 384.${ symbolLink }</b> 
 							</a>
 							Введення в оману суду або іншого уповноваженого органу
