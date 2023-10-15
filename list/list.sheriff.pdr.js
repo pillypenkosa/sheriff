@@ -335,13 +335,14 @@ const arrListSheriffPdr = [
 
 
 
-
-
-
 {
-	id: 'sign_3', sign: '3',
-	txt: [ 'Заборонні знаки', ],
+	id: 'sign_2', sign: '2',
+	txt: [ 'Знаки пріоритету', ],
 },
+	{
+		id: 'sign_2.1', sign: '2', part: '1', href_sign: 'https://pdr.infotech.gov.ua/theory/road-signs/2.1',
+		title: [ 'Дати дорогу', ],
+	},
 	{
 		id: 'sign_2.2', sign: '2', part: '2', href_sign: 'https://pdr.infotech.gov.ua/theory/road-signs/2.2',
 		title: [ 'Проїзд без зупинки заборонено', ],
@@ -350,6 +351,14 @@ const arrListSheriffPdr = [
 		id: 'sign_2.5', sign: '2', part: '5', href_sign: 'https://pdr.infotech.gov.ua/theory/road-signs/2.5',
 		title: [ 'Перевага зустрічного руху', ],
 	},
+
+
+
+
+{
+	id: 'sign_3', sign: '3',
+	txt: [ 'Заборонні знаки', ],
+},
 	{
 		id: 'sign_3.1', sign: '3', part: '1', href_sign: 'https://pdr.infotech.gov.ua/theory/road-signs/3.1',
 		title: [ 'Рух заборонено', ],
@@ -404,8 +413,20 @@ const arrListSheriffPdr = [
 	txt: [ 'Наказові знаки', ],
 },
 	{
-		id: 'sign_4.1', sign: '4', part: '1', href_sign: '1',
+		id: 'sign_4.1', sign: '4', part: '1', href_sign: 'https://pdr.infotech.gov.ua/theory/road-signs/4.1',
 		title: [ 'Рух прямо', ],
+	},
+	{
+		id: 'sign_4.2', sign: '4', part: '2', href_sign: 'https://pdr.infotech.gov.ua/theory/road-signs/4.2',
+		title: [ 'Рух праворуч', ],
+	},
+	{
+		id: 'sign_4.5', sign: '4', part: '5', href_sign: 'https://pdr.infotech.gov.ua/theory/road-signs/4.5',
+		title: [ 'Рух прямо або ліворуч', ],
+	},
+	{
+		id: 'sign_4.6', sign: '4', part: '6', href_sign: 'https://pdr.infotech.gov.ua/theory/road-signs/4.6',
+		title: [ 'Рух праворуч або ліворуч', ],
 	},
 	{
 		id: 'sign_4.7', sign: '4', part: '7', href_sign: 'https://pdr.infotech.gov.ua/theory/road-signs/4.7',
