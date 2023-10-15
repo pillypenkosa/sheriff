@@ -153,15 +153,6 @@ const arrListSheriffFabuly = [
 	type 	: 'move',
 },
 { 
-	id 		: 'sign_3.23', edit: { d: '08', m: '10', y: '2023', }, 
-	fabula 	: 'не виконав вимогу дорожнього знаку {sign}, здійснивши поворот ліворуч',
-	descr 	: 'ПОВОРОТ ЗАБОРОНЕНО',
-	kupap 	: { art: '122', part: '1', },
-	pdr 	: '8.4.в',
-	sign 	: '3.23',
-	type 	: 'move',
-},
-{ 
 	id 		: 'sign_3.25', edit: { d: '08', m: '10', y: '2023', }, 
 	fabula 	: 'здійснив обгін в зоні дії знаку {sign}',
 	descr 	: 'ОБГІН',
