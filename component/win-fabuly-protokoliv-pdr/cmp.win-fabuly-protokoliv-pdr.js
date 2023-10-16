@@ -19,7 +19,8 @@ class ComponentWinFabulyProtokolivPdr {
 		this.args = objData.args ? objData.args : {}; 
  
  
- 
+
+
 		let tagParam = { 
 			//'class' 		: '', 
 			//'name' 		: '', 
@@ -31,8 +32,46 @@ class ComponentWinFabulyProtokolivPdr {
 		}; 
  
  
+
+
+
+
+
+
+
+
+
+
+/*
+		let htmlOptionPdrType = '';
+		arrListSheriffFabulyType.forEach( k => {
+			htmlOptionPdrType += `<option value="${ k.id }">${ k.title }</option>`;
+		});
+
+
+
+
+
+
+			<div class="win-fabuly-postanov-pdr-title">Фабули протоколів ПДР</div>
+			<select class="select-offense-type" onchange="ComponentWinFabulyPostanovPdr.clcSelectTypePDR( this )">${ htmlOptionPdrType }</select>
+			<div class="menu-select-fabuly">${ ComponentWinFabulyPostanovPdr.showFabuly( 'all' ) }</div>
+
+
+*/
  
-		let html = name; 
+
+
+
+
+		const typeBlank = 'pdr_protokol';
+
+
+		let html = `
+			${ Component( 'Fabula' ) }
+			${ Component( 'Fabula-Head', { typeBlank } ) }
+			${ Component( 'Menu-Select-Fabula', { typeBlank } ) }
+		`;; 
  
  
  

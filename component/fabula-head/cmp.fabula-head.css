@@ -1,0 +1,44 @@
+/* © 2023 DJS */ 
+ 
+ 
+ 
+cmp-fabula-head { 
+ 
+} 
+	cmp-fabula-head .clc { 
+		cursor: pointer; 
+	} 
+		cmp-fabula-head .clc:hover { 
+			color: yellow; 
+		}
+
+
+
+
+
+
+
+	cmp-fabula-head .fabula-title {
+		margin: 10px 0 10px 0;
+		font-weight: bold;
+		font-size: 150%;
+		text-align: center;
+		color: #fff;
+	}
+
+
+	cmp-fabula-head .select-offense-type {
+		margin: 0px 10px 10px;
+		padding: 5px 2px;
+		width: 300px;
+		border-radius: 5px;
+	}
+
+
+
+
+
+ 
+ 
+ 
+ 

@@ -31,6 +31,10 @@ const dependences = [
 	//{ cmp: 'Fabuly-Pdr-Pic' 		, },
 	//{ cmp: 'Search-Fabula' 			, },
 
+
+	{ cmp: 'Menu-Select-Fabula' 	, },
+	{ cmp: 'Each-Select-Fabula' 	, },
+	{ cmp: 'Fabula-Head' 			, },
 	{ cmp: 'Fabula' 				, },
 
 

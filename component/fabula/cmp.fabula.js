@@ -90,19 +90,48 @@ class ComponentFabula {
 
 
 
-	static insFabula( data ) { 
+	static insFabula( id ) { 
 		const fooName = this.name + '.clc()'; 
+
+		cns( 'var', 'fooName', fooName ); 
+		cns( 'var', 'id', id );
+
+
+		let objFabula = arrListSheriffFabuly.find( k => k.id == id );
+
+
  
-		//cns( 'var', 'fooName', fooName ); 
-		//cns( 'var', 'data', data ); 
 
-		const kupapID 			= data.kupap.art + '_' + data.kupap.part;
+		const kupapID 			= objFabula.kupap.art + '_' + objFabula.kupap.part;
+		
+
+
+
+		//cns( 'var', 'kupapID', kupapID );
+		//cns( 'var', 'objListSheriffKupap', objListSheriffKupap );
+
+
+
+
+
+
+
+
+
+
+
+
+		//return;
+
 		const htmlPartKupap 	= this.paintKupap( objListSheriffKupap[ kupapID ].article, objListSheriffKupap[ kupapID ].part, objListSheriffKupap[ kupapID ].href ? objListSheriffKupap[ kupapID ].href : '' );
-			 	
-		const htmlItemPdr  		= `<span class="item-border item-pdr">${ data.pdr }</span>`;
 
-		let htmlMarkingInfo  	= data.marking ? `Розмітка: <span class="item-border item-pdr">${ data.marking }</span>` : '';
-		let htmlMarkingFabula 	= data.marking ? `(розмітка <span class="item-border item-pdr">${ data.marking }</span>)` : '';
+
+
+			 	
+		const htmlItemPdr  		= `<span class="item-border item-pdr">${ objFabula.pdr }</span>`;
+
+		let htmlMarkingInfo  	= objFabula.marking ? `Розмітка: <span class="item-border item-pdr">${ objFabula.marking }</span>` : '';
+		let htmlMarkingFabula 	= objFabula.marking ? `(розмітка <span class="item-border item-pdr">${ objFabula.marking }</span>)` : '';
 
 		let txtSignNumFull	 	= '';
 		let htmlSignNumBorder 	= '';
@@ -114,20 +143,17 @@ class ComponentFabula {
 
 		// розглядають справу
 		let htmlOrgan = '';
-		if ( objListSheriffKupap[ kupapID ].organ) 
+		if ( objListSheriffKupap[ kupapID ].organ ) 
 			 htmlOrgan = `<div class="organ">Розглядають справу: <b>${ objListOrgan[ objListSheriffKupap[ kupapID ].organ ] }</b></div>`;
 
 
-
+		// повторність
 		let htmlRepeat 		= '';
 		let objKupapRepeat 	= {};
-
-
 		if ( objListSheriffKupap[ kupapID ].repeat ) {
 
 			objKupapRepeat = arrListSheriffKupap.find( k => k.id == objListSheriffKupap[ kupapID ].repeat );
 
-			//let minKupap = objKupapRepeat.min ? : '';
 			let htmlMinMax = `<span class="item-border min"><b>${ objKupapRepeat.min }</b></span>`;
 			let htmlPenalty = `<span class="item-border penalty"><b>${ objKupapRepeat.min * livingWage }</b></span>`;
 
@@ -139,10 +165,6 @@ class ComponentFabula {
 			htmlMinMax += ' мінімумів';
 			htmlPenalty += ' грн';
 
-
-
-			//const htmlPartKupap 	= ``;
-
 			htmlRepeat = `<div class="reapeat">
 				<div class="repeat-warning">Повторність:</div>
 				<div>КУпАП: ${ this.paintKupap( objKupapRepeat.article, objKupapRepeat.part, objKupapRepeat.href ) }</div>
@@ -153,69 +175,52 @@ class ComponentFabula {
 		}
 
 
-		//cns( 'var', 'fooName', fooName ); 
-		//cns( 'var', 'objKupapRepeat', objKupapRepeat );
+		// знак, якщо є
+		if ( objFabula.hash ) {
+			if ( objFabula.hash.sign ) {
 
+				txtSignNumFull = this.getFullNumSign( objFabula.hash.sign );
+				//cns( 'var', 'txtSignNumFull', txtSignNumFull );
 
+				htmlSignNumBorder = this.paintSign( txtSignNumFull );
+				//cns( 'var', 'htmlSignNumBorder', htmlSignNumBorder );
 
-
-
-		//let linkPdr 			= '';
-		//let linkSign 			= '';
-
-		//cns( 'var', 'data', data );
-
-		if ( data.sign ) {
-
-			txtSignNumFull = this.getFullNumSign( data.sign );
-			//cns( 'var', 'txtSignNumFull', txtSignNumFull );
-
-			htmlSignNumBorder = this.paintSign( txtSignNumFull );
-			//cns( 'var', 'htmlSignNumBorder', htmlSignNumBorder );
-
-			htmlInfoSign = 'Знак: ' + htmlSignNumBorder;
-			txtSignNameFull = this.paintSign( this.getFullNameSign( data.sign ));
-			//cns( 'var', 'txtSignNameFull', txtSignNameFull );
+				htmlInfoSign = 'Знак: ' + htmlSignNumBorder;
+				txtSignNameFull = this.paintSign( this.getFullNameSign( objFabula.hash.sign ));
+				//cns( 'var', 'txtSignNameFull', txtSignNameFull );
+			}
 		}
 
 
+		// фабула, якщо є
+		if ( objFabula.fabula ) {
 
-
-
-		//cns( 'var', 'href_sign', objListSheriffPdr[ 'sign_' + data.sign ].href_sign );
-
-
-
-
-		if ( data.fabula ) {
-
-			htmlFabula = data.fabula.replace( /{sign}/g, txtSignNameFull );
+			htmlFabula = objFabula.fabula.replace( /{sign}/g, txtSignNameFull );
 
 		} else 
 			htmlFabula = '<span class="item-border no-fabula">а ось тут могла бути Ваша реклама (((</span>';
 
 
-		if ( data.marking ) {
-			htmlMarkingInfo  	= `Розмітка: <span class="item-border marking">${ data.marking }</span>`;
-			htmlMarkingFabula 	= ` (розмітка <span class="item-border marking">${ data.marking }</span>)`;
+		if ( objFabula.marking ) {
+			htmlMarkingInfo  	= `Розмітка: <span class="item-border marking">${ objFabula.marking }</span>`;
+			htmlMarkingFabula 	= ` (розмітка <span class="item-border marking">${ objFabula.marking }</span>)`;
 		}
 
 
-		let edited = data.edit ? `<div class="edited">Оновлено: ${ data.edit.d }.${ data.edit.m }.${ data.edit.y }</div>` : '';
+		let edited = objFabula.edit ? `<div class="edited">Оновлено: ${ objFabula.edit.d }.${ objFabula.edit.m }.${ objFabula.edit.y }</div>` : '';
 
 
-		let txtPerson = '';
-		let txtAction = ' '; 		// залишити ПРОБІЛ
-		if ( data.type == 'pedestrian' ) {
+		let txtPerson = 'водій';
+		let txtAction = ', керуючи ТЗ «Ferrari 248 F1» д.н.з. АХ 1234 АВ'; 		// залишити ПРОБІЛ
 
-			txtPerson = 'пішохід';
-			//txtAction = ' '; 		// залишити ПРОБІЛ
 
-		} else {
+		if ( objFabula.hash ) {
 
-			txtPerson = 'водій';
-			txtAction = ', керуючи ТЗ «Ferrari 248 F1» д.н.з. АХ 1234 АВ';
-		}
+			if ( objFabula.hash.pedestrian ) {
+				txtPerson = 'пішохід';
+				txtAction = ' ';
+			}
+		} 
 
 
 
@@ -234,7 +239,7 @@ class ComponentFabula {
 				<div class="fabula-body">
 					<div class="vstup">
 						<div class="img">
-							<img src="img/fabuly/${ data.img ? data.img : data.id }.jpg" alt="">
+							<img src="img/fabuly/${ objFabula.img ? objFabula.img : objFabula.id }.jpg" alt="">
 						</div>
 						<div class="info">
 							<div>ПДР: ${ htmlItemPdr }</div>
@@ -248,8 +253,8 @@ class ComponentFabula {
 					
 					<div class="fabula-txt">
 						<div>1.10.2023 р. о 12:00 в м.Харків, вул.Сумська, біля буд.38а ${ txtPerson } Шумахер Михайло Побатькович${ txtAction }</div>
-						<div class="fabula-action">${ htmlFabula },</div>						
-						<div>чим порушив п.${ htmlItemPdr } ПДР${ htmlMarkingFabula }, чим скоїв адміністративне правопорушення, передбачене ${ htmlPartKupap } КУпАП.</div>
+						<div class="fabula-action">${ htmlFabula }</div>						
+						<div>, чим порушив п.${ htmlItemPdr } ПДР${ htmlMarkingFabula }, чим скоїв адміністративне правопорушення, передбачене ${ htmlPartKupap } КУпАП.</div>
 						<div>---</div>
 						${ htmlOrgan }
 					</div>

@@ -14,11 +14,15 @@ class ComponentWinFabulyPostanovPdr {
  
  
 	static html( objData = {} ) { 
- 
-		const name = this.name + '.html()'; 
+		const fooName = this.name + '.html()'; 
  
 		this.args = objData.args ? objData.args : {}; 
  
+
+
+
+
+		//cns( 'var', 'fooName', fooName );
  
  
 		let tagParam = { 
@@ -32,23 +36,28 @@ class ComponentWinFabulyPostanovPdr {
 		}; 
  
  
-		//cns( 'var', 'arrListSheriffPdr', arrListSheriffPdr );
-
-		let item = arrListSheriffPdr.find( k => k.id == '2_9_a' );
+		//cns( 'vvar', 'arrListSheriffPdr', arrListSheriffPdr );
 
 
-		let htmlOptionPdrType = '';
-		arrListSheriffFabulyType.forEach( k => {
-			htmlOptionPdrType += `<option value="${ k.id }">${ k.title }</option>`;
-		});
-
-
-
-		let html = `${ Component( 'Fabula' ) }
-			<div class="win-fabuly-postanov-pdr-title">Фабули постанов ПДР</div>
-			<select class="select-offense-type" onchange="ComponentWinFabulyPostanovPdr.clcSelectTypePDR( this )">${ htmlOptionPdrType }</select>
+/*
+		let html = `
+			${ Component( 'Fabula' ) }
+			${ Component( 'Fabula-Head', { type: 'pdr_postanova', } ) }
 			<div class="menu-select-fabuly">${ ComponentWinFabulyPostanovPdr.showFabuly( 'all' ) }</div>
 		`;
+*/
+
+
+		const typeBlank = 'pdr_postanova';
+
+
+		let html = `
+			${ Component( 'Fabula' ) }
+			${ Component( 'Fabula-Head', { typeBlank } ) }
+			${ Component( 'Menu-Select-Fabula', { typeBlank } ) }
+		`;
+
+
 
 
 		setMeta({ 
@@ -66,7 +75,7 @@ class ComponentWinFabulyPostanovPdr {
  
  
  
-	static clc( data ) { 
+	static clc222( data ) { 
 		const name = this.name + '.clc()'; 
  
 
@@ -86,21 +95,47 @@ class ComponentWinFabulyPostanovPdr {
  
  
 
-	static clcSelectTypePDR( data ) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	static clcSelectTypePDR222( data ) {
 		const name = this.name + '.clcSelectTypePDR()'; 
 
 		//cns( 'var', 'data', data.value );
 
-		document.querySelector( this.tag + ' .menu-select-fabuly' ).innerHTML = this.showFabuly( data.value );
+		document.querySelector( this.tag + ' .menu-select-fabuly' ).innerHTML = ComponentMenuSelectFabula.getFabulyPostanovPdr( data.value );
 	}
 
 
 
 
 
-
-
-	static showFabuly( txt ) {
+	static showFabuly222( txt ) {
 		const fooName = this.name + '.showFabuly()'; 
 
 
@@ -111,38 +146,55 @@ class ComponentWinFabulyPostanovPdr {
 
 		let selectedFabuly = [];
 
-		if ( txt == 'all' ) 
-			selectedFabuly = arrListSheriffFabuly.filter( k => true );
+		if ( txt == 'all' ) {
 
-		else 
-			selectedFabuly = arrListSheriffFabuly.filter( k => k.type == txt );
+			selectedFabuly = arrListSheriffFabuly.filter( k => {
+				if ( k.hash ) {
+					if ( k.hash.pdr_postanova ) 
+						return true
+				}
+			});
+
+
+
+
+		}
+		
+		else {
+
+			//selectedFabuly = arrListSheriffFabuly.filter( k => k.type == txt );
+			selectedFabuly = arrListSheriffFabuly.filter( k => {
+				if ( k.hash ) {
+					if ( k.hash.pdr_postanova ) {
+						if ( k.hash[ txt ] ) 
+							return true;
+					}
+				}
+			});
+		}
 
 
 
 
 		let htmlSelectFabula = ''; 
 		selectedFabuly.forEach( k => {
-			let sign = k.sign ? `<div><b>Знак: ${ k.sign }</b></div>` : '';
-			let marking = k.marking ? `<div><b>Розмітка: ${ k.marking }</b></div>` : '';
-			let descr = k.descr ? `<div class="descr">${ k.descr }...</div>` : '';
-			//let offenseType = k.type ? `<div class="offense-type type-${ k.type }">${ objListSheriffFabulyType[ k.type ].title }</div>` : '';
-			//${ offenseType }
 
+			//cns( 'var', 'k', k );
 
+			htmlSelectFabula += Component( 'Each-Select-Fabula', {
 
-			htmlSelectFabula += `<div class="each" data-id="${ k.id }" onclick="ComponentWinFabulyPostanovPdr.clc( this )">
-				<div class="img">
-					<img src="img/fabuly/${ k.img ? k.img : k.id }.jpg" alt="">
-				</div>
+				id 			: k.id 												,
+				img 		: k.img ? k.img : k.id 								,
+				art 		: k.kupap.art 										,
+				part 		: k.kupap.part 										,
+				pdr 		: k.pdr 											,
+				sign 		: k.hash ? ( k.hash.sign ? k.hash.sign : '' ) : ''	,
+				marking 	: k.marking 										,
+				descr 		: k.descr 											,
+				clc 		: 'ComponentWinFabulyPostanovPdr.clc( this )'		,
 
-				<div class="info">
-					<div><b>КУпАП</b>: ст.<b>${ k.kupap.art }</b> ч.<b>${ k.kupap.part }</b></div>
-					<div><b>ПДР</b>: <b>${ k.pdr }</b></div>
-					${ sign }
-					${ marking }
-					${ descr }
-				</div>
-			</div>`;
+			});
+
 		});
 
 		return htmlSelectFabula;

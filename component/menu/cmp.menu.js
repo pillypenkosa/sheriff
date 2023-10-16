@@ -17,6 +17,7 @@ class ComponentMenu {
 
 		{ title: 'Головна' 					, id: 'index' 					, href: '?', },
 		{ title: 'Фабули постанов ПДР' 		, id: 'fabuly_postanov_pdr' 	, href: '?fabuly-postanov-pdr', },
+		//{ title: 'Фабули протоколів ПДР' 	, id: 'fabuly_protokoliv_pdr' 	, href: '?fabuly-protokoliv-pdr', },
 		{ title: 'Права та обов\'язки' 		, id: 'rights' 					, href: '?rights', },
 
 

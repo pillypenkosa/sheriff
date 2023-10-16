@@ -2,13 +2,13 @@
  
  
  
-cmp-search-fabula { 
+cmp-menu-select-fabula { 
  
 } 
-	cmp-search-fabula .clc { 
+	cmp-menu-select-fabula .clc { 
 		cursor: pointer; 
 	} 
-		cmp-search-fabula .clc:hover { 
+		cmp-menu-select-fabula .clc:hover { 
 			color: yellow; 
 		} 
  
