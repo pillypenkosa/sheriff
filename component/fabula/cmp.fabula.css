@@ -53,41 +53,35 @@ cmp-fabula .modal {
 		/*font-size: 120%;*/
 		margin: 0 0 30px 0;
 	}
-
 		cmp-fabula .modal .fabula-body .fabula-txt .fabula-action {
 			margin: 5px 0;
 			/*font-size: 120%;*/
 			font-weight: bold;
 		}
-
-
-
-	cmp-fabula .modal .fabula-body .fabula-txt .no-fabula {
-
-		font-style: oblique;
-		background-color: #f00;
-
-	}
-
-
-
-	cmp-fabula .modal .fabula-body .reapeat {
-
-	}
-
-		cmp-fabula .modal .fabula-body .reapeat div {
-			margin: 0 0 7px 0;
-		}
-
-
-		cmp-fabula .modal .fabula-body .reapeat .repeat-warning {
-			padding: 0 5px;	
-			font-weight: bold;
+		cmp-fabula .modal .fabula-body .fabula-txt .no-fabula {
 			font-style: oblique;
-
-			/*background-color: #f00;*/
+			background-color: #f00;
+		}
+		cmp-fabula .modal .fabula-body .fabula-txt .evacuation {
+			margin: 10px 0;
+			font-weight: bold;
 			color: #f00;
 		}
+
+
+	cmp-fabula .modal .fabula-body .reapeat div {
+		margin: 0 0 7px 0;
+	}
+
+
+	cmp-fabula .modal .fabula-body .reapeat .repeat-warning {
+		padding: 0 5px;	
+		font-weight: bold;
+		font-style: oblique;
+
+		/*background-color: #f00;*/
+		color: #f00;
+	}
 
 
 

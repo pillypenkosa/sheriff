@@ -175,8 +175,18 @@ class ComponentFabula {
 		}
 
 
-		// знак, якщо є
+
+		let txtPerson 		= 'водій';
+		let txtAction 		= ', керуючи ТЗ «Ferrari 248 F1» д.н.з. АХ 1234 АВ'; 		// залишити ПРОБІЛ
+		let htmlEvacuation 	= '';
+
 		if ( objFabula.hash ) {
+
+			if ( objFabula.hash.pedestrian ) {
+				txtPerson = 'пішохід';
+				txtAction = ' ';
+			}
+
 			if ( objFabula.hash.sign ) {
 
 				txtSignNumFull = this.getFullNumSign( objFabula.hash.sign );
@@ -189,6 +199,11 @@ class ComponentFabula {
 				txtSignNameFull = this.paintSign( this.getFullNameSign( objFabula.hash.sign ));
 				//cns( 'var', 'txtSignNameFull', txtSignNameFull );
 			}
+
+			if ( objFabula.hash.evacuation ) 
+				htmlEvacuation = `<div class="evacuation">---<br/>Якщо суттєво перешкоджає іншим учасникам дорожнього руху - передбачена ЕВАКУАЦІЯ! ${ this.paintKupap( '265-4', '', 'https://zakon.rada.gov.ua/laws/show/80732-10#n1134' ) }</div>`;
+		
+
 		}
 
 
@@ -208,21 +223,6 @@ class ComponentFabula {
 
 
 		let edited = objFabula.edit ? `<div class="edited">Оновлено: ${ objFabula.edit.d }.${ objFabula.edit.m }.${ objFabula.edit.y }</div>` : '';
-
-
-		let txtPerson = 'водій';
-		let txtAction = ', керуючи ТЗ «Ferrari 248 F1» д.н.з. АХ 1234 АВ'; 		// залишити ПРОБІЛ
-
-
-		if ( objFabula.hash ) {
-
-			if ( objFabula.hash.pedestrian ) {
-				txtPerson = 'пішохід';
-				txtAction = ' ';
-			}
-		} 
-
-
 
 
 
@@ -255,6 +255,7 @@ class ComponentFabula {
 						<div>1.10.2023 р. о 12:00 в м.Харків, вул.Сумська, біля буд.38а ${ txtPerson } Шумахер Михайло Побатькович${ txtAction }</div>
 						<div class="fabula-action">${ htmlFabula }</div>						
 						<div>, чим порушив п.${ htmlItemPdr } ПДР${ htmlMarkingFabula }, чим скоїв адміністративне правопорушення, передбачене ${ htmlPartKupap } КУпАП.</div>
+						${ htmlEvacuation }
 						<div>---</div>
 						${ htmlOrgan }
 					</div>
@@ -341,8 +342,10 @@ class ComponentFabula {
 			htmlHref = `data-href="${ href }" onclick="${ this.name }.linkTo( this )"`;
 			clsPointer = 'link-pointer'
 		}
+
+		let htmlPart = part ? `ч.<b>${ part }</b> ` : '';
 		
-		return `<span class="item-border part-kupap ${ clsPointer }" ${ htmlHref }>ч.<b>${ art }</b> ст.<b>${ part }</b></span>`;
+		return `<span class="item-border part-kupap ${ clsPointer }" ${ htmlHref }>${ htmlPart }ст.<b>${ art }</b></span>`;
 	}
 
 
