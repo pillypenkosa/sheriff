@@ -21,6 +21,7 @@ const arrListSheriffFabulyType = [
 	{ id: 'kupap_a122_p2' 		, title: 'КУпАП ст. 122 ч. 2' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a122_p3' 		, title: 'КУпАП ст. 122 ч. 3' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a122_p4' 		, title: 'КУпАП ст. 122 ч. 4' 			, hash: { pdr_postanova: 1,  }, },
+	{ id: 'kupap_a122_p6' 		, title: 'КУпАП ст. 122 ч. 6' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a126_p1' 		, title: 'КУпАП ст. 126 ч. 1' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a126_p2' 		, title: 'КУпАП ст. 126 ч. 2' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a126_p4' 		, title: 'КУпАП ст. 126 ч. 4' 			, hash: { pdr_postanova: 1,  }, },
@@ -390,12 +391,8 @@ const arrListSheriffFabuly = [
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, },
 },
 
-
-
-
-
 { 
-	id 		: 'marking_1.1', edit: { d: '08', m: '10', y: '2023', }, 
+	id 		: 'cross_line_34.1.1', edit: { d: '08', m: '10', y: '2023', }, 
 	fabula 	: ', перетнув суцільну лінію 1.1 дорожньої горизонтальної розмітки, яка поділяє транспортні потоки протилежних напрямків на дорозі', 
 	descr 	: 'ПЕРЕТИН СУЦІЛЬНОЇ',
 	kupap 	: { id: '122_1', art: '122', part: '1', },
@@ -404,12 +401,12 @@ const arrListSheriffFabuly = [
 	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, },
 },
 { 
-	id 		: 'marking_1.3', edit: { d: '08', m: '10', y: '2023', }, 
+	id 		: 'cross_line_34.1.3', edit: { d: '08', m: '10', y: '2023', }, 
 	fabula 	: ', перетнув подвійну суцільну лінію 1.3 дорожньої горизонтальної розмітки, яка поділяє транспортні потоки протилежних напрямків на дорозі, що має [ --три; --чотири; ] смуги руху', 
 	descr 	: 'ПОДВІЙНА СУЦІЛЬНА. ПЕРЕТИН',
 	kupap 	: { id: '122_1', art: '122', part: '1', },
-	pdr 	: '34.1.3',
-	marking : '1.3',
+	pdr 	: '34.1.3', 
+	marking	: '1.3',
 	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, },
 },
 
@@ -505,6 +502,15 @@ const arrListSheriffFabuly = [
 	kupap 	: { id: '122_2', art: '122', part: '2', },
 	pdr 	: '19.1.а',
 	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, light: 1, },
+},
+{ 
+	id 		: 'stop_line', edit: { d: '22', m: '10', y: '2023', }, 
+	fabula 	: ', не виконав вимогу дорожньої горизонтальної розмітки, перетнувши лінію 1.12, за наявності [ --забороненого червоного сигналу світлофора; ]', 
+	descr 	: 'СТОП-ЛІНІЯ',
+	kupap 	: { id: '122_2', art: '122', part: '2', },
+	pdr 	: '34.1.12',
+	marking	: '1.12',
+	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, stop: 1, move: 1, },
 },
 
 
@@ -653,6 +659,21 @@ const arrListSheriffFabuly = [
 	kupap 	: { art: '122', part: '4', },
 	pdr 	: '12.9.б',
 	hash 	: { pdr_postanova: 1, kupap_a122_p4: 1, move: 1, sign: '3.29', speed: 1, },
+},
+
+
+
+
+
+// --- 122.6 ----------------------------------------------------------------------------------------------------------------------------
+{ 
+	id 		: 'invalid_parking', edit: { d: '22', m: '10', y: '2023', }, 
+	fabula 	: ', не виконав вимогу дорожньої розмітки 1.35, здійснивши стоянку на місці для паркування індивідуального транспорту осіб з інвалідністю',
+	descr 	: 'МІСЦЯ для ІНВАЛІДІВ',
+	kupap 	: { art: '122', part: '6', },
+	pdr 	: '34.1.35',
+	marking : '1.35',
+	hash 	: { pdr_postanova: 1, kupap_a122_p6: 1, stop: 1, },
 },
 
 
@@ -864,12 +885,12 @@ const arrListSheriffFabuly = [
 
 
 
-/*
-let objListAny = {};
-arrListAny.forEach( k => {
-	objListAny[ k.id ] = k;
+
+let objListSheriffFabuly = {};
+arrListSheriffFabuly.forEach( k => {
+	objListSheriffFabuly[ k.id ] = k;
 });
-*/
+
 
 
 

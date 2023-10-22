@@ -27,8 +27,6 @@ const objListOrgan = {
 
 
 
-
-
 const arrListSheriffKupap = [
 
 
@@ -193,21 +191,10 @@ const arrListSheriffKupap = [
 		href 		: 'https://zakon.rada.gov.ua/laws/show/80731-10#n4275', 
 	},
 
-
-
-
-
 { 
 	id 		: '124', article: '124', edit: { d: '16', m: '10', y: '2023', }, href: '', 
 	title 	: 'Порушення правил дорожнього руху, що спричинило пошкодження транспортних засобів, вантажу, автомобільних доріг, вулиць, залізничних переїздів, дорожніх споруд чи іншого майна', 
 },
-
-
-
-
-
-
-
 
 
 { 
@@ -301,8 +288,23 @@ const arrListSheriffKupap = [
 
 
 
+{ 
+	id 		: '265-4', article: '265-4', edit: { d: '22', m: '10', y: '2023', }, 
+	title 	: 'Тимчасове затримання транспортних засобів інспекторами з паркування', 
+	href 	: 'https://zakon.rada.gov.ua/laws/show/80732-10#n1134', 
+
+},
+
+
+
+
+
+
 
 ];
+
+
+
 
 
 

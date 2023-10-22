@@ -1,9 +1,9 @@
 // © 2023 DJS 
- 
- 
- 
- 
- 
+
+
+
+
+
 class ComponentFabula { 
  
  
@@ -70,43 +70,48 @@ class ComponentFabula {
 
 
 	static close( data ) { 
-		const name = this.name + '.clc()'; 
+		const name = this.name + '.close()'; 
 
 		document.querySelector( 'cmp-fabula' ).innerHTML = '';
-		//cns( 'var', 'data', data ); 
 	} 
  
  
 
 
 	static insFabula( id ) { 
-		const fooName = this.name + '.clc()'; 
+		const fooName = this.name + '.insFabula()'; 
 
-		cns( 'var', 'fooName', fooName ); 
-		cns( 'var', 'id', id );
+		//console.log( 'fooName: ', fooName );
+		//console.log( 'id: ', id );
+		//console.log( 'objListSheriffFabuly: ', objListSheriffFabuly );
 
 
-		let objFabula = arrListSheriffFabuly.find( k => k.id == id );
-		let objPdr = objFabula.pdr ? arrListSheriffPdr.find( k => k.id == objFabula.pdr ) : {};
+		const objFabula = objListSheriffFabuly[ id ];
+		//console.log( 'objFabula: ', objFabula );
+
+		const objPdr = objFabula.pdr ? objListSheriffPdr[ objFabula.pdr ] : {};
+
+		//const kupapID = objFabula.kupap.art + '_' + objFabula.kupap.part;
+		const kupapID = objFabula.kupap.art + '_' + objFabula.kupap.part;
+		//console.log( 'kupapID: ', kupapID );
 		
+		const objKupap = objListSheriffKupap[ kupapID ];
+		//console.log( 'objKupap: ', objKupap );
 
-		//let objPdr = arrListSheriffFabuly.find( k => k.id == id );
-
-		const kupapID 			= objFabula.kupap.art + '_' + objFabula.kupap.part;
-		
-		//cns( 'var', 'kupapID', kupapID );
-		//cns( 'var', 'objListSheriffKupap', objListSheriffKupap );
-		//return;
-
-		const htmlPartKupap 	= this.paintKupap( objListSheriffKupap[ kupapID ].article, objListSheriffKupap[ kupapID ].part, objListSheriffKupap[ kupapID ].href ? objListSheriffKupap[ kupapID ].href : '' );
-		const htmlItemPdr  		= this.paintItemPdr( objPdr );
+		const htmlPartKupap 	= this.wrapKupap( objKupap );
+		//console.log( 'htmlPartKupap: ', htmlPartKupap );
 
 
 
 
+		//console.log( 'objPdr: ', objPdr );
+		const htmlItemPdr = this.wrapItemPdr( objPdr );
+		//console.log( 'htmlItemPdr: ', htmlItemPdr );
 
-		let htmlMarkingInfo  	= objFabula.marking ? `Розмітка: <span class="item-border item-pdr">${ objFabula.marking }</span>` : '';
-		let htmlMarkingFabula 	= objFabula.marking ? `(розмітка <span class="item-border item-pdr">${ objFabula.marking }</span>)` : '';
+
+
+
+
 
 		let txtSignNumFull	 	= '';
 		let htmlSignNumBorder 	= '';
@@ -118,33 +123,33 @@ class ComponentFabula {
 
 		// розглядають справу
 		let htmlOrgan = '';
-		if ( objListSheriffKupap[ kupapID ].organ ) 
-			 htmlOrgan = `<div class="organ">Розглядають справу: <b>${ objListOrgan[ objListSheriffKupap[ kupapID ].organ ] }</b></div>`;
+		if ( objKupap.organ ) 
+			 htmlOrgan = `<div class="organ">Розглядають справу: <b>${ objListOrgan[ objKupap.organ ] }</b></div>`;
+
+		//console.log( 'htmlOrgan: ', htmlOrgan );
+
+		//return;
 
 
 		// повторність
 		let htmlRepeat 		= '';
 		let objKupapRepeat 	= {};
-		if ( objListSheriffKupap[ kupapID ].repeat ) {
-
-			objKupapRepeat = arrListSheriffKupap.find( k => k.id == objListSheriffKupap[ kupapID ].repeat );
-
-			let htmlMinMax = `<span class="item-border min"><b>${ objKupapRepeat.min }</b></span>`;
-			let htmlPenalty = `<span class="item-border penalty"><b>${ objKupapRepeat.min * livingWage }</b></span>`;
-
-			if ( objKupapRepeat.max ) {
-				htmlMinMax += `-<span class="item-border min"><b>${ objKupapRepeat.max }</b></span>`;
-				htmlPenalty += `-<span class="item-border penalty"><b>${ objKupapRepeat.max * livingWage }</b></span>`;
-			}
+		if ( objKupap.repeat ) {
 		
-			htmlMinMax += ' мінімумів';
-			htmlPenalty += ' грн';
+			objKupapRepeat = objListSheriffKupap[ objKupap.repeat ];
+
+			let htmlRepeatMinMax = this.wrapMinMax( objKupapRepeat ) + ' мінімумів';
+			let htmlRepeatPenalty = this.wrapPenalty( objKupapRepeat ) + ' грн';
+
+			//console.log( 'htmlRepeatMinMax: ', htmlRepeatMinMax );
+			//console.log( 'htmlRepeatPenalty: ', htmlRepeatPenalty );
+
 
 			htmlRepeat = `<div class="reapeat">
 				<div class="repeat-warning">Повторність:</div>
-				<div>КУпАП: ${ this.paintKupap( objKupapRepeat.article, objKupapRepeat.part, objKupapRepeat.href ) }</div>
-				<div>${ htmlMinMax }</div>
-				<div>Штраф: ${ htmlPenalty }</div>
+				<div>КУпАП: ${ this.wrapKupap( objKupapRepeat ) }</div>
+				<div>${ htmlRepeatMinMax }</div>
+				<div>${ htmlRepeatPenalty }</div>
 				<div>Розглядають: <b>${ objListOrgan[ objKupapRepeat.organ ] }</b></div>
 			</div>`;
 		}
@@ -154,6 +159,9 @@ class ComponentFabula {
 		let txtPerson 		= 'водій';
 		let txtAction 		= ', керуючи ТЗ «Ferrari 248 F1» д.н.з. АХ 1234 АВ'; 		// залишити ПРОБІЛ
 		let htmlEvacuation 	= '';
+		let objSign 		= '';
+
+
 
 		if ( objFabula.hash ) {
 
@@ -164,19 +172,21 @@ class ComponentFabula {
 
 			if ( objFabula.hash.sign ) {
 
-				txtSignNumFull = this.getFullNumSign( objFabula.hash.sign );
-				//cns( 'var', 'txtSignNumFull', txtSignNumFull );
+				//console.log( 'objFabula.hash.sign: ', objFabula.hash.sign );
+				objSign = objListSheriffPdr[ 'sign_' + objFabula.hash.sign ];
 
-				htmlSignNumBorder = this.paintSign( txtSignNumFull );
-				//cns( 'var', 'htmlSignNumBorder', htmlSignNumBorder );
+
+				//console.log( 'objListSheriffPdr: ', objListSheriffPdr );
+				//console.log( 'objSign: ', objSign );
+				//console.log( 'txtSignNumFull', txtSignNumFull );
+
+				htmlSignNumBorder = this.wrapSign( objSign );
 
 				htmlInfoSign = 'Знак: ' + htmlSignNumBorder;
-				txtSignNameFull = this.paintSign( this.getFullNameSign( objFabula.hash.sign ));
-				//cns( 'var', 'txtSignNameFull', txtSignNameFull );
 			}
 
 			if ( objFabula.hash.evacuation ) 
-				htmlEvacuation = `<div class="evacuation">---<br/>Якщо суттєво перешкоджає іншим учасникам дорожнього руху - передбачена ЕВАКУАЦІЯ! ${ this.paintKupap( '265-4', '', 'https://zakon.rada.gov.ua/laws/show/80732-10#n1134' ) }</div>`;
+				htmlEvacuation = `<div class="evacuation">---<br/>Якщо суттєво перешкоджає іншим учасникам дорожнього руху - передбачена ЕВАКУАЦІЯ! ${ this.wrapKupap( objListSheriffKupap[ '265-4' ] ) }</div>`;
 		
 
 		}
@@ -184,22 +194,39 @@ class ComponentFabula {
 
 		// фабула, якщо є
 		if ( objFabula.fabula ) {
-
-			htmlFabula = objFabula.fabula.replace( /{sign}/g, txtSignNameFull );
+			htmlFabula = objFabula.fabula.replace( /{sign}/g, this.wrapSign( objSign, true ) );
 
 		} else 
 			htmlFabula = '<span class="item-border no-fabula">а ось тут могла бути Ваша реклама (((</span>';
 
 
+		//let htmlMarkingFabula 	= objFabula.marking ? `(розмітка <span class="item-border item-pdr">${ objFabula.marking }</span>)` : '';
+		
+
+
+		let htmlItemMarking = this.wrapMarking( objPdr );
+
+		let htmlMarkingFabula = '';
+
+		let htmlMarkingInfo = '';
 		if ( objFabula.marking ) {
-			htmlMarkingInfo  	= `Розмітка: <span class="item-border marking">${ objFabula.marking }</span>`;
-			htmlMarkingFabula 	= ` (розмітка <span class="item-border marking">${ objFabula.marking }</span>)`;
+			//htmlMarkingInfo  	= `Розмітка: <span class="item-border marking pointer">${ objFabula.marking }</span>`;
+			htmlMarkingInfo  	= 'Розмітка: ' + htmlItemMarking;
+			//console.log ( 'fooName', fooName ); 
+			//console.log ( 'objPdr', objPdr );
+
+			htmlMarkingFabula 	= ` (розмітка ${ htmlItemMarking })`;
 		}
 
 
 		let edited = objFabula.edit ? `<div class="edited">Оновлено: ${ objFabula.edit.d }.${ objFabula.edit.m }.${ objFabula.edit.y }</div>` : '';
 
 
+		//console.log( 'objKupap: ', objKupap );
+
+
+		const htmlInfoMinMax = this.wrapMinMax( objKupap ) + ' мінімумів';
+		const htmlInfoPenalty = this.wrapPenalty( objKupap ) + ' грн';
 
 		let html = `
 			<div class="modal">
@@ -221,8 +248,8 @@ class ComponentFabula {
 							<div>${ htmlInfoSign }</div>
 							<div>${ htmlMarkingInfo }</div>
 							<div>КУпАП: ${ htmlPartKupap }</div>
-							<div><span class="item-border min"><b>${ objListSheriffKupap[ kupapID ].min }</b></span> мінімумів</div>
-							<div><span class="item-border penalty"><b>${ objListSheriffKupap[ kupapID ].min * livingWage }</b> грн</span></div>
+							<div>${ htmlInfoMinMax }</div>
+							<div>${ htmlInfoPenalty }</div>
 						</div>
 					</div>
 					
@@ -244,75 +271,59 @@ class ComponentFabula {
 	} 
  
  
- 
-	// отримати повний номер знаку
-	static getFullNumSign( txt = '' ) { 	// txt - текст-номер знаку ( цифри текстом )
-
-		let textNum = '';
-
-		//cns( 'var', 'txt', txt );
-
-		if ( txt ) {
-
-			if ( objListSheriffPdr[ 'sign_' + txt ] ){
-
-				if ( objListSheriffPdr[ 'sign_' + txt ].sign ) 
-					textNum += objListSheriffPdr[ 'sign_' + txt ].sign;
-
-				if ( objListSheriffPdr[ 'sign_' + txt ].part ) 
-					textNum += '.' + objListSheriffPdr[ 'sign_' + txt ].part;
-
-				if ( objListSheriffPdr[ 'sign_' + txt ].paragraph ) 
-					textNum += '.' + objListSheriffPdr[ 'sign_' + txt ].paragraph;
-
-				if ( objListSheriffPdr[ 'sign_' + txt ].item ) 
-					textNum += '.' + objListSheriffPdr[ 'sign_' + txt ].item;
-
-			}
-		}
-
-		return textNum;
-	}
-
-
-
-
-	// отримати повну назву знаку з номером та описом
-	static getFullNameSign( txt = '' ) { 	// txt - текст-номер знаку ( цифри текстом )
-
-		let textNum = '';
-
-		//cns( 'var', 'txt', txt );
-
-
-		if ( txt ) 
-			textNum = this.getFullNumSign( txt ) + ' «' + objListSheriffPdr[ 'sign_' + txt ].title + '»';
-
-		return textNum;
-	}
-
-
-
-
 
 	// фарбувати текст статті КУпАП
-	static paintKupap( art, part, href ) { 	// signID - txt
+	static wrapKupap( obj ) { 	// signID - txt
 		const fooName = this.name + '.paintKupap()'; 
 
-		//cns( 'var', 'fooName', fooName );
+		//console.log ( 'fooName', fooName );
+		//console.log ( 'obj', obj );
 
-		let clsPointer = '';
+		let htmlPart = obj.part ? `ч.<b>${ obj.part }</b> ` : '';
+		let link = obj.href ? `onclick="window.open( '${ obj.href }')"` : '';
+
+		return `<span class="item-border part-kupap pointer" ${ link }>${ htmlPart }ст.<b>${ obj.article }</b></span>`;
+	}
 
 
-		let htmlHref = '';
-		if ( href ) {
-			htmlHref = `data-href="${ href }" onclick="${ this.name }.linkTo( this )"`;
-			clsPointer = 'link-pointer'
+
+
+
+	static wrapMinMax( obj ) { 			// signID - txt
+		const fooName = this.name + '.wrapMinMax()'; 
+
+		//console.log ( 'fooName', fooName );
+		//console.log ( 'obj', obj );
+
+		let html = '';
+		if ( obj.min ) {
+
+			html += `<span class="item-border min"><b>${ obj.min }</b></span>`;
+
+			if ( obj.max ) 
+				html += `-<span class="item-border min"><b>${ obj.max }</b></span>`;
 		}
 
-		let htmlPart = part ? `ч.<b>${ part }</b> ` : '';
-		
-		return `<span class="item-border part-kupap ${ clsPointer }" ${ htmlHref }>${ htmlPart }ст.<b>${ art }</b></span>`;
+		return html;
+	}
+
+
+
+	static wrapPenalty( obj ) {
+
+		const fooName = this.name + '.wrapPenalty()'; 
+
+		let html = '';
+		if ( obj.min ) {
+
+			html += `<span class="item-border penalty"><b>${ obj.min * livingWage }</b></span>`;
+
+			if ( obj.max ) 
+				html += `-<span class="item-border penalty"><b>${ obj.max * livingWage }</b></span>`;
+		}
+
+		return html;
+
 	}
 
 
@@ -321,23 +332,17 @@ class ComponentFabula {
 
 
 	// фарбувати текст пункту ПДР
-	static paintItemPdr( obj = {} ) { 	// signID - txt
-		const fooName = this.name + '.paintItemPdr()'; 
+	static wrapItemPdr( obj = {} ) { 	// signID - txt
+		const fooName = this.name + '.wrapItemPdr()'; 
+		//console.log( 'fooName: ', fooName );
+		//console.log( 'obj: ', obj );
 
-		cns( 'var', 'fooName', fooName );
-		cns( 'var', 'obj', obj );
-		cns( 'var', 'obj.id', obj.id );
-		cns( 'var', 'obj.href', obj.href );
-
-		let html = '...';
+		let html = '';
 
 		if ( obj.id ) {
-
-			let link = '';
-			if ( obj.href ) 
-				link = `onclick="window.open( '${ obj.href }' )"`;
-
-			html = `<span class="item-border item-pdr" ${ link }>${ obj.id }</span>`;
+			let link = obj.href ? `onclick="window.open( '${ obj.href }' )"` : '';
+			//console.log( 'link: ', link );
+			html = `<span class="item-border item-pdr pointer" ${ link }>${ obj.id }</span>`;
 		}
 
 		return html;
@@ -345,14 +350,43 @@ class ComponentFabula {
 
 
 
+
 	// фарбувати текст знаку
-	static paintSign( txt = '' ) { 	// signID - txt
-		const name = this.name + '.txtBorderSign()'; 
+	static wrapSign( obj, tf = false ) { 	// 
+		const fooName = this.name + '.wrapSign()'; 
+		console.log( 'fooName: ', fooName );
 
-		//cns( 'var', 'name', name );
-		//cns( 'var', 'txt', txt );
+		console.log( 'obj: ', obj );
+		console.log( 'tf: ', tf );
 
-		return '<span class="item-border sign">' + txt + '</span>';
+
+		let txt = '';
+		if ( obj.sign ) {
+			txt += obj.sign;
+
+			if ( obj.part ) {
+				txt += '.' + obj.part;
+
+				if ( obj.paragraph ) {
+					txt += '.' + obj.paragraph;
+
+					if ( obj.item ) 
+						txt += '.' + obj.item;
+				}
+			}
+
+			if ( tf ) 
+				txt += ` «${ obj.title }»`;
+		}
+
+		//console.log( 'txt: ', txt );
+
+		let link = '';
+		if ( obj.href_sign ) 
+			link += `onclick="window.open( '${ obj.href_sign }' )"`;
+
+
+		return `<span class="item-border sign pointer" ${ link }>${ txt }</span>`;
 	}
 
 
@@ -366,20 +400,26 @@ class ComponentFabula {
 
 
 
+	// фарбувати текст знаку
+	static wrapMarking( obj ) { 	// signID - txt
+		const fooName = this.name + '.wrapMarking()'; 
+		//console.log( 'fooName: ', fooName );
 
 
+		let htmlItem = '';
+		if ( obj.part ) {
+
+			htmlItem += obj.part;
+
+			if ( obj.paragraph ) {
+				htmlItem += '.' + obj.paragraph
+			}
+		}
+
+		let link = obj.descrimg ? `onclick="window.open( '${ obj.descrimg }' )"` : '';
 
 
-
-
-	// перехід за посиланням на інші сайти
-	static linkTo( data ) {
-		const fooName = this.name + '.linkTo()'; 
-
-		//cns( 'var', 'fooName', fooName );
-		//cns( 'var', 'data.href', data.dataset.href );
-
-		window.open( data.dataset.href );
+		return `<span class="item-border marking pointer" ${ link }>${ htmlItem }</span>`;
 	}
 
 

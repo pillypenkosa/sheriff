@@ -78,10 +78,9 @@ class ComponentMenuSelectFabula {
  	static getSelectOptionVal( elem ) {
 		const fooName = this.name + '.getSelectOptionVal()';
 
-		cns( 'var', 'fooName', fooName ); 
-		cns( 'var', 'elem.value', elem.value ); 
-
-		cns( 'var', 'elem.data.blank', elem.dataset.blank ); 
+		//cns( 'var', 'fooName', fooName ); 
+		//cns( 'var', 'elem.value', elem.value ); 
+		//cns( 'var', 'elem.data.blank', elem.dataset.blank ); 
 
 
 
@@ -103,9 +102,9 @@ class ComponentMenuSelectFabula {
  	static getFabulySelect( typeBlank, hash ) { 
 		const fooName = this.name + '.getFabulySelect()';
  
-		cns( 'var', 'fooName', fooName ); 
-		cns( 'var', 'typeBlank', typeBlank ); 
-		cns( 'var', 'hash', hash ); 
+		//cns( 'var', 'fooName', fooName ); 
+		//cns( 'var', 'typeBlank', typeBlank ); 
+		//cns( 'var', 'hash', hash ); 
 
 
 		let selectedFabuly = [];
