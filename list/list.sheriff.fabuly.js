@@ -96,7 +96,7 @@ const arrListSheriffFabuly = [
 	fabula 	: ', на якому було відсутнє дзеркало заднього виду з правого боку, здійснював рух', 
 	descr 	: 'ДЗЕРКАЛА', 
 	kupap 	: { art: '121', part: '1', },
-	pdr 	: '31.4.7',
+	pdr 	: '31.4.7.а',
 	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, disrepair: 1, },
 },
 { 
@@ -104,7 +104,7 @@ const arrListSheriffFabuly = [
 	fabula 	: ', на якому не горіли задні габаритні ліхтарі, здійснював рух в темну пору доби', 
 	descr 	: 'ЗАДНІ ГАБАРИТИ', 
 	kupap 	: { art: '121', part: '1', },
-	pdr 	: '31.6.Б',
+	pdr 	: '31.6.б',
 	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, light: 1, disrepair: 1, },
 },
 { 
@@ -326,6 +326,14 @@ const arrListSheriffFabuly = [
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, sign: '5.38.2', },
 },
 { 
+	id 		: 'crossroads', edit: { d: '08', m: '10', y: '2023', }, 
+	fabula 	: ', здійснив зупинку ближче 10 м від краю перехрещуваної проїзної частини перехрестя',
+	descr 	: 'ЗУПИНКА на ПЕРЕХРЕСТІ',
+	kupap 	: { art: '122', part: '1', },
+	pdr 	: '15.9.ґ',
+	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, },
+},
+{ 
 	id 		: 'stop_sign_5.45.1', edit: { d: '08', m: '10', y: '2023', }, 
 	fabula 	: ', здійснив зупинку ближче 30 м від посадкового майданчику для зупинки маршрутних ТЗ, позначеного знаком {sign}',
 	descr 	: 'ЗУПИНКА на ЗУПИНЦІ МАРШРУТНИХ ТЗ',
@@ -358,14 +366,6 @@ const arrListSheriffFabuly = [
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, sign: '5.48', },
 },
 { 
-	id 		: 'crossroads', edit: { d: '08', m: '10', y: '2023', }, 
-	fabula 	: ', здійснив зупинку ближче 10 м від краю перехрещуваної проїзної частини перехрестя',
-	descr 	: 'ЗУПИНКА на ПЕРЕХРЕСТІ',
-	kupap 	: { art: '122', part: '1', },
-	pdr 	: '15.9.ґ',
-	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, },
-},
-{ 
 	id 		: 'territory_adjacent', edit: { d: '08', m: '10', y: '2023', }, 
 	fabula 	: ', здійснив зупинку ближче 10 м від виїзду з прилеглої території',
 	descr 	: 'ЗУПИНКА на ВИЇЗДІ з ПРИЛЕГЛИХ ТЕРИТОРІЙ',
@@ -388,6 +388,29 @@ const arrListSheriffFabuly = [
 	kupap 	: { art: '122', part: '1', },
 	pdr 	: '15.10.в',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, },
+},
+
+
+
+
+
+{ 
+	id 		: 'marking_1.1', edit: { d: '08', m: '10', y: '2023', }, 
+	fabula 	: ', перетнув суцільну лінію 1.1 дорожньої горизонтальної розмітки, яка поділяє транспортні потоки протилежних напрямків на дорозі', 
+	descr 	: 'ПЕРЕТИН СУЦІЛЬНОЇ',
+	kupap 	: { id: '122_1', art: '122', part: '1', },
+	pdr 	: '34.1.1',
+	marking : '1.1',
+	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, },
+},
+{ 
+	id 		: 'marking_1.3', edit: { d: '08', m: '10', y: '2023', }, 
+	fabula 	: ', перетнув подвійну суцільну лінію 1.3 дорожньої горизонтальної розмітки, яка поділяє транспортні потоки протилежних напрямків на дорозі, що має [ --три; --чотири; ] смуги руху', 
+	descr 	: 'ПОДВІЙНА СУЦІЛЬНА. ПЕРЕТИН',
+	kupap 	: { id: '122_1', art: '122', part: '1', },
+	pdr 	: '34.1.3',
+	marking : '1.3',
+	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, },
 },
 
 
@@ -482,15 +505,6 @@ const arrListSheriffFabuly = [
 	kupap 	: { id: '122_2', art: '122', part: '2', },
 	pdr 	: '19.1.а',
 	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, light: 1, },
-},
-{ 
-	id 		: 'solid_double', edit: { d: '08', m: '10', y: '2023', }, 
-	fabula 	: ', перетнув подвійну суцільну лінію дорожньої горизонтальної розмітки, яка поділяє транспортні потоки протилежних напрямків', 
-	descr 	: 'ПОДВІЙНА СУЦІЛЬНА',
-	kupap 	: { id: '122_2', art: '122', part: '2', },
-	pdr 	: '34.1',
-	marking : '1.3',
-	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, },
 },
 
 

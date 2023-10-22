@@ -35,11 +35,6 @@ class ComponentFabula {
 		//let html = '';
 		let html = ''; 
  
- 
- 
-
- 
- 
 		return { html, tagParam };  
 	} 
  
@@ -84,12 +79,6 @@ class ComponentFabula {
  
 
 
-
-
-
-
-
-
 	static insFabula( id ) { 
 		const fooName = this.name + '.clc()'; 
 
@@ -98,37 +87,23 @@ class ComponentFabula {
 
 
 		let objFabula = arrListSheriffFabuly.find( k => k.id == id );
+		let objPdr = objFabula.pdr ? arrListSheriffPdr.find( k => k.id == objFabula.pdr ) : {};
+		
 
-
- 
+		//let objPdr = arrListSheriffFabuly.find( k => k.id == id );
 
 		const kupapID 			= objFabula.kupap.art + '_' + objFabula.kupap.part;
 		
-
-
-
 		//cns( 'var', 'kupapID', kupapID );
 		//cns( 'var', 'objListSheriffKupap', objListSheriffKupap );
-
-
-
-
-
-
-
-
-
-
-
-
 		//return;
 
 		const htmlPartKupap 	= this.paintKupap( objListSheriffKupap[ kupapID ].article, objListSheriffKupap[ kupapID ].part, objListSheriffKupap[ kupapID ].href ? objListSheriffKupap[ kupapID ].href : '' );
+		const htmlItemPdr  		= this.paintItemPdr( objPdr );
 
 
 
-			 	
-		const htmlItemPdr  		= `<span class="item-border item-pdr">${ objFabula.pdr }</span>`;
+
 
 		let htmlMarkingInfo  	= objFabula.marking ? `Розмітка: <span class="item-border item-pdr">${ objFabula.marking }</span>` : '';
 		let htmlMarkingFabula 	= objFabula.marking ? `(розмітка <span class="item-border item-pdr">${ objFabula.marking }</span>)` : '';
@@ -320,14 +295,6 @@ class ComponentFabula {
 
 
 
-
-
-
-		
-
-
-
-
 	// фарбувати текст статті КУпАП
 	static paintKupap( art, part, href ) { 	// signID - txt
 		const fooName = this.name + '.paintKupap()'; 
@@ -351,6 +318,30 @@ class ComponentFabula {
 
 
 
+
+
+	// фарбувати текст пункту ПДР
+	static paintItemPdr( obj = {} ) { 	// signID - txt
+		const fooName = this.name + '.paintItemPdr()'; 
+
+		cns( 'var', 'fooName', fooName );
+		cns( 'var', 'obj', obj );
+		cns( 'var', 'obj.id', obj.id );
+		cns( 'var', 'obj.href', obj.href );
+
+		let html = '...';
+
+		if ( obj.id ) {
+
+			let link = '';
+			if ( obj.href ) 
+				link = `onclick="window.open( '${ obj.href }' )"`;
+
+			html = `<span class="item-border item-pdr" ${ link }>${ obj.id }</span>`;
+		}
+
+		return html;
+	}
 
 
 
