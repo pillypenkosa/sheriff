@@ -1,4 +1,4 @@
-const appProjectName = 'Patrol';
+const appProjectName = 'Sheriff';
 
 
 const objSymbol = [
