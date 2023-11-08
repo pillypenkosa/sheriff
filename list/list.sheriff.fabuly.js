@@ -22,6 +22,7 @@ const arrListSheriffFabulyType = [
 	{ id: 'kupap_a122_p3' 		, title: 'КУпАП ст. 122 ч. 3' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a122_p4' 		, title: 'КУпАП ст. 122 ч. 4' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a122_p6' 		, title: 'КУпАП ст. 122 ч. 6' 			, hash: { pdr_postanova: 1,  }, },
+	//{ id: 'kupap_a123_p1' 		, title: 'КУпАП ст. 123 ч. 1' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a126_p1' 		, title: 'КУпАП ст. 126 ч. 1' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a126_p2' 		, title: 'КУпАП ст. 126 ч. 2' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a126_p4' 		, title: 'КУпАП ст. 126 ч. 4' 			, hash: { pdr_postanova: 1,  }, },
@@ -84,13 +85,24 @@ const arrListSheriffFabuly = [
 
 // ПДР Постанови
 // --- 121.1 ----------------------------------------------------------------------------------------------------------------------------
+
+
+
+{ 
+	id 		: 'glass_crack', edit: { d: '08', m: '11', y: '2023', }, 
+	fabula 	: ', на вітровому склі якого є [ --сколи, --тріщини, ] в зоні роботи склоочисників, здійснював рух', 
+	descr 	: 'ТРІЩИНА СКЛА', 
+	kupap 	: { art: '121', part: '1', },
+	pdr 	: '31.1',
+	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, disrepair: 1, dstu: { n: '3649:2010', item: '6.8.5', }, }, 
+},
 { 
 	id 		: 'light_left_no', edit: { d: '08', m: '10', y: '2023', }, 
 	fabula 	: ', на якому не горіла лампа лівої фари в режимі ближнього світла, здійснював рух в темну пору доби', 
 	descr 	: 'ЛІВА ФАРА', 
 	kupap 	: { art: '121', part: '1', },
 	pdr 	: '31.4.3.в',
-	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, light: 1, disrepair: 1,  }, 
+	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, light: 1, disrepair: 1, }, 
 },
 { 
 	id 		: 'mirror', edit: { d: '16', m: '10', y: '2023', }, 
@@ -98,6 +110,14 @@ const arrListSheriffFabuly = [
 	descr 	: 'ДЗЕРКАЛА', 
 	kupap 	: { art: '121', part: '1', },
 	pdr 	: '31.4.7.а',
+	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, disrepair: 1, },
+},
+{ 
+	id 		: 'mudguard', edit: { d: '08', m: '11', y: '2023', }, 
+	fabula 	: ', який має задній привід та на якому був відсутній задній правий бризковик, здійснював рух', 
+	descr 	: 'БРИЗКОВИКИ', 
+	kupap 	: { art: '121', part: '1', },
+	pdr 	: '31.4.7.е',
 	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, disrepair: 1, },
 },
 { 
@@ -676,6 +696,21 @@ const arrListSheriffFabuly = [
 	hash 	: { pdr_postanova: 1, kupap_a122_p6: 1, stop: 1, },
 },
 
+
+
+
+
+// --- 123.1 ----------------------------------------------------------------------------------------------------------------------------
+/*
+{ 
+	id 		: 'railroad_crossing', edit: { d: '08', m: '11', y: '2023', }, 
+	fabula 	: ', зупинився на залізничному переїзді, за яким був утворений затор',
+	descr 	: 'ЗАЛІЗНИЧНИЙ ПЕРЕЇЗД',
+	kupap 	: { art: '123', part: '1', },
+	pdr 	: '20.5.г',
+	hash 	: { pdr_postanova: 1, kupap_a123_p1: 1, stop: 1, railroad: 1, },
+},
+*/
 
 
 

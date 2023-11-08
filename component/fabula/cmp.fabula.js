@@ -116,6 +116,7 @@ class ComponentFabula {
 		let txtSignNumFull	 	= '';
 		let htmlSignNumBorder 	= '';
 		let htmlInfoSign 		= '';
+		let htmlInfoDstu 		= '';
 		let txtSignNameFull	 	= '';
 		let htmlFabula 			= '';
 
@@ -185,6 +186,14 @@ class ComponentFabula {
 				htmlInfoSign = 'Знак: ' + htmlSignNumBorder;
 			}
 
+
+
+			if ( objFabula.hash.dstu ) 
+				//htmlInfoDstu += 'ДСТУ ' + ( objFabula.hash.dstu.n ? objFabula.hash.dstu.n : '' ) + ' ' + ( objFabula.hash.dstu.item ? 'п.' + this.wrapDstu( 'DSTU_3649.2010.pdf', objFabula.hash.dstu.item ) : '' );
+				htmlInfoDstu += 'ДСТУ: ' + ( objFabula.hash.dstu.n ? this.wrapDstu( objFabula.hash.dstu.n ) : '' ) + ' ' + ( objFabula.hash.dstu.item ? 'п.' + objFabula.hash.dstu.item  : '' );
+			
+
+
 			if ( objFabula.hash.evacuation ) 
 				htmlEvacuation = `<div class="evacuation">---<br/>Якщо суттєво перешкоджає іншим учасникам дорожнього руху - передбачена ЕВАКУАЦІЯ! ${ this.wrapKupap( objListSheriffKupap[ '265-4' ] ) }</div>`;
 		
@@ -247,6 +256,7 @@ class ComponentFabula {
 							<div>ПДР: ${ htmlItemPdr }</div>
 							<div>${ htmlInfoSign }</div>
 							<div>${ htmlMarkingInfo }</div>
+							<div>${ htmlInfoDstu }</div>
 							<div>КУпАП: ${ htmlPartKupap }</div>
 							<div>${ htmlInfoMinMax }</div>
 							<div>${ htmlInfoPenalty }</div>
@@ -256,7 +266,7 @@ class ComponentFabula {
 					<div class="fabula-txt">
 						<div>1.10.2023 р. о 12:00 в м.Харків, вул.Сумська, біля буд.38а ${ txtPerson } Шумахер Михайло Побатькович${ txtAction }</div>
 						<div class="fabula-action">${ htmlFabula }</div>						
-						<div>, чим порушив п.${ htmlItemPdr } ПДР${ htmlMarkingFabula }, чим скоїв адміністративне правопорушення, передбачене ${ htmlPartKupap } КУпАП.</div>
+						<div>, чим порушив п.${ htmlItemPdr } ПДР${ htmlMarkingFabula }${ htmlInfoDstu ? ' ( ' + htmlInfoDstu + ' )' : '' }, чим скоїв адміністративне правопорушення, передбачене ${ htmlPartKupap } КУпАП.</div>
 						${ htmlEvacuation }
 						<div>---</div>
 						${ htmlOrgan }
@@ -426,9 +436,22 @@ class ComponentFabula {
 
 
 
+	// фарбувати пункт ДСТУ
+	static wrapDstu( txt ) { 	// 
+		const fooName = this.name + '.wrapDstu()'; 
+		//console.log( 'fooName: ', fooName );
 
 
+		//alert( doc );
 
+		let link = '';
+		if ( txt == '3649:2010' ) 
+			link += 'https://patrul.in.ua/pdf/dstu-3649.pdf';
+
+
+		//return `<span class="item-border marking pointer" onclick="window.open( 'doc/${ doc }' )">${ txt }</span>`;
+		return `<span class="item-border marking pointer" onclick="window.open( '${ link }' )">${ txt }</span>`;
+	}
 
 
 
