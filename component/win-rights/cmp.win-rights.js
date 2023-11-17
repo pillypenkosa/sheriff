@@ -105,12 +105,11 @@ class ComponentWinRights {
 				<div>- виступати рідною мовою і користуватися послугами перекладача, якщо не володіє мовою, якою ведеться провадження;</div>
 				<div>- оскаржити постанову по справі.</div>
 
-
-
-
 			</div>
+			${ Component( 'Spoiler-Law' ) }
 
-
+		`;
+/*
 
 			<div class="law">
 				<div class="title-link">
@@ -137,7 +136,6 @@ class ComponentWinRights {
 					</div>
 				</div>
 
-
 				<div class="articles">
 					<div class="article-each">
 						<p>
@@ -155,11 +153,11 @@ class ComponentWinRights {
 
 					</div>
 				</div>
-
-
 			</div>
-		`;
 
+
+
+*/
  
  
 

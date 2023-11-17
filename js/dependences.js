@@ -19,6 +19,7 @@ const dependences = [
 
 	{ arr: 'sheriff.pdr' 			, },
 	{ arr: 'sheriff.kupap' 			, }, 	
+	{ arr: 'sheriff.kku' 			, }, 	
 	{ arr: 'sheriff.fabuly' 		, }, 	
 	{ arr: 'sheriff.constitution' 	, }, 	
 
@@ -36,6 +37,7 @@ const dependences = [
 	{ cmp: 'Each-Select-Fabula' 	, },
 	{ cmp: 'Fabula-Head' 			, },
 	{ cmp: 'Fabula' 				, },
+	{ cmp: 'Spoiler-Law' 			, },
 
 
 	{ cmp: 'Win-Err404' 			, },
