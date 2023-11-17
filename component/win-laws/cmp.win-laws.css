@@ -1,0 +1,23 @@
+/* © 2023 DJS */ 
+
+
+cmp-win-laws {
+	color: #fff;
+} 
+
+
+	cmp-win-laws .each {
+		margin: 0 0 30px 0;
+	}
+
+
+
+	cmp-win-laws .title-law {
+		margin: 10px 0;
+		font-weight: bold;
+		text-align: center;
+	}
+
+
+
+

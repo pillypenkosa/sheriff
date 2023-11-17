@@ -1,0 +1,49 @@
+/* © 2023 DJS */ 
+
+
+
+cmp-law-npu {
+	display: block;
+	margin: 0 0 20px 0;
+} 
+
+
+	cmp-law-npu .each {
+		padding: 5px;
+		border: 1px solid #fff;
+		border-radius: 10px;
+		margin: 0 0 5px 0;
+	} 
+		cmp-law-npu .each .title {
+			margin: 0 0 10px 0;
+			font-weight: bold;
+		} 
+
+
+		cmp-law-npu .each .parts .each-part {
+			margin: 0 0 10px 0;
+		} 
+
+		cmp-law-npu .each .parts .each-part {
+			margin: 0 0 10px 0;
+		}
+			cmp-law-npu .each .parts .each-part .items {
+				margin: 10px 0 0px 20px;
+			}
+				cmp-law-npu .each .parts .each-part .items .each-item {
+					margin: 0 0 10px 0;
+				}
+
+		cmp-law-npu .each .href {
+			margin: 10px;
+		} 
+
+
+
+
+
+
+
+
+
+

@@ -106,9 +106,9 @@ class ComponentWinRights {
 				<div>- оскаржити постанову по справі.</div>
 
 			</div>
-			${ Component( 'Spoiler-Law' ) }
 
 		`;
+			//${ Component( 'Spoiler-Law' ) }
 /*
 
 			<div class="law">

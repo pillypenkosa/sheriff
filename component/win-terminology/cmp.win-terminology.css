@@ -1,0 +1,35 @@
+/* © 2023 DJS */ 
+
+
+
+
+cmp-win-terminology {
+	color: #fff;
+} 
+	cmp-win-terminology a { 
+		text-decoration: none;
+		color: #ff0;
+	} 
+
+
+	cmp-win-terminology .each { 
+		margin: 0 0 20px 0;
+	} 
+
+
+
+
+
+	cmp-win-terminology .title {
+		margin: 0 0 5px 0;
+		font-weight: bold;
+	} 
+
+
+	cmp-win-terminology .descr {
+		margin: 0 0 0 10px;
+	} 
+
+
+
+

@@ -17,11 +17,18 @@ const dependences = [
 
 	// масиви-списки з ЦЬОГО проекту ( свої ) -------------------------------------------------------------------------------------
 
+	{ arr: 'sheriff.laws' 			, }, 	
+	{ arr: 'sheriff.terminology' 	, }, 	
+
+	{ arr: 'sheriff.constitution' 	, }, 	
+	{ arr: 'sheriff.npu' 			, }, 	
 	{ arr: 'sheriff.pdr' 			, },
 	{ arr: 'sheriff.kupap' 			, }, 	
 	{ arr: 'sheriff.kku' 			, }, 	
 	{ arr: 'sheriff.fabuly' 		, }, 	
-	{ arr: 'sheriff.constitution' 	, }, 	
+
+
+
 
 
 
@@ -37,7 +44,18 @@ const dependences = [
 	{ cmp: 'Each-Select-Fabula' 	, },
 	{ cmp: 'Fabula-Head' 			, },
 	{ cmp: 'Fabula' 				, },
+	{ cmp: 'Law-Alco' 				, },
+	{ cmp: 'Law-Constitution' 		, },
+	{ cmp: 'Law-Kku' 				, },
+	{ cmp: 'Law-Kupap' 				, },
+	{ cmp: 'Law-Npu' 				, },
+	{ cmp: 'Law-Smoking' 			, },
+
+
+
+
 	{ cmp: 'Spoiler-Law' 			, },
+
 
 
 	{ cmp: 'Win-Err404' 			, },
@@ -58,7 +76,12 @@ const dependences = [
 	{ cmp: 'Win-Fabuly-Postanov-Pdr' 	, regexp: /^fabuly-postanov-pdr$/ 		, },
 	{ cmp: 'Win-Fabuly-Protokoliv-Pdr' 	, regexp: /^fabuly-protokoliv-pdr$/ 	, },
 	{ cmp: 'Win-Kupap' 					, regexp: /^kupap$/ 					, },
+	{ cmp: 'Win-Laws' 					, regexp: /^laws$/ 						, },
 	{ cmp: 'Win-Rights' 				, regexp: /^rights$/ 					, },
+	{ cmp: 'Win-Terminology' 			, regexp: /^terminology$/ 				, },
+
+
+
 
 
 

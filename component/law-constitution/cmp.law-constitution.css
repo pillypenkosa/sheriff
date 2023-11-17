@@ -1,0 +1,37 @@
+/* © 2023 DJS */ 
+
+
+cmp-law-constitution {
+
+	/*all: initial;*/
+
+	display: block;
+	margin: 0 0 20px 0;
+	color: #fff;
+
+} 
+	cmp-law-constitution .each {
+		margin: 0 2px 5px 2px !important;
+		padding: 5px;
+		border: 1px solid #fff;
+		border-radius: 10px;
+	} 
+		cmp-law-constitution .each .descr {
+			margin: 0 0 20px 0;
+		} 
+
+		cmp-law-constitution .each .href {
+			margin: 0 0 10px 0;
+		}
+
+
+
+
+
+		cmp-law-constitution .each .title {
+			font-weight: bold;
+		}
+
+
+
+

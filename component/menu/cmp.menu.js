@@ -19,6 +19,12 @@ class ComponentMenu {
 		{ title: 'Фабули постанов ПДР' 		, id: 'fabuly_postanov_pdr' 	, href: '?fabuly-postanov-pdr', },
 		//{ title: 'Фабули протоколів ПДР' 	, id: 'fabuly_protokoliv_pdr' 	, href: '?fabuly-protokoliv-pdr', },
 		{ title: 'Права та обов\'язки' 		, id: 'rights' 					, href: '?rights', },
+		{ title: 'Закони' 					, id: 'laws' 					, href: '?laws', },
+		{ title: 'Термынологія' 			, id: 'terminology' 			, href: '?terminology', },
+
+
+
+
 
 
 		
