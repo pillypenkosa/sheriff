@@ -4,7 +4,7 @@
  
  
  
-class ComponentLawConstitution { 
+class ComponentLawKu { 
  
  
  
@@ -32,34 +32,13 @@ class ComponentLawConstitution {
  
  
 		let html = ''; 
-		arrListSheriffConstitution.forEach( k => {
+		arrListSheriffKu.forEach( k => {
 
-			html += `<div class="each">
-
-				<div class="title">
-					<span class="art-n">${ k.art }</span>. <span class="art-title">${ k.title }</span>
-				</div>
-				<div class="descr">${ k.descr }</div>
-				<div class="href">
-					<a href="${ k.href }" target="_blank">Стаття ${ k.art } КУ${ symbolLink }</a>
-				</div>
-			</div>`;
-
-
+			html += Component( 'Spoiler-Art', k );
 		});
 
 
 
- 
- 
- 
-		setMeta({ 
-			title 			: fooName, 
-			description 	: 'Опис...', 
-			//image 		: '', 
-		}); 
- 
- 
  
 		return { tagParam, html };  
 	} 

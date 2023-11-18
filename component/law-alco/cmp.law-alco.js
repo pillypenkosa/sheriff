@@ -31,15 +31,22 @@ class ComponentLawAlco {
  
  
  
-		let html = fooName; 
- 
- 
- 
-		setMeta({ 
-			title 			: fooName, 
-			description 	: 'Опис...', 
-			//image 		: '', 
-		}); 
+		let html = ''; 
+  		arrListSheriffAlco.forEach( k => {
+
+ 			html += `<div class="each">
+				<div class="title">
+					<span class="art-n">${ k.art }</span>. <span class="art-title">${ k.title }</span>
+				</div>
+
+				<div class="descr">${ k.descr }</div>
+				<div class="href">
+					<a href="${ k.href }" target="_blank">Стаття ${ k.art }${ symbolLink }</a>
+				</div>
+
+			</div>`;
+ 		});
+
  
  
  

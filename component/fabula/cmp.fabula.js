@@ -92,13 +92,19 @@ class ComponentFabula {
 		const objPdr = objFabula.pdr ? objListSheriffPdr[ objFabula.pdr ] : {};
 
 		//const kupapID = objFabula.kupap.art + '_' + objFabula.kupap.part;
-		const kupapID = objFabula.kupap.art + '_' + objFabula.kupap.part;
+		const kupapID = 'kupap_' + objFabula.kupap.art + '_' + objFabula.kupap.part;
+		//console.log( 'kupapID: ', kupapID );
+
+
 		//console.log( 'kupapID: ', kupapID );
 		
 		const objKupap = objListSheriffKupap[ kupapID ];
 		//console.log( 'objKupap: ', objKupap );
 
-		const htmlPartKupap 	= this.wrapKupap( objKupap );
+		//console.log( 'objKupap: ', objKupap );
+
+
+		const htmlPartKupap = this.wrapKupap( objKupap );
 		//console.log( 'htmlPartKupap: ', htmlPartKupap );
 
 
@@ -135,9 +141,17 @@ class ComponentFabula {
 		// повторність
 		let htmlRepeat 		= '';
 		let objKupapRepeat 	= {};
+
+
+		//console.log( 'objKupap: ', objKupap )
+
+
+
 		if ( objKupap.repeat ) {
 		
 			objKupapRepeat = objListSheriffKupap[ objKupap.repeat ];
+
+			//console.log( 'objKupapRepeat: ', objKupapRepeat )
 
 			let htmlRepeatMinMax = this.wrapMinMax( objKupapRepeat ) + ' мінімумів';
 			let htmlRepeatPenalty = this.wrapPenalty( objKupapRepeat ) + ' грн';
@@ -195,7 +209,7 @@ class ComponentFabula {
 
 
 			if ( objFabula.hash.evacuation ) 
-				htmlEvacuation = `<div class="evacuation">---<br/>Якщо суттєво перешкоджає іншим учасникам дорожнього руху - передбачена ЕВАКУАЦІЯ! ${ this.wrapKupap( objListSheriffKupap[ '265-4' ] ) }</div>`;
+				htmlEvacuation = `<div class="evacuation">---<br/>Якщо суттєво перешкоджає іншим учасникам дорожнього руху - передбачена ЕВАКУАЦІЯ! ${ this.wrapKupap( objListSheriffKupap[ 'kupap_265_4' ] ) }</div>`;
 		
 
 		}
@@ -286,13 +300,24 @@ class ComponentFabula {
 	static wrapKupap( obj ) { 	// signID - txt
 		const fooName = this.name + '.paintKupap()'; 
 
-		//console.log ( 'fooName', fooName );
-		//console.log ( 'obj', obj );
+		//console.log ( 'fooName: ', fooName );
+		//console.log ( 'obj: ', obj );
+		//console.trace();
 
 		let htmlPart = obj.part ? `ч.<b>${ obj.part }</b> ` : '';
-		let link = obj.href ? `onclick="window.open( '${ obj.href }')"` : '';
+		
+		//let link = obj.href ? `onclick="window.open( '${ obj.href }')"` : '';
+		let link = '';
+		let symbol = '';
 
-		return `<span class="item-border part-kupap pointer" ${ link }>${ htmlPart }ст.<b>${ obj.article }</b></span>`;
+		if ( obj.href ) {
+			link = `onclick="window.open( '${ obj.href }' )"`;
+			symbol = symbolLink;
+		}
+
+
+
+		return `<span class="item-border part-kupap pointer" ${ link }>${ htmlPart }ст.<b>${ obj.article }</b> ${ symbol }</span>`;
 	}
 
 
@@ -339,7 +364,7 @@ class ComponentFabula {
 
 
 
-
+//symbolLink
 
 	// фарбувати текст пункту ПДР
 	static wrapItemPdr( obj = {} ) { 	// signID - txt
@@ -350,9 +375,17 @@ class ComponentFabula {
 		let html = '';
 
 		if ( obj.id ) {
-			let link = obj.href ? `onclick="window.open( '${ obj.href }' )"` : '';
+			//let link = obj.href ? `onclick="window.open( '${ obj.href }' )"` : '';
+			let link = '';
+			let symbol = '';
+
+			if ( obj.href ) {
+				link = `onclick="window.open( '${ obj.href }' )"`;
+				symbol = symbolLink;
+			}
+
 			//console.log( 'link: ', link );
-			html = `<span class="item-border item-pdr pointer" ${ link }>${ obj.id }</span>`;
+			html = `<span class="item-border item-pdr pointer" ${ link }>${ obj.id } ${ symbol }</span>`;
 		}
 
 		return html;
@@ -364,10 +397,9 @@ class ComponentFabula {
 	// фарбувати текст знаку
 	static wrapSign( obj, tf = false ) { 	// 
 		const fooName = this.name + '.wrapSign()'; 
-		console.log( 'fooName: ', fooName );
-
-		console.log( 'obj: ', obj );
-		console.log( 'tf: ', tf );
+		//console.log( 'fooName: ', fooName );
+		//console.log( 'obj: ', obj );
+		//console.log( 'tf: ', tf );
 
 
 		let txt = '';
@@ -392,11 +424,15 @@ class ComponentFabula {
 		//console.log( 'txt: ', txt );
 
 		let link = '';
-		if ( obj.href_sign ) 
+		let symbol = '';
+		
+		if ( obj.href_sign ) {
 			link += `onclick="window.open( '${ obj.href_sign }' )"`;
+			symbol = symbolLink;
+		}
 
 
-		return `<span class="item-border sign pointer" ${ link }>${ txt }</span>`;
+		return `<span class="item-border sign pointer" ${ link }>${ txt } ${ symbol }</span>`;
 	}
 
 
@@ -426,10 +462,17 @@ class ComponentFabula {
 			}
 		}
 
-		let link = obj.descrimg ? `onclick="window.open( '${ obj.descrimg }' )"` : '';
+		//let link = obj.descrimg ? `onclick="window.open( '${ obj.descrimg }' )"` : '';
+		let link = '';
+		let symbol = '';
+
+		if ( obj.descrimg ) {
+			link = `onclick="window.open( '${ obj.descrimg }' )"`;
+			symbol = symbolLink;
+		}
 
 
-		return `<span class="item-border marking pointer" ${ link }>${ htmlItem }</span>`;
+		return `<span class="item-border marking pointer" ${ link }>${ htmlItem } ${ symbol }</span>`;
 	}
 
 
@@ -450,7 +493,7 @@ class ComponentFabula {
 
 
 		//return `<span class="item-border marking pointer" onclick="window.open( 'doc/${ doc }' )">${ txt }</span>`;
-		return `<span class="item-border marking pointer" onclick="window.open( '${ link }' )">${ txt }</span>`;
+		return `<span class="item-border marking pointer" onclick="window.open( '${ link }' )">${ txt } ${ symbolLink }</span>`;
 	}
 
 

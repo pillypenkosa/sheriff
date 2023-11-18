@@ -1,11 +1,11 @@
 /* © 2023 DJS */ 
 
 
-cmp-spoiler-law {
+cmp-spoiler-art {
 	display: block;
-	margin: 40px 0 0 0;
+	margin: 10px 0 0 0;
 } 
-	cmp-spoiler-law .law-name {
+	cmp-spoiler-art .law-name {
 		margin: 20px 0;
 		font-weight: bold;
 		text-align: center;
@@ -14,26 +14,26 @@ cmp-spoiler-law {
 
 
 
-	cmp-spoiler-law .each-art {
+	cmp-spoiler-art .each-art {
 		margin: 2px;
 		border: 1px solid #ccc;
 		border-radius: 10px;
 	}
-		cmp-spoiler-law .each-art .art-title {
+		cmp-spoiler-art .each-art .art-title {
 			padding: 5px; 
 			font-weight: bold;
 		}
-		cmp-spoiler-law .each-art .each-part {
+		cmp-spoiler-art .each-art .each-part {
 			margin: 10px 0 20px 0;
 		}
-			cmp-spoiler-law .each-art .each-part .part-act {
+			cmp-spoiler-art .each-art .each-part .part-act {
 				margin: 10px 0;
 			}
-			cmp-spoiler-law .each-art .each-part .part-sanction {
+			cmp-spoiler-art .each-art .each-part .part-sanction {
 				margin: 0 0 0 20px ;
 			}
 
-		cmp-spoiler-law .each-art .body {
+		cmp-spoiler-art .each-art .body {
 			display: none;
 		}
 

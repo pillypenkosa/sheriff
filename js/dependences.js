@@ -20,12 +20,16 @@ const dependences = [
 	{ arr: 'sheriff.laws' 			, }, 	
 	{ arr: 'sheriff.terminology' 	, }, 	
 
-	{ arr: 'sheriff.constitution' 	, }, 	
+	{ arr: 'sheriff.alco' 			, }, 	
 	{ arr: 'sheriff.npu' 			, }, 	
-	{ arr: 'sheriff.pdr' 			, },
 	{ arr: 'sheriff.kupap' 			, }, 	
 	{ arr: 'sheriff.kku' 			, }, 	
-	{ arr: 'sheriff.fabuly' 		, }, 	
+	{ arr: 'sheriff.ku' 			, }, 	
+	{ arr: 'sheriff.pdr' 			, },
+	{ arr: 'sheriff.smoking' 		, }, 
+	
+	{ arr: 'sheriff.fabuly' 		, }, 
+
 
 
 
@@ -45,18 +49,12 @@ const dependences = [
 	{ cmp: 'Fabula-Head' 			, },
 	{ cmp: 'Fabula' 				, },
 	{ cmp: 'Law-Alco' 				, },
-	{ cmp: 'Law-Constitution' 		, },
 	{ cmp: 'Law-Kku' 				, },
+	{ cmp: 'Law-Ku' 				, },
 	{ cmp: 'Law-Kupap' 				, },
 	{ cmp: 'Law-Npu' 				, },
 	{ cmp: 'Law-Smoking' 			, },
-
-
-
-
-	{ cmp: 'Spoiler-Law' 			, },
-
-
+	{ cmp: 'Spoiler-Art' 			, },
 
 	{ cmp: 'Win-Err404' 			, },
 	{ cmp: 'Footer' 				, },

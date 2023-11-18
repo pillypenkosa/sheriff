@@ -4,7 +4,7 @@
 
 
 
-const arrListSheriffConstitution = [
+const arrListSheriffKu = [
 
 
 /*
@@ -19,7 +19,7 @@ const arrListSheriffConstitution = [
 
 
 {
-	id: 'art_10', art: '10', title: 'Державною мовою в Україні є українська мова.',
+	id: 'ku_10', art: '10', title: 'Державною мовою в Україні є українська мова.',
 	descr: `
 		<br/>
 		Держава забезпечує всебічний розвиток і функціонування української мови в усіх сферах суспільного життя на всій території України.
@@ -42,7 +42,7 @@ const arrListSheriffConstitution = [
 
 
 {
-	id: 'art_63', art: '63', title: 'Особа не несе відповідальності за відмову давати показання або пояснення щодо себе, членів сім\'ї чи близьких родичів, коло яких визначається законом.',
+	id: 'ku_63', art: '63', title: 'Особа не несе відповідальності за відмову давати показання або пояснення щодо себе, членів сім\'ї чи близьких родичів, коло яких визначається законом.',
 	descr: `
 		<br/>Підозрюваний, обвинувачений чи підсудний має право на захист.
 		<br/>Засуджений користується всіма правами людини і громадянина, за винятком обмежень, які визначені законом і встановлені вироком суду.
@@ -68,9 +68,9 @@ const arrListSheriffConstitution = [
 
 
 
-let objListSheriffConstitution = {};
-arrListSheriffConstitution.forEach( k => {
-	objListSheriffConstitution[ k.id ] = k;
+let objListSheriffKu = {};
+arrListSheriffKu.forEach( k => {
+	objListSheriffKu[ k.id ] = k;
 });
 
 

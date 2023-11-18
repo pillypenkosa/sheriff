@@ -14,12 +14,12 @@ class ComponentWinLaws {
 
 	static laws = [
 
-		{ id: 'constitution' 	, name: 'Law-Constitution' 	, title: 'Конституція України', href: 'https://zakon.rada.gov.ua/laws/show/254%D0%BA/96-%D0%B2%D1%80#Text', },
-		{ id: 'npu' 			, name: 'Law-Npu' 			, title: 'ЗУ \"Про Національну поліцію\"', href: 'https://zakon.rada.gov.ua/laws/show/580-19#Text', },
-		{ id: 'kupap' 			, name: 'Law-Kupap' 		, title: 'Кодекс України про адміністративні правопорушення', href: 'https://zakon.rada.gov.ua/laws/show/80731-10#Text', },
-		{ id: 'kku' 			, name: 'Law-Kku' 			, title: 'Кримінальний Кодекс України', href: 'https://zakon.rada.gov.ua/laws/show/2341-14#Text', },
-		{ id: 'alco' 			, name: 'Law-Alco' 			, title: 'ЗУ \"Про державне регулювання виробництва і обігу спирту етилового, коньячного і плодового, алкогольних напоїв, тютюнових виробів, рідин, що використовуються в електронних сигаретах, та пального\"', href: 'https://zakon.rada.gov.ua/laws/show/481/95-%D0%B2%D1%80#Text', },
+		{ id: 'ku' 				, name: 'Law-Ku' 			, title: 'Конституція України', href: 'https://zakon.rada.gov.ua/laws/show/254%D0%BA/96-%D0%B2%D1%80#Text', },
+		//{ id: 'npu' 			, name: 'Law-Npu' 			, title: 'ЗУ \"Про Національну поліцію\"', href: 'https://zakon.rada.gov.ua/laws/show/580-19#Text', },
+		//{ id: 'kupap' 			, name: 'Law-Kupap' 		, title: 'Кодекс України про адміністративні правопорушення', href: 'https://zakon.rada.gov.ua/laws/show/80731-10#Text', },
+		//{ id: 'kku' 			, name: 'Law-Kku' 			, title: 'Кримінальний Кодекс України', href: 'https://zakon.rada.gov.ua/laws/show/2341-14#Text', },
 		{ id: 'smoking' 		, name: 'Law-Smoking' 		, title: 'ЗУ \"Про заходи щодо попередження та зменшення вживання тютюнових виробів і їх шкідливого впливу на здоров\'я населення\"', href: 'https://zakon.rada.gov.ua/laws/show/2899-15#Text', },
+		{ id: 'alco' 			, name: 'Law-Alco' 			, title: 'ЗУ \"Про державне регулювання виробництва і обігу спирту етилового, коньячного і плодового, алкогольних напоїв, тютюнових виробів, рідин, що використовуються в електронних сигаретах, та пального\"', href: 'https://zakon.rada.gov.ua/laws/show/481/95-%D0%B2%D1%80#Text', },
 
 	]; 
 
@@ -97,8 +97,11 @@ class ComponentWinLaws {
 	static clc( data ) { 
 		const fooName = this.name + '.clc()'; 
  
-		//console.log( 'fooName', fooName ); 
-		//console.log( 'data', data ); 
+		console.log( 'fooName', fooName ); 
+		console.log( 'data', data ); 
+
+
+		//alert( fooName );
  
 	} 
  

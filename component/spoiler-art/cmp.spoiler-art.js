@@ -4,7 +4,7 @@
 
 
 
-class ComponentSpoilerLaw { 
+class ComponentSpoilerArt { 
 
 
 
@@ -25,6 +25,9 @@ class ComponentSpoilerLaw {
 
 	static html( objData = {} ) { 
 		const fooName = this.name + '.html()'; 
+		console.log( 'fooName: ', fooName ); 
+
+
 
 		this.args = objData.args ? objData.args : {}; 
 
@@ -42,35 +45,22 @@ class ComponentSpoilerLaw {
 
 
 
-		let html = `<div class="law-name"><a href="https://zakon.rada.gov.ua/laws/show/2341-14#Text" target="_blank">КРИМІНАЛЬНИЙ КОДЕКС${ symbolLink }</a></div>`; 
-		arrListSheriffKku.forEach( k => {
-
-			let parts = '';
-			if ( k.parts ) {
-				k.parts.forEach( k1 => {
-					parts += `<div class="each-part">
-						<div class="part-act">${ k1.act }</div>
-						<div class="part-sanction">${ k1.sanction }</div>
-					</div>`;
-				});
-			}
-
-			html += `<div class="each-art" data-id="${ k.id }" data-tf="close">
-				<div class="art-title" onclick="${ this.name }.clc( this )">
-					<span class="art-n">Стаття ${ k.art }</span>. 
-					<span class="art-title">${ k.title }</span>
-				</div>
-				<div class="body" data-art-body="${ k.id }" >
-					${ parts }
-					<div><a href="${ k.href }" target="_blank">www.gov.ua ст.${ k.art } ККУ${ symbolLink }</a></div>
-					<br />
+		let html = `
+			<div class="each" data-id="${ objData.id }">
+				<div class="title">
+					<span class="art-n">${ objData.art }</span>. <span class="art-title">${ objData.title }</span>
 				</div>
 
-			</div>`;
-		});
+				<div class="descr">${ objData.descr }</div>
+				<div class="href">
+					<a href="${ objData.href }" target="_blank">Стаття ${ objData.art } ${ symbolLink }</a>
+				</div>
+			</div>
+		`; 
 
 
-		// <div><a href="${ k.href }" target="_blank">www.стаття ${ k.art } ККУ${ symbolLink }</a></div>
+		console.log( 'objData: ', objData ); 
+
 
 
 
@@ -83,7 +73,7 @@ class ComponentSpoilerLaw {
 	static clc( elem ) { 
 		const fooName = this.name + '.clc()'; 
 
-		//console.log( 'fooName', fooName ); 
+		//console.log( 'fooName: ', fooName ); 
 		//console.log( 'dataset.id: ', elem.dataset.id ); 
 		//console.log( 'dataset.tf: ', elem.dataset.tf ); 
 		//console.log( 'parentNode: ', elem.parentNode ); 
