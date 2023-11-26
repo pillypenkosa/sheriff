@@ -120,7 +120,7 @@ class ComponentFabula {
 					htmlInfoPenalty 	= `<div>${ this.wrapPenalty( objKupap ) } грн</div>`;
 					htmlKupapN 			= this.wrapKupap( objKupap );
 					htmlKupapInfo 		= `<div>КУпАП:${ htmlKupapN }</div>`;
-					htmlViolationKupap = `<div>чим скоїв адміністративне правопорушення, передбачене ст.${ htmlKupapN } КУпАП.</div>`;
+					htmlViolationKupap = `<div>чим скоїв адміністративне правопорушення, передбачене ${ htmlKupapN } КУпАП.</div>`;
 				}
 			}
 
