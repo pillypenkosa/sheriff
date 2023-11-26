@@ -12,21 +12,24 @@ class ComponentEachSelectFabula {
  
  
  
-	static html( objData = {} ) { 
+	//static html( objData = {} ) { 
+	static html( fabulaID ) { 
 		const fooName = this.name + '.html()'; 
  
-		this.args = objData.args ? objData.args : {}; 
+		//this.args = objData.args ? objData.args : {}; 
  
  
-
-		//cns( 'var', 'fooName', fooName ); 
-		//cns( 'var', 'objData', objData );
-
+		//console.log( 'fooName: ', fooName );
+		//console.log( 'fabulaID: ', fabulaID );
 
 
 		let tagParam = { 
-			'data-id' 		: objData.id, 
-			'onclick' 		: objData.clc, 
+			//'data-id' 		: objData.id, 
+			'data-id' 		: fabulaID, 
+			//'onclick' 		: objData.clc, 
+			//'onclick' 		: `ComponentFabula.insFabula( '${ objData.id }' )`, 
+			'onclick' 		: `ComponentFabula.insFabula( '${ fabulaID }' )`, 
+			
 			//'class' 		: '', 
 			//'name' 		: '', 
 			//'title' 		: '', 
@@ -34,29 +37,99 @@ class ComponentEachSelectFabula {
 			//'defer' 		: '', 
 		}; 
  
- 
+		//console.log( 'objListSheriffPdr: ', objListSheriffPdr );
+ 		
 
-
-		let sign 		= objData.sign ? `<div><b>Знак: ${ objData.sign }</b></div>` : '';
-		let marking 	= objData.marking ? `<div><b>Розмітка: ${ objData.marking }</b></div>` : '';
-		let descr 		= objData.descr ? `<div class="descr">${ objData.descr }...</div>` : '';
+ 		let objFabula = objListSheriffFabuly[ fabulaID ];
 
 
 
- 
+		// let htmlSign = '';
+		//let sign 		= objData.sign ? `<div><b>Знак: ${ objData.sign }</b></div>` : '';
+
+
+
+
+		let objKupap = {};
+		let objPdr = {};
+
+		let htmlPdrN = '';
+		let htmlSign = '';
+		let htmlMark = '';
+		let htmlDstu = '';
+		let htmlDescr = '';
+
+
+		if ( objFabula ) {
+
+			if ( objFabula.kupap ) {
+				if ( objListSheriffKupap[ objFabula.kupap ] ) 
+					objKupap = objListSheriffKupap[ objFabula.kupap ];
+			}
+
+			if ( objFabula.pdr ) {
+				if ( objListSheriffPdr[ objFabula.pdr ] ) {
+					objPdr = objListSheriffPdr[ objFabula.pdr ];
+
+					if ( objPdr.txt ) {
+
+						if ( objPdr.txt.pdr_n ) 
+							htmlPdrN = `<div><b>ПДР: ${ objPdr.txt.pdr_n }</b></div>`;
+
+						if ( objPdr.txt.sign_n ) 
+							htmlSign = `<div><b>Знак: ${ objPdr.txt.sign_n }</b></div>`;
+						
+						if ( objPdr.txt.mark_n ) 
+							htmlMark = `<div><b>Розмітка: ${ objPdr.txt.mark_n }</b></div>`;
+
+						if ( objPdr.txt.dstu ) {
+							if ( objPdr.txt.dstu.n ) {
+								htmlDstu = `<div><b>ДСТУ: ${ objPdr.txt.dstu.n }</b></div>`;
+
+							}
+						}
+
+					}
+				}
+			}
+
+			if ( objFabula.descr ) 
+				htmlDescr = `<div class="descr">${ objFabula.descr }...</div>`;
+		}
+
+
+		//console.log( 'objKupap: ', objKupap );
+		//console.log( 'objFabula.pdr: ', objFabula.pdr );
+
+
+
+		//console.log( 'objKupap: ', objKupap );
+		//console.log( 'objPdr: ', objPdr );
+		//console.log( 'htmlSign: ', htmlSign );
+		//console.log( 'htmlMark: ', htmlMark );
+		//console.log( 'htmlDescr: ', htmlDescr );
+		//console.log( 'htmlPdrN: ', htmlPdrN );
+
+
+
+
+
+
 		let html = `
 			<div class="img">
-				<img src="img/fabuly/${ objData.img }.jpg" alt="">
+				<img src="img/fabuly/${ objFabula.img }.jpg" alt="">
 			</div>
 
 			<div class="info">
-				<div><b>КУпАП</b>: ст.<b>${ objData.art }</b> ч.<b>${ objData.part }</b></div>
-				<div><b>ПДР</b>: <b>${ objData.pdr }</b></div>
-				${ sign }
-				${ marking }
-				${ descr }
+				<div><b>КУпАП</b>: ст.<b>${ objKupap.a }</b> ч.<b>${ objKupap.p }</b></div>
+				${ htmlPdrN }
+				${ htmlSign }
+				${ htmlMark }
+				${ htmlDstu }
+				${ htmlDescr }
 			</div>
 		`; 
+
 
 		return { html, tagParam };  
 	} 

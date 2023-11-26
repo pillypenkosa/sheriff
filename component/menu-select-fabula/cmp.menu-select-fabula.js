@@ -37,13 +37,21 @@ class ComponentMenuSelectFabula {
 
 
 		let html = fooName; 
+
+
+		html = this.getFabulySelect( 'all' );
+
+
+
+
+/*		
 		if ( objData.typeBlank == 'pdr_postanova' ) 
 			html = this.getFabulySelect( objData.typeBlank, 'all' );
 		
 
 		if ( objData.typeBlank == 'pdr_protokol' ) 
 			html = this.getFabulySelect( objData.typeBlank, 'all' );
-		
+		*/
 
 
 
@@ -78,13 +86,14 @@ class ComponentMenuSelectFabula {
  	static getSelectOptionVal( elem ) {
 		const fooName = this.name + '.getSelectOptionVal()';
 
-		//cns( 'var', 'fooName', fooName ); 
-		//cns( 'var', 'elem.value', elem.value ); 
-		//cns( 'var', 'elem.data.blank', elem.dataset.blank ); 
+		//console.log( 'fooName: ', fooName ); 
+		//console.log( 'elem.value: ', elem.value ); 
+		//console.log( 'elem.data.blank: ', elem.dataset.blank ); 
 
 
 
-		document.querySelector( 'cmp-menu-select-fabula' ).innerHTML = this.getFabulySelect( elem.dataset.blank, elem.value );
+		//document.querySelector( 'cmp-menu-select-fabula' ).innerHTML = this.getFabulySelect( elem.dataset.blank, elem.value );
+		document.querySelector( 'cmp-menu-select-fabula' ).innerHTML = this.getFabulySelect( elem.value );
 
 
 
@@ -99,51 +108,49 @@ class ComponentMenuSelectFabula {
 
 
  	// набір фабул постанов ПДР для меню 
- 	static getFabulySelect( typeBlank, hash ) { 
+ 	//static getFabulySelect( typeBlank, hash ) { 
+ 	static getFabulySelect( hash ) { 
 		const fooName = this.name + '.getFabulySelect()';
  
-		//cns( 'var', 'fooName', fooName ); 
-		//cns( 'var', 'typeBlank', typeBlank ); 
-		//cns( 'var', 'hash', hash ); 
-
-
-		let selectedFabuly = [];
-
-		selectedFabuly = arrListSheriffFabuly.filter( k => {
-			if ( k.hash ) {
-				if ( k.hash[ typeBlank ] ) {
-
-					if ( hash == 'all' ) 
-						return true;
-
-					else if ( k.hash[ hash ] ) 
-						return true;
-				}
-			}
-		});
-
+		//console.log( 'fooName: ', fooName ); 
+		//console.log( 'hash: ', hash ); 
 
 
 
 
 
 		let htmlSelectFabula = ''; 
-		selectedFabuly.forEach( k => {
 
-			htmlSelectFabula += Component( 'Each-Select-Fabula', {
 
-				id 			: k.id 												,
-				img 		: k.img ? k.img : k.id 								,
-				art 		: k.kupap.art 										,
-				part 		: k.kupap.part 										,
-				pdr 		: k.pdr 											,
-				sign 		: k.hash ? ( k.hash.sign ? k.hash.sign : '' ) : ''	,
-				marking 	: k.marking 										,
-				descr 		: k.descr 											,
-				clc 		: `ComponentFabula.insFabula( '${ k.id }' )`		,
-				typeBlank 	: typeBlank											,
 
-			});
+
+		arrListSheriffFabuly.forEach( k => {
+
+
+			if ( hash == 'all' ) {
+
+				//console.log( 'all: ', 555 )
+
+				htmlSelectFabula += Component( 'Each-Select-Fabula', k.id );
+
+
+			} else {
+
+
+				if ( k.hash ) {
+					if ( k.hash[ hash ] ) 
+						htmlSelectFabula += Component( 'Each-Select-Fabula', k.id );
+				} 
+
+
+
+			}
+
+
+
+
+
+
 		});
 
 

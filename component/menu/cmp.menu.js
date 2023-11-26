@@ -15,12 +15,11 @@ class ComponentMenu {
 
 	static arrBtns = [
 
-		{ title: 'Головна' 					, id: 'index' 					, href: '?', },
-		{ title: 'Фабули постанов ПДР' 		, id: 'fabuly_postanov_pdr' 	, href: '?fabuly-postanov-pdr', },
-		//{ title: 'Фабули протоколів ПДР' 	, id: 'fabuly_protokoliv_pdr' 	, href: '?fabuly-protokoliv-pdr', },
-		{ title: 'Права та обов\'язки' 		, id: 'rights' 					, href: '?rights', },
-		{ title: 'Закони' 					, id: 'laws' 					, href: '?laws', },
-		{ title: 'Термінологія' 			, id: 'terminology' 			, href: '?terminology', },
+		{ title: 'Головна' 					, id: 'index' 			, href: '?', },
+		{ title: 'Фабули' 					, id: 'fabuly' 			, href: '?fabuly', },
+		{ title: 'Права та обов\'язки' 		, id: 'rights' 			, href: '?rights', },
+		{ title: 'Закони' 					, id: 'laws' 			, href: '?laws', },
+		{ title: 'Термінологія' 			, id: 'terminology' 	, href: '?terminology', },
 
 
 

@@ -51,7 +51,6 @@ class ComponentFabula {
  
  
 
-
  	// перехыд за посиланням в новому вікні
  	static clcLink( data ) { 
 		const name = this.name + '.clcLink()'; 
@@ -59,13 +58,6 @@ class ComponentFabula {
 		//cns( 'var', 'data', data ); 
 		window.open( data.dataset.href );
 	} 
-
-
-
-
-
-
-
 
 
 
@@ -77,247 +69,389 @@ class ComponentFabula {
  
  
 
-
 	static insFabula( id ) { 
 		const fooName = this.name + '.insFabula()'; 
 
 		//console.log( 'fooName: ', fooName );
 		//console.log( 'id: ', id );
-		//console.log( 'objListSheriffFabuly: ', objListSheriffFabuly );
 
 
-		const objFabula = objListSheriffFabuly[ id ];
-		//console.log( 'objFabula: ', objFabula );
+		if ( objListSheriffFabuly[ id ] ) {
 
-		const objPdr = objFabula.pdr ? objListSheriffPdr[ objFabula.pdr ] : {};
-
-		//const kupapID = objFabula.kupap.art + '_' + objFabula.kupap.part;
-		const kupapID = 'kupap_' + objFabula.kupap.art + '_' + objFabula.kupap.part;
-		//console.log( 'kupapID: ', kupapID );
+			let objFabula = objListSheriffFabuly[ id ];
 
 
-		//console.log( 'kupapID: ', kupapID );
-		
-		const objKupap = objListSheriffKupap[ kupapID ];
-		//console.log( 'objKupap: ', objKupap );
-
-		//console.log( 'objKupap: ', objKupap );
-
-
-		const htmlPartKupap = this.wrapKupap( objKupap );
-		//console.log( 'htmlPartKupap: ', htmlPartKupap );
+			// порушення конкретного закону, наказу чи правил
+			let htmlViolationLaw = ''; 	
 
 
 
-
-		//console.log( 'objPdr: ', objPdr );
-		const htmlItemPdr = this.wrapItemPdr( objPdr );
-		//console.log( 'htmlItemPdr: ', htmlItemPdr );
-
-
-
-
-
-
-		let txtSignNumFull	 	= '';
-		let htmlSignNumBorder 	= '';
-		let htmlInfoSign 		= '';
-		let htmlInfoDstu 		= '';
-		let txtSignNameFull	 	= '';
-		let htmlFabula 			= '';
-
-
-
-		// розглядають справу
-		let htmlOrgan = '';
-		if ( objKupap.organ ) 
-			 htmlOrgan = `<div class="organ">Розглядають справу: <b>${ objListOrgan[ objKupap.organ ] }</b></div>`;
-
-		//console.log( 'htmlOrgan: ', htmlOrgan );
-
-		//return;
-
-
-		// повторність
-		let htmlRepeat 		= '';
-		let objKupapRepeat 	= {};
-
-
-		//console.log( 'objKupap: ', objKupap )
-
-
-
-		if ( objKupap.repeat ) {
-		
-			objKupapRepeat = objListSheriffKupap[ objKupap.repeat ];
-
-			//console.log( 'objKupapRepeat: ', objKupapRepeat )
-
-			let htmlRepeatMinMax = this.wrapMinMax( objKupapRepeat ) + ' мінімумів';
-			let htmlRepeatPenalty = this.wrapPenalty( objKupapRepeat ) + ' грн';
-
-			//console.log( 'htmlRepeatMinMax: ', htmlRepeatMinMax );
-			//console.log( 'htmlRepeatPenalty: ', htmlRepeatPenalty );
-
-
-			htmlRepeat = `<div class="reapeat">
-				<div class="repeat-warning">Повторність:</div>
-				<div>КУпАП: ${ this.wrapKupap( objKupapRepeat ) }</div>
-				<div>${ htmlRepeatMinMax }</div>
-				<div>${ htmlRepeatPenalty }</div>
-				<div>Розглядають: <b>${ objListOrgan[ objKupapRepeat.organ ] }</b></div>
-			</div>`;
-		}
-
-
-
-		let txtPerson 		= 'водій';
-		let txtAction 		= ', керуючи ТЗ «Ferrari 248 F1» д.н.з. АХ 1234 АВ'; 		// залишити ПРОБІЛ
-		let htmlEvacuation 	= '';
-		let objSign 		= '';
-
-
-
-		if ( objFabula.hash ) {
-
-			if ( objFabula.hash.pedestrian ) {
-				txtPerson = 'пішохід';
-				txtAction = ' ';
+			let objKupap;
+			if ( objFabula.kupap ) {
+				if ( objListSheriffKupap[ objFabula.kupap ] ) 
+					objKupap = objListSheriffKupap[ objFabula.kupap ];
 			}
-
-			if ( objFabula.hash.sign ) {
-
-				//console.log( 'objFabula.hash.sign: ', objFabula.hash.sign );
-				objSign = objListSheriffPdr[ 'sign_' + objFabula.hash.sign ];
+			//console.log( 'objKupap: ', objKupap ); 
 
 
-				//console.log( 'objListSheriffPdr: ', objListSheriffPdr );
-				//console.log( 'objSign: ', objSign );
-				//console.log( 'txtSignNumFull', txtSignNumFull );
 
-				htmlSignNumBorder = this.wrapSign( objSign );
+			let objPdr;
+			if ( objFabula.pdr ) {
+				if ( objListSheriffPdr[ objFabula.pdr ] )
+					objPdr = objListSheriffPdr[ objFabula.pdr ];
+			}
+			//console.log( 'objPdr: ', objPdr ); 
 
-				htmlInfoSign = 'Знак: ' + htmlSignNumBorder;
+
+
+
+
+			let htmlInfoMinMax = '';
+			let htmlInfoPenalty = '';
+			let htmlKupapN = '';
+			let htmlKupapInfo = '';
+			let htmlViolationKupap = '';
+
+
+			if ( objFabula.kupap ) {
+				if ( objListSheriffKupap[ objFabula.kupap ] ) {
+
+					htmlInfoMinMax 		= `<div>${ this.wrapMinMax( objKupap ) } мінімумів</div>`;
+					htmlInfoPenalty 	= `<div>${ this.wrapPenalty( objKupap ) } грн</div>`;
+					htmlKupapN 			= this.wrapKupap( objKupap );
+					htmlKupapInfo 		= `<div>КУпАП:${ htmlKupapN }</div>`;
+					htmlViolationKupap = `<div>чим скоїв адміністративне правопорушення, передбачене ст.${ htmlKupapN } КУпАП.</div>`;
+				}
 			}
 
 
 
-			if ( objFabula.hash.dstu ) 
-				//htmlInfoDstu += 'ДСТУ ' + ( objFabula.hash.dstu.n ? objFabula.hash.dstu.n : '' ) + ' ' + ( objFabula.hash.dstu.item ? 'п.' + this.wrapDstu( 'DSTU_3649.2010.pdf', objFabula.hash.dstu.item ) : '' );
-				htmlInfoDstu += 'ДСТУ: ' + ( objFabula.hash.dstu.n ? this.wrapDstu( objFabula.hash.dstu.n ) : '' ) + ' ' + ( objFabula.hash.dstu.item ? 'п.' + objFabula.hash.dstu.item  : '' );
+
+
+			let htmlIntroFabula = '';
+			if ( objFabula.txt ) {
+				if ( objFabula.txt.wrap ) {
+
+					objFabula.txt.wrap.forEach( k => {
+
+						if ( k == '$' ) {
+							if ( objFabula.txt.fabula ) {
+
+								let objPdr2 = {};
+								if ( objFabula.pdr ) 
+									objPdr2 = objListSheriffPdr[ objFabula.pdr ];
+								
+								htmlIntroFabula += `<div class="fabula-action">${ objFabula.txt.fabula.replace( /{sign}/g, this.wrapSign( objPdr2, true )) },</div>`;  ;
+							}
+						}
+						else if ( k == 'outPdr' ) {
+							htmlIntroFabula += objSheriffdictionary[ 'outPdr' ].replace( /{pdr}/g, this.wrapItemPdr( objPdr ));
+
+						}
+						else if ( k == 'outDstu' ) {
+							htmlIntroFabula += objSheriffdictionary[ 'outDstu' ].replace( /{dstu}/g, `(ДСТУ ${ this.wrapDstu( objPdr, true ) })` );
+
+						} else 
+							htmlIntroFabula += `${ objSheriffdictionary[ k ] ? objSheriffdictionary[ k ] : '' } `;
+					});
+				}
+			}
+
+
+
+			let htmlPdrN 		= '';
+
+
+
+
+
+
+
+
+
+
+
+
+			let txtSignNumFull	 	= '';
+			let txtSignNameFull	 	= '';
+			let htmlFabula 			= '';
+
+			let htmlItemMarking 	= '';
+			let htmlMarkingFabula 	= '';
+
+
+
+
+
+			// повторність
+			let htmlRepeat 		= '';
+			let htmlRepeat2 	= '';
+			let objKupapRepeat 	= {};
+			let objKupapRepeat2 = {};
+
+			//console.log( 'objKupap: ', objKupap )
+
+
+			let htmlEvacuation 	= '';
+			let objSign 		= '';
+
+
+
+
+			let htmlSignInfo 	= '';
+
+			let htmlMarkN 		= '';
+			let htmlMarkFabula 	= '';
+			let htmlDstu 		= '';
+			let htmlDstuFull 	= '';
+			let htmlPdrInfo 	= '';
+
+
+
+			// ПДР --------------------------------------------------------------------------------------------------------------------
+			if ( objFabula.pdr ) {
+				if ( objListSheriffPdr[ objFabula.pdr ] ) {
+
+					objPdr 			= objListSheriffPdr[ objFabula.pdr ];
+					htmlPdrN 		= this.wrapItemPdr( objPdr );
+					htmlPdrInfo 	= `<div>ПДР: ${ htmlPdrN }</div>`;
+
+					if ( objPdr.txt ) {
+						if ( objPdr.txt.sign_n ) 
+							htmlSignInfo = `<div>Знак: ${ this.wrapSign( objPdr ) }</div>`;
+
+						if ( objPdr.txt.mark_n ) {
+							htmlMarkN = `<div>Розмітка: ${ this.wrapMarking( objPdr ) }</div>`;
+							htmlMarkFabula = ` (розмітка: ${ this.wrapMarking( objPdr ) })`;
+
+						}
+
+						if ( objPdr.txt.dstu ) {
+							htmlDstu = `<div>ДСТУ: ${ this.wrapDstu( objPdr ) }</div>`;
+							htmlDstuFull = ` ( ДСТУ: ${ this.wrapDstu( objPdr, true ) } )`;
+						}
+					}
+
+					htmlViolationLaw = `чим порушив п.${ htmlPdrN } ПДР${ htmlDstuFull }${ htmlMarkFabula },`;
+				}
+			}
+
+
+
+
+
+			// Тютюн -------------------------------------------------------------------------------------------------------------------
+			let objSmoking 			= {};
+			let htmlSmokingN 		= '';
+			let htmlSmokingFabula 	= '';
+
+			if ( objFabula.smoking ) {
+				if ( objListSheriffSmoking[ objFabula.smoking ] ) {
+
+					objSmoking = objListSheriffSmoking[ objFabula.smoking ];
+
+					htmlSmokingN = this.wrapSmoking( objSmoking );
+					htmlSmokingFabula = `<div>ЗУ: ст.${ htmlSmokingN }</div>`;
+
+					htmlViolationLaw = `чим порушив ст.${ htmlSmokingN } ЗУ \"Про заходи щодо попередження та зменшення вживання тютюнових виробів і їх шкідливого впливу на здоров'я населення\"`;
+				}
+			}
+
+
+
+
+
+
+			// Бухло -------------------------------------------------------------------------------------------------------------------
+			let objAlco 		= {};
+			let htmlAlcoN 		= '';
+			let htmlAlcoFabula 	= '';
+
+			if ( objFabula.alco ) {
+				if ( objListSheriffAlco[ objFabula.alco ] ) {
+
+					objAlco = objListSheriffAlco[ objFabula.alco ];
+
+					htmlAlcoN = this.wrapAlco( objAlco );
+					htmlAlcoFabula = `<div>ЗУ: ст.${ htmlAlcoN }</div>`;
+
+					htmlViolationLaw = `чим порушив ст.${ htmlAlcoN } ЗУ \"Про державне регулювання виробництва і обігу спирту етилового, спиртових дистилятів, алкогольних напоїв, тютюнових виробів, рідин, що використовуються в електронних сигаретах, та пального\"`;
+				}
+			}
+
+
+
+
+
+			// залізничний транспорт ---------------------------------------------------------------------------------------------------
+			let objRailroad = {};
+			let htmlRailroadInfo = '';
 			
+			if ( objFabula.railroad ) {
+				objRailroad = objListSheriffRailroad[ objFabula.railroad ];
+
+				let htmlRrN = this.wrapRailroad( objRailroad );
+
+				htmlRailroadInfo = `<div>ЗУ: п.${ htmlRrN }</div>`;
+				htmlViolationLaw = `<div>чим порушив п.${ htmlRrN } \"Правил безпеки громадян на залізничному транспорті України\",</div>`;
+			}
 
 
-			if ( objFabula.hash.evacuation ) 
-				htmlEvacuation = `<div class="evacuation">---<br/>Якщо суттєво перешкоджає іншим учасникам дорожнього руху - передбачена ЕВАКУАЦІЯ! ${ this.wrapKupap( objListSheriffKupap[ 'kupap_265_4' ] ) }</div>`;
-		
-
-		}
 
 
-		// фабула, якщо є
-		if ( objFabula.fabula ) {
-			htmlFabula = objFabula.fabula.replace( /{sign}/g, this.wrapSign( objSign, true ) );
+
+			// розглядають справу ------------------------------------------------------------------------------------------------
+			let htmlOrgan = '';
+			if ( objKupap.organ ) 
+				 htmlOrgan = `<div class="organ">Розглядають справу: <b>${ objListOrgan[ objKupap.organ ] }</b></div>`;
+
+
+
+
+
+			// повторність --------------------------------------------------------------------------------------------------------
+			if ( objKupap.repeat ) {
+			
+				objKupapRepeat = objListSheriffKupap[ objKupap.repeat ];
+
+
+				let htmlRepeatMinMax = this.wrapMinMax( objKupapRepeat ) + ' мінімумів';
+				let htmlRepeatPenalty = this.wrapPenalty( objKupapRepeat ) + ' грн';
+
+				if ( objKupapRepeat.repeat ) {
+
+					objKupapRepeat2 = objListSheriffKupap[ objKupapRepeat.repeat ];
+
+					let htmlRepeatMinMax2 = this.wrapMinMax( objKupapRepeat2 ) + ' мінімумів';
+					let htmlRepeatPenalty2 = this.wrapPenalty( objKupapRepeat2 ) + ' грн';
+
+
+					htmlRepeat2 = `
+						<br/>
+						${ this.getRepeatKupap( objKupapRepeat2 ) }
+					`;
+				}
+
+				htmlRepeat = `
+					${ this.getRepeatKupap( objKupapRepeat ) }
+					${ htmlRepeat2 }
+				`;
+
+
+			}
+
+
+
+
+			// дата останього редагування ----------------------------------------------------------------------------------------------
+			let htmlEdited = objFabula.edit ? `<div class="edited">Оновлено: ${ objFabula.edit }</div>` : '';
+
+
+
+
+			let html = `
+				<div class="modal">
+					<div class="back-close back" onclick="ComponentFabula.close()">
+						<img src="img/pic/arrow-left.png" alt="close">
+					</div>
+					<div class="back-close close" onclick="ComponentFabula.close()">
+						<img src="img/pic/cross.png" alt="close">
+					</div>
+
+					<div class="fabula-title">Фабула</div>
+					<div class="fabula-body">
+						<div class="vstup">
+							<div class="img">
+								<img src="img/fabuly/${ objFabula.img }.jpg" alt="">
+							</div>
+							<div class="info">
+								${ htmlKupapInfo }
+								${ htmlPdrInfo }
+								${ htmlSignInfo }
+								${ htmlMarkN }
+								${ htmlDstu }
+								${ htmlSmokingFabula }
+								${ htmlAlcoFabula }
+								${ htmlRailroadInfo }
+								${ htmlInfoMinMax }
+								${ htmlInfoPenalty }
+							</div>
+						</div>
+						
+						<div class="fabula-txt">
+							<div>${ htmlIntroFabula }</div>	
+
+							${ htmlViolationLaw }
+							${ htmlViolationKupap }
+
+							${ htmlEvacuation }
+							<div>---</div>
+							${ htmlOrgan }
+						</div>
+						${ htmlRepeat }
+						${ htmlEdited }
+					</div>
+				</div>
+			`;
+
+
+			document.querySelector( 'cmp-fabula').innerHTML = html;
 
 		} else 
-			htmlFabula = '<span class="item-border no-fabula">а ось тут могла бути Ваша реклама (((</span>';
-
-
-		//let htmlMarkingFabula 	= objFabula.marking ? `(розмітка <span class="item-border item-pdr">${ objFabula.marking }</span>)` : '';
-		
-
-
-		let htmlItemMarking = this.wrapMarking( objPdr );
-
-		let htmlMarkingFabula = '';
-
-		let htmlMarkingInfo = '';
-		if ( objFabula.marking ) {
-			//htmlMarkingInfo  	= `Розмітка: <span class="item-border marking pointer">${ objFabula.marking }</span>`;
-			htmlMarkingInfo  	= 'Розмітка: ' + htmlItemMarking;
-			//console.log ( 'fooName', fooName ); 
-			//console.log ( 'objPdr', objPdr );
-
-			htmlMarkingFabula 	= ` (розмітка ${ htmlItemMarking })`;
-		}
-
-
-		let edited = objFabula.edit ? `<div class="edited">Оновлено: ${ objFabula.edit.d }.${ objFabula.edit.m }.${ objFabula.edit.y }</div>` : '';
-
-
-		//console.log( 'objKupap: ', objKupap );
-
-
-		const htmlInfoMinMax = this.wrapMinMax( objKupap ) + ' мінімумів';
-		const htmlInfoPenalty = this.wrapPenalty( objKupap ) + ' грн';
-
-		let html = `
-			<div class="modal">
-				<div class="back-close back" onclick="ComponentFabula.close()">
-					<img src="img/pic/arrow-left.png" alt="close">
-				</div>
-				<div class="back-close close" onclick="ComponentFabula.close()">
-					<img src="img/pic/cross.png" alt="close">
-				</div>
-
-				<div class="fabula-title">Фабула</div>
-				<div class="fabula-body">
-					<div class="vstup">
-						<div class="img">
-							<img src="img/fabuly/${ objFabula.img ? objFabula.img : objFabula.id }.jpg" alt="">
-						</div>
-						<div class="info">
-							<div>ПДР: ${ htmlItemPdr }</div>
-							<div>${ htmlInfoSign }</div>
-							<div>${ htmlMarkingInfo }</div>
-							<div>${ htmlInfoDstu }</div>
-							<div>КУпАП: ${ htmlPartKupap }</div>
-							<div>${ htmlInfoMinMax }</div>
-							<div>${ htmlInfoPenalty }</div>
-						</div>
-					</div>
-					
-					<div class="fabula-txt">
-						<div>1.10.2023 р. о 12:00 в м.Харків, вул.Сумська, біля буд.38а ${ txtPerson } Шумахер Михайло Побатькович${ txtAction }</div>
-						<div class="fabula-action">${ htmlFabula }</div>						
-						<div>, чим порушив п.${ htmlItemPdr } ПДР${ htmlMarkingFabula }${ htmlInfoDstu ? ' ( ' + htmlInfoDstu + ' )' : '' }, чим скоїв адміністративне правопорушення, передбачене ${ htmlPartKupap } КУпАП.</div>
-						${ htmlEvacuation }
-						<div>---</div>
-						${ htmlOrgan }
-					</div>
-					${ htmlRepeat }
-					${ edited }
-				</div>
-			</div>
-		`;
-
-		document.querySelector( 'cmp-fabula').innerHTML = html;
+			console.log( 'Дивна помилка...', );
 	} 
  
- 
+
+
+
+	static getRepeatKupap( obj ) {
+		const fooName = this.name + '.getRepeatKupap()'; 
+
+		//console.log ( 'fooName: ', fooName );
+		//console.log ( 'obj: ', obj );
+
+
+		return `
+			<div class="reapeat">
+				<div class="repeat-warning">Повторність:</div>
+				<div>КУпАП: ${ this.wrapKupap( obj ) }</div>
+				<div>${ this.wrapMinMax( obj ) } мінімумів</div>
+				<div>${ this.wrapPenalty( obj ) } грн</div>
+				<div>Розглядають: <b>${ objListOrgan[ obj.organ ] }</b></div>
+			</div>
+		`;
+	}
+
+
+
+
+
 
 	// фарбувати текст статті КУпАП
 	static wrapKupap( obj ) { 	// signID - txt
-		const fooName = this.name + '.paintKupap()'; 
+		const fooName = this.name + '.wrapKupap()'; 
 
 		//console.log ( 'fooName: ', fooName );
 		//console.log ( 'obj: ', obj );
 		//console.trace();
 
-		let htmlPart = obj.part ? `ч.<b>${ obj.part }</b> ` : '';
-		
-		//let link = obj.href ? `onclick="window.open( '${ obj.href }')"` : '';
+		let htmlPart = '';
 		let link = '';
 		let symbol = '';
 
-		if ( obj.href ) {
-			link = `onclick="window.open( '${ obj.href }' )"`;
-			symbol = symbolLink;
+		if ( obj.a ) {
+			htmlPart += `ст.<b>${ obj.a }</b>`;
+
+			if ( obj.a ) 
+				htmlPart += ` ч.<b>${ obj.p }</b>`;
+			
+			if ( obj.href ) {
+				link = `onclick="window.open( '${ obj.href }' )"`;
+				symbol = symbolLink;
+			}
 		}
 
-
-
-		return `<span class="item-border part-kupap pointer" ${ link }>${ htmlPart }ст.<b>${ obj.article }</b> ${ symbol }</span>`;
+		return `<span class="item-border part-kupap pointer" ${ link }>${ htmlPart }</span>${ symbol }`;
 	}
 
 
@@ -327,8 +461,8 @@ class ComponentFabula {
 	static wrapMinMax( obj ) { 			// signID - txt
 		const fooName = this.name + '.wrapMinMax()'; 
 
-		//console.log ( 'fooName', fooName );
-		//console.log ( 'obj', obj );
+		//console.log ( 'fooName: ', fooName );
+		//console.log ( 'obj: ', obj );
 
 		let html = '';
 		if ( obj.min ) {
@@ -374,18 +508,23 @@ class ComponentFabula {
 
 		let html = '';
 
-		if ( obj.id ) {
-			//let link = obj.href ? `onclick="window.open( '${ obj.href }' )"` : '';
-			let link = '';
-			let symbol = '';
+		if ( obj.txt ) {
+			if ( obj.txt.pdr_n ) {
 
-			if ( obj.href ) {
-				link = `onclick="window.open( '${ obj.href }' )"`;
-				symbol = symbolLink;
+				let link = '';
+				let symbol = '';
+
+				if ( obj.href ) {
+
+					if ( obj.href.pdr ) {
+
+						link = `onclick="window.open( '${ obj.href.pdr }' )"`;
+						symbol = symbolLink;
+					}
+				}
+
+				html = `<span class="item-border item-pdr pointer" ${ link }>${ obj.txt.pdr_n }</span>${ symbol }`;
 			}
-
-			//console.log( 'link: ', link );
-			html = `<span class="item-border item-pdr pointer" ${ link }>${ obj.id } ${ symbol }</span>`;
 		}
 
 		return html;
@@ -403,76 +542,65 @@ class ComponentFabula {
 
 
 		let txt = '';
-		if ( obj.sign ) {
-			txt += obj.sign;
-
-			if ( obj.part ) {
-				txt += '.' + obj.part;
-
-				if ( obj.paragraph ) {
-					txt += '.' + obj.paragraph;
-
-					if ( obj.item ) 
-						txt += '.' + obj.item;
-				}
-			}
-
-			if ( tf ) 
-				txt += ` «${ obj.title }»`;
-		}
-
-		//console.log( 'txt: ', txt );
-
 		let link = '';
 		let symbol = '';
-		
-		if ( obj.href_sign ) {
-			link += `onclick="window.open( '${ obj.href_sign }' )"`;
-			symbol = symbolLink;
+
+
+
+		if ( obj.txt ) {
+
+			if ( obj.txt.sign_n ) 
+				txt = obj.txt.sign_n;
+
+			if ( tf && obj.txt.sign_title ) 
+				txt += ` «${ obj.txt.sign_title }»`;
 		}
 
+		if ( obj.href ) {
+			if ( obj.href.sign ) {
 
-		return `<span class="item-border sign pointer" ${ link }>${ txt } ${ symbol }</span>`;
+				link = `onclick="window.open( '${ obj.href.sign }' )"`;
+				symbol = symbolLink;
+			}
+		}
+	
+		return `<span class="item-border sign pointer" ${ link }>${ txt }</span>${ symbol }`;
 	}
 
 
 
 
 
-
-
-
-
-
-
-
 	// фарбувати текст знаку
-	static wrapMarking( obj ) { 	// signID - txt
+	static wrapMarking( obj, tf = false ) { 	// signID - txt
 		const fooName = this.name + '.wrapMarking()'; 
 		//console.log( 'fooName: ', fooName );
+		//console.log( 'obj: ', obj );
 
 
 		let htmlItem = '';
-		if ( obj.part ) {
-
-			htmlItem += obj.part;
-
-			if ( obj.paragraph ) {
-				htmlItem += '.' + obj.paragraph
-			}
-		}
-
-		//let link = obj.descrimg ? `onclick="window.open( '${ obj.descrimg }' )"` : '';
 		let link = '';
 		let symbol = '';
 
-		if ( obj.descrimg ) {
-			link = `onclick="window.open( '${ obj.descrimg }' )"`;
-			symbol = symbolLink;
+		if ( obj.txt ) {
+			if ( obj.txt.mark_n ) {
+				htmlItem += obj.txt.mark_n;
+
+				if ( obj.href ) {
+					if ( obj.href.mark ) {
+						link = `onclick="window.open( '${ obj.href.mark}' )"`;
+						symbol = symbolLink;
+					}
+				}
+			}
+
+			if ( tf ) {
+				if ( obj.txt.mark_title ) 
+					htmlItem += `«${ obj.txt.mark_title }»`;
+			}
 		}
 
-
-		return `<span class="item-border marking pointer" ${ link }>${ htmlItem } ${ symbol }</span>`;
+		return `<span class="item-border marking pointer" ${ link }>${ htmlItem }</span>${ symbol }`;
 	}
 
 
@@ -480,21 +608,152 @@ class ComponentFabula {
 
 
 	// фарбувати пункт ДСТУ
-	static wrapDstu( txt ) { 	// 
+	static wrapDstu( obj = {}, tf = false ) { 	// 
 		const fooName = this.name + '.wrapDstu()'; 
 		//console.log( 'fooName: ', fooName );
+		//console.log( 'obj: ', obj );
 
 
-		//alert( doc );
-
+		let txt = '';
 		let link = '';
-		if ( txt == '3649:2010' ) 
-			link += 'https://patrul.in.ua/pdf/dstu-3649.pdf';
+		let symbol = '';
 
+		if ( obj.txt ) {
+			if ( obj.txt.dstu ) {
+				if ( obj.txt.dstu.n ) 
+					txt += obj.txt.dstu.n;
 
-		//return `<span class="item-border marking pointer" onclick="window.open( 'doc/${ doc }' )">${ txt }</span>`;
-		return `<span class="item-border marking pointer" onclick="window.open( '${ link }' )">${ txt } ${ symbolLink }</span>`;
+				if ( tf ) {
+					if ( obj.txt.dstu.item ) 
+						txt += ` п.${ obj.txt.dstu.item }`;
+				}
+			}
+		}
+
+		if ( obj.href ) {
+			if ( obj.href.dstu ) {
+				link = `onclick="window.open( '${ obj.href.dstu }' )"`;
+				symbol = symbolLink;
+			}
+		}
+
+		return `<span class="item-border marking pointer" ${ link }>${ txt }</span>${ symbol }`;
 	}
+
+
+
+
+
+
+	// фарбувати пункт ДСТУ
+	static wrapRailroad( obj = {}, tf = false ) { 	// 
+
+		const fooName = this.name + '.wrapRailroad()'; 
+		//console.log( 'fooName: ', fooName );
+		//console.log( 'obj: ', obj );
+
+
+
+		let txt = '';
+		let link = '';
+		let symbol = '';
+
+		if ( obj.txt ) {
+			if ( obj.txt.n )
+				txt += obj.txt.n;
+
+			if ( tf ) {
+				if ( obj.txt.title ) 
+					txt += ` п.${ obj.txt.title }`;
+			}
+		}
+
+		if ( obj.href ) {
+			link = `onclick="window.open( '${ obj.href }' )"`;
+			symbol = symbolLink;
+		}
+
+		return `<span class="item-border marking pointer" ${ link }>${ txt }</span>${ symbol }`;
+	}
+
+
+
+
+
+
+
+
+
+	// фарбувати пункт ЗУ про тютюн
+	static wrapSmoking( obj = {}, tf = false ) { 	// 
+
+		const fooName = this.name + '.wrapSmoking()'; 
+		//console.log( 'fooName: ', fooName );
+		//console.log( 'obj: ', obj );
+
+
+
+		let txt = '';
+		let link = '';
+		let symbol = '';
+
+		if ( obj.a ) {
+			txt += obj.a;
+		}
+
+
+		if ( obj.href ) {
+			link = `onclick="window.open( '${ obj.href }' )"`;
+			symbol = symbolLink;
+		}
+
+		return `<span class="item-border marking pointer" ${ link }>${ txt }</span>${ symbol }`;
+	}
+
+
+
+
+
+
+
+
+	// фарбувати пункт ЗУ про бухло
+	static wrapAlco( obj = {}, tf = false ) { 	// 
+
+		const fooName = this.name + '.wrapAlco()'; 
+		//console.log( 'fooName: ', fooName );
+		//console.log( 'obj: ', obj );
+
+
+
+		let txt = '';
+		let link = '';
+		let symbol = '';
+
+		if ( obj.a ) {
+			txt += obj.a;
+		}
+
+
+		if ( obj.href ) {
+			link = `onclick="window.open( '${ obj.href }' )"`;
+			symbol = symbolLink;
+		}
+
+
+		return `<span class="item-border marking pointer" ${ link }>${ txt }</span>${ symbol }`;
+	}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -505,13 +764,9 @@ class ComponentFabula {
  
  
 } 
- 
- 
- 	
- 
- 
- 
- 
- 	
- 
- 
+
+
+
+
+
+

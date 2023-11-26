@@ -45,8 +45,8 @@ class ComponentFabulaHead {
 		}; 
  
  
-		//cns( 'var', 'fooName', fooName ); 
-		//cns( 'var', 'objData', objData );
+		//console.log( 'fooName: ', fooName ); 
+		//console.log( 'objData: ', objData );
 
 
 
@@ -60,7 +60,7 @@ class ComponentFabulaHead {
 			//if ( k.blank == 'pdr_postanova' ) 
 			if ( k.hash ) {
 
-				if ( k.hash[ objData.typeBlank ] ) 
+				//if ( k.hash[ objData.typeBlank ] ) 
 					htmlOptionPdrType += `<option value="${ k.id }">${ k.title }</option>`;
 
 			}
@@ -72,6 +72,7 @@ class ComponentFabulaHead {
 		});
 
 
+		//console.log( 'htmlOptionPdrType: ', htmlOptionPdrType );
 
 
 
@@ -85,21 +86,23 @@ class ComponentFabulaHead {
 
 
 */
-
+/*
 		let htmlFabulaHeadTitle = '';
 		if ( objData.typeBlank ) {
 
 			if ( this.fabulaHeadTitle[ objData.typeBlank ] ) 
 				htmlFabulaHeadTitle = this.fabulaHeadTitle[ objData.typeBlank ];
 		}
+*/
 
 
 
 
+		//<select class="select-offense-type" data-blank="${ objData.typeBlank }" onchange="ComponentMenuSelectFabula.getSelectOptionVal( this )">${ htmlOptionPdrType }</select>
 
-
-		let html = `<div class="fabula-title">Фабули ${ htmlFabulaHeadTitle }</div>
-			<select class="select-offense-type" data-blank="${ objData.typeBlank }" onchange="ComponentMenuSelectFabula.getSelectOptionVal( this )">${ htmlOptionPdrType }</select>
+		//let html = `<div class="fabula-title">Фабули ${ htmlFabulaHeadTitle }</div>
+		let html = `<div class="fabula-title">Фабули</div>
+			<select class="select-offense-type" onchange="ComponentMenuSelectFabula.getSelectOptionVal( this )">${ htmlOptionPdrType }</select>
 		`; 
 
 

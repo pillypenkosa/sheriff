@@ -25,11 +25,11 @@ const dependences = [
 	{ arr: 'sheriff.kupap' 			, }, 	
 	{ arr: 'sheriff.kku' 			, }, 	
 	{ arr: 'sheriff.ku' 			, }, 	
+	{ arr: 'sheriff.railroad' 		, }, 
 	{ arr: 'sheriff.pdr' 			, },
 	{ arr: 'sheriff.smoking' 		, }, 
 	
 	{ arr: 'sheriff.fabuly' 		, }, 
-
 
 
 
@@ -70,13 +70,12 @@ const dependences = [
 
 	// компоненти-контенти // win-сторiнки ----------------------------------------------------------------------------------------
 	
-	{ cmp: 'Win-Index' 					, regexp: /^index$/ 					, }, 	// regexp - url-маршрут (route) в адресному рядку
-	{ cmp: 'Win-Fabuly-Postanov-Pdr' 	, regexp: /^fabuly-postanov-pdr$/ 		, },
-	{ cmp: 'Win-Fabuly-Protokoliv-Pdr' 	, regexp: /^fabuly-protokoliv-pdr$/ 	, },
-	{ cmp: 'Win-Kupap' 					, regexp: /^kupap$/ 					, },
-	{ cmp: 'Win-Laws' 					, regexp: /^laws$/ 						, },
-	{ cmp: 'Win-Rights' 				, regexp: /^rights$/ 					, },
-	{ cmp: 'Win-Terminology' 			, regexp: /^terminology$/ 				, },
+	{ cmp: 'Win-Index' 				, regexp: /^index$/ 			, }, 	// regexp - url-маршрут (route) в адресному рядку
+	{ cmp: 'Win-Fabuly' 			, regexp: /^fabuly$/ 			, },
+	{ cmp: 'Win-Kupap' 				, regexp: /^kupap$/ 			, },
+	{ cmp: 'Win-Laws' 				, regexp: /^laws$/ 				, },
+	{ cmp: 'Win-Rights' 			, regexp: /^rights$/ 			, },
+	{ cmp: 'Win-Terminology' 		, regexp: /^terminology$/ 		, },
 
 
 
