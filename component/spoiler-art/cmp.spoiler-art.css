@@ -3,39 +3,41 @@
 
 cmp-spoiler-art {
 	display: block;
-	margin: 10px 0 0 0;
 } 
-	cmp-spoiler-art .law-name {
-		margin: 20px 0;
-		font-weight: bold;
-		text-align: center;
-		color: #ff0;
+	cmp-spoiler-art .art-each {
+		margin: 0 0 5px 0;
 	}
-
-
-
-	cmp-spoiler-art .each-art {
-		margin: 2px;
-		border: 1px solid #ccc;
-		border-radius: 10px;
-	}
-		cmp-spoiler-art .each-art .art-title {
-			padding: 5px; 
-			font-weight: bold;
+		cmp-spoiler-art .art-each .title {
+			margin: 0 0 10px 0;
+			padding: 5px 10px;
+			background: var( --bg-b );
 		}
-		cmp-spoiler-art .each-art .each-part {
-			margin: 10px 0 20px 0;
-		}
-			cmp-spoiler-art .each-art .each-part .part-act {
-				margin: 10px 0;
-			}
-			cmp-spoiler-art .each-art .each-part .part-sanction {
-				margin: 0 0 0 20px ;
+			cmp-spoiler-art .art-each .title .pm {
+				color: #ff0;
 			}
 
-		cmp-spoiler-art .each-art .body {
+		cmp-spoiler-art .art-each .descr {
+			margin: 0 0 0 20px;
 			display: none;
 		}
+
+
+
+
+			cmp-spoiler-art .art-each .descr .href {
+				margin: 10px 0 30px 0;
+			}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

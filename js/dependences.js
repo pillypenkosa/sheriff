@@ -74,7 +74,6 @@ const dependences = [
 	{ cmp: 'Win-Fabuly' 			, regexp: /^fabuly$/ 			, },
 	{ cmp: 'Win-Kupap' 				, regexp: /^kupap$/ 			, },
 	{ cmp: 'Win-Laws' 				, regexp: /^laws$/ 				, },
-	{ cmp: 'Win-Rights' 			, regexp: /^rights$/ 			, },
 	{ cmp: 'Win-Terminology' 		, regexp: /^terminology$/ 		, },
 
 

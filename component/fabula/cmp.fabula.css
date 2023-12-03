@@ -33,7 +33,7 @@ cmp-fabula .modal {
 
 	cmp-fabula .modal .fabula-body .fabula-txt {
 		/*font-size: 120%;*/
-		margin: 0 0 30px 0;
+		margin: 0 0 5px 0;
 	}
 		cmp-fabula .modal .fabula-body .fabula-txt .fabula-action {
 			margin: 5px 0;
@@ -51,6 +51,10 @@ cmp-fabula .modal {
 		}
 
 
+
+
+
+/*
 	cmp-fabula .modal .fabula-body .reapeat div {
 		margin: 0 0 7px 0;
 	}
@@ -60,47 +64,69 @@ cmp-fabula .modal {
 		padding: 0 5px;	
 		font-weight: bold;
 		font-style: oblique;
-
-		/*background-color: #f00;*/
 		color: #f00;
 	}
 
+*/
+
+	cmp-fabula .modal .reapeat {
+		margin: 20px 0 0 0;
+	}
+		cmp-fabula .modal .reapeat div {
+			margin: 0 0 7px 0;
+		}
+
+		cmp-fabula .modal .reapeat .repeat-warning {
+			padding: 0 5px;	
+			font-weight: bold;
+			font-style: oblique;
+			color: #f00;
+		}
 
 
 
 
 
 
-	cmp-fabula .modal .fabula-body .item-border {
+
+
+
+
+
+
+
+
+
+	cmp-fabula .modal .item-border {
 			padding: 0 10px;
 			border-radius: 5px;
 			font-weight: bold;
 			color: #fff;
 	}
 
-	cmp-fabula .modal .fabula-body .item-pdr {
+	cmp-fabula .modal .item-pdr {
 		background-color: #009;
 	}
-	cmp-fabula .modal .fabula-body .sign {
+	cmp-fabula .modal .sign {
 		background-color: #909;
 	}
-	cmp-fabula .modal .fabula-body .marking {
+	cmp-fabula .modal .marking {
 		background-color: #333;
 	}
 
 
 
 
-	cmp-fabula .modal .fabula-body .part-kupap {
+	cmp-fabula .modal .part-kupap {
 		background-color: #090;
 	}
 
-	cmp-fabula .modal .fabula-body .min {
+	cmp-fabula .modal .min {
 		background-color: #09f;
 	}
 
 
-	cmp-fabula .modal .fabula-body .penalty {
+	cmp-fabula .modal .penalty {
 		background-color: #f00;
 	}
 
@@ -193,7 +219,9 @@ cmp-fabula .back-close {
 
 
 
-
+	cmp-fabula .marker {
+		color: #00f;
+	}
 
 
 

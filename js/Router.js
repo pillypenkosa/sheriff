@@ -37,19 +37,14 @@ class Router {
 
 		let name = this.name + '.loadContent()';
 
-		//cns( 'ok', name );
-		//cns( 'var', 'window.location.search', window.location.search.slice( 1 ) );
-
 
 		const search = window.location.search.slice( 1 );
 
-		//cns( 'var', 'search', search );
 
 		let cmpName = '';
 
 
 		if ( search ) {
-			//cns( 'ok', 'Є якийсь `window.location.search`' );
 
 			dependences.forEach( k => {
 
@@ -62,7 +57,6 @@ class Router {
 
 			if ( !cmpName ) {
 
-				//cns( 'warning', 'Немає компонента для цього URL... тому вставимо Win-Err404' );
 				addErr( 'URL не існує...' );
 				cmpName = 'Win-Err404';
 			} 
@@ -71,10 +65,9 @@ class Router {
 			cmpName = 'Win-Index';
 
 
-		//cns( 'var', 'cmpName', cmpName );
 
 		document.getElementById( 'content' ).innerHTML = Component( cmpName );
-		isErr();
+		//isErr();
 	}
 
 
@@ -143,7 +136,6 @@ class Router {
 				addWarning( name + ' ...такого `url` не існує...' );
 				
 
-				//cns( 'warning', '...такого `url` не існує...', );
 
 				html = Component( 'Win-Err404' );
 

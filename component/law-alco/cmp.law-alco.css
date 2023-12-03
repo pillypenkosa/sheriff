@@ -2,11 +2,7 @@
 
 
 
-cmp-law-alco {
-
-
-
-} 
+cmp-law-alco {} 
 
 
 	cmp-law-alco .each {
@@ -21,6 +17,13 @@ cmp-law-alco {
 		margin: 10px 0;
 		font-weight: bold;
 	} 
+
+
+
+
+	cmp-law-alco .art-n {
+		font-weight: bold;
+	}
 
 
 

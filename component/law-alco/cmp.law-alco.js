@@ -34,22 +34,21 @@ class ComponentLawAlco {
 		let html = ''; 
   		arrListSheriffAlco.forEach( k => {
 
- 			html += `<div class="each">
-				<div class="title">
-					<span class="art-n">${ k.art }</span>. <span class="art-title">${ k.title }</span>
-				</div>
+  			if ( k.a ) {
+	 			html += `<div class="each">
+					<div class="title">
+						<span class="art-n">Стаття ${ k.a }</span>. <span class="art-title">${ k.title }</span>
+					</div>
 
-				<div class="descr">${ k.descr }</div>
-				<div class="href">
-					<a href="${ k.href }" target="_blank">Стаття ${ k.art }${ symbolLink }</a>
-				</div>
+					<div class="descr">${ k.descr }</div>
+					<div class="href">
+						<a href="${ k.href }" target="_blank">Стаття ${ k.a }${ symbolLink }</a>
+					</div>
 
-			</div>`;
+				</div>`;
+  			}
  		});
 
- 
- 
- 
 		return { tagParam, html };  
 	} 
  

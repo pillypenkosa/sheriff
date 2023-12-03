@@ -128,8 +128,74 @@ class ComponentFabula {
 
 
 
+			//let htmlIntroFabula = '<div class="fabula-action">';
 			let htmlIntroFabula = '';
 			if ( objFabula.txt ) {
+
+				htmlIntroFabula += '<div>';
+
+				if ( objFabula.txt.intro ) {
+					objFabula.txt.intro.forEach( k => {
+						htmlIntroFabula += `${ objSheriffdictionary[ k ] } `;
+					});
+				}
+				htmlIntroFabula += '</div>';
+
+
+
+				if ( objFabula.txt.wrap ) {
+
+					htmlIntroFabula += '<div class="fabula-action">';
+
+
+					// заміна {шаблонів} на реальні значення -----------------------------
+					let replaceSign = ''; 												//
+					let replaceMarking = ''; 											//
+					if ( objPdr ) { 													//
+						replaceSign = this.wrapSign( objPdr, true ); 					//
+						replaceMarking = this.wrapMarking( objPdr, true ); 				//
+					} 																	//
+					// -------------------------------------------------------------------
+
+
+					objFabula.txt.wrap.forEach( k => {
+
+						if ( k == '$1' ) {
+							if ( objFabula.txt.fabula ) {
+
+								let htmlInsert = objFabula.txt.fabula[ 0 ].replace( /{sign}/g, replaceSign );
+								htmlInsert = htmlInsert.replace( /{marking}/g, replaceMarking );
+
+								htmlIntroFabula += htmlInsert;
+							}
+
+						}
+						else if ( k == '$2' ) {
+							if ( objFabula.txt.fabula ) 
+								htmlIntroFabula += `${ objFabula.txt.fabula[ 1 ] }`;
+						}
+						else if ( k == '$3' ) {
+							if ( objFabula.txt.fabula ) 
+								htmlIntroFabula += `${ objFabula.txt.fabula[ 2 ] }`;
+						}
+						else if ( k == '$4' ) {
+							if ( objFabula.txt.fabula ) 
+								htmlIntroFabula += `${ objFabula.txt.fabula[ 3 ] }`;
+
+						} else
+							htmlIntroFabula += `${ objSheriffdictionary[ k ] }`;
+
+					});
+
+					htmlIntroFabula += '</div>';
+				}
+
+
+
+
+
+/*
+
 				if ( objFabula.txt.wrap ) {
 
 					objFabula.txt.wrap.forEach( k => {
@@ -141,36 +207,42 @@ class ComponentFabula {
 								if ( objFabula.pdr ) 
 									objPdr2 = objListSheriffPdr[ objFabula.pdr ];
 								
-								htmlIntroFabula += `<div class="fabula-action">${ objFabula.txt.fabula.replace( /{sign}/g, this.wrapSign( objPdr2, true )) },</div>`;  ;
+								htmlIntroFabula += `${ objFabula.txt.fabula.replace( /{sign}/g, this.wrapSign( objPdr2, true )) },`;  ;
 							}
 						}
 						else if ( k == 'outPdr' ) {
 							htmlIntroFabula += objSheriffdictionary[ 'outPdr' ].replace( /{pdr}/g, this.wrapItemPdr( objPdr ));
 
 						}
-						else if ( k == 'outDstu' ) {
+						else if ( k == 'outDstu' ) 
 							htmlIntroFabula += objSheriffdictionary[ 'outDstu' ].replace( /{dstu}/g, `(ДСТУ ${ this.wrapDstu( objPdr, true ) })` );
 
-						} else 
+
+
+						else if ( k == 'alco_symptom' ) 
+							htmlIntroFabula += `${ objSheriffdictionary[ 'alco_symptom' ] }`;
+
+						else if ( k == 'alco_state' ) 
+							htmlIntroFabula += `${ objSheriffdictionary[ 'alco_state' ] }`;
+
+
+						else if ( k == 'alco_inspection' ) 
+							htmlIntroFabula += `${ objSheriffdictionary[ 'alco_inspection' ] }`;
+
+						else 
 							htmlIntroFabula += `${ objSheriffdictionary[ k ] ? objSheriffdictionary[ k ] : '' } `;
 					});
+
 				}
+
+*/
+
+
 			}
+			htmlIntroFabula += '</div>';
 
 
-
-			let htmlPdrN 		= '';
-
-
-
-
-
-
-
-
-
-
-
+			let htmlPdrN 			= '';
 
 			let txtSignNumFull	 	= '';
 			let txtSignNameFull	 	= '';
@@ -222,7 +294,7 @@ class ComponentFabula {
 
 						if ( objPdr.txt.mark_n ) {
 							htmlMarkN = `<div>Розмітка: ${ this.wrapMarking( objPdr ) }</div>`;
-							htmlMarkFabula = ` (розмітка: ${ this.wrapMarking( objPdr ) })`;
+							//htmlMarkFabula = ` (розмітка: ${ this.wrapMarking( objPdr ) })`;
 
 						}
 
@@ -253,7 +325,7 @@ class ComponentFabula {
 					htmlSmokingN = this.wrapSmoking( objSmoking );
 					htmlSmokingFabula = `<div>ЗУ: ст.${ htmlSmokingN }</div>`;
 
-					htmlViolationLaw = `чим порушив ст.${ htmlSmokingN } ЗУ \"Про заходи щодо попередження та зменшення вживання тютюнових виробів і їх шкідливого впливу на здоров'я населення\"`;
+					htmlViolationLaw = `чим порушив ст.${ htmlSmokingN } ЗУ \"Про заходи щодо попередження та зменшення вживання тютюнових виробів і їх шкідливого впливу на здоров'я населення\",`;
 				}
 			}
 
@@ -275,7 +347,7 @@ class ComponentFabula {
 					htmlAlcoN = this.wrapAlco( objAlco );
 					htmlAlcoFabula = `<div>ЗУ: ст.${ htmlAlcoN }</div>`;
 
-					htmlViolationLaw = `чим порушив ст.${ htmlAlcoN } ЗУ \"Про державне регулювання виробництва і обігу спирту етилового, спиртових дистилятів, алкогольних напоїв, тютюнових виробів, рідин, що використовуються в електронних сигаретах, та пального\"`;
+					htmlViolationLaw = `чим порушив ст.${ htmlAlcoN } ЗУ \"Про державне регулювання виробництва і обігу спирту етилового, спиртових дистилятів, алкогольних напоїв, тютюнових виробів, рідин, що використовуються в електронних сигаретах, та пального\",`;
 				}
 			}
 
@@ -596,7 +668,7 @@ class ComponentFabula {
 
 			if ( tf ) {
 				if ( obj.txt.mark_title ) 
-					htmlItem += `«${ obj.txt.mark_title }»`;
+					htmlItem += ` «${ obj.txt.mark_title }»`;
 			}
 		}
 

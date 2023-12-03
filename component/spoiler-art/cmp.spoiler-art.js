@@ -13,25 +13,14 @@ class ComponentSpoilerArt {
 
 
 
-
-
-
-
-
-
-
-
-
-
 	static html( objData = {} ) { 
 		const fooName = this.name + '.html()'; 
-		console.log( 'fooName: ', fooName ); 
+		//console.log( 'fooName: ', fooName ); 
+		//console.log( 'objData: ', objData ); 
 
 
 
-		this.args = objData.args ? objData.args : {}; 
-
-
+		//this.args = objData.args ? objData.args : {}; 
 
 		let tagParam = { 
 		//'class' 		: '', 
@@ -44,7 +33,142 @@ class ComponentSpoilerArt {
 		}; 
 
 
+		let objLaw4show = [];
 
+		if ( objData == 'alco' ) 
+			objLaw4show = arrListSheriffAlco;
+		
+		if ( objData == 'ku' ) 
+			objLaw4show = arrListSheriffKu;
+
+		if ( objData == 'smoking' ) 
+			objLaw4show = arrListSheriffSmoking;
+				
+		if ( objData == 'npu' ) 
+			objLaw4show = arrListSheriffNpu;
+			
+
+
+
+		if ( objData == 'kupap' ) {
+
+			let arrKupapArts = [
+				'a268',
+				'a289',
+				'a307',
+				'a308',
+			];
+
+			let objKupapSelected = [];
+
+			arrKupapArts.forEach( k => {
+
+				let objTemp = {};
+
+				if ( objListSheriffKupap[ k ] ) {
+
+					let art = '';
+					if ( objListSheriffKupap[ k ].a ) {
+						art += objListSheriffKupap[ k ].a;
+
+						if ( objListSheriffKupap[ k ].p ) 
+							art += `.${ objListSheriffKupap[ k ].p }`;
+
+					}
+
+					objTemp.id = objListSheriffKupap[ k ].id;
+					objTemp.title = objListSheriffKupap[ k ].title;
+					objTemp.a = art;
+					objTemp.descr = objListSheriffKupap[ k ].descr;
+					objTemp.href = objListSheriffKupap[ k ].href;
+
+					objKupapSelected.push( objTemp );
+				}
+			});
+
+			objLaw4show = objKupapSelected;
+
+		}
+
+		console.log( 'objLaw4show: ', objLaw4show );
+
+		//console.log( 'objLaw4show: ', objLaw4show ); 
+
+
+		let html 		= '';
+		let title 		= '';
+		let htmlHref 	= '';
+
+		//console.log( 'tfArtsLaws: ', ComponentWinLaws.tfArtsLaws );
+		
+
+		objLaw4show.forEach( k => {
+
+			const ID = `${ objData }_${ k.id }`;
+
+			ComponentWinLaws.tfArtsLaws[ ID ] = false;
+
+			let htmlArt = `<b>Стаття ${ k.a }</b>`;
+
+			if ( k.href ) {
+				htmlHref = `<div class="href">
+					<a href="${ k.href }" target="_blank">${ htmlArt }${ symbolLink }</a>
+				</div>`;
+			}
+			
+			html += `<div class="art-each" data-id="${ objData }_${ k.id }">
+				<div class="title pointer" onclick="ComponentWinLaws.clcArt( this )">${ htmlArt }. ${ k.title }<span class="pm">&#8680;</span></div>
+				<div class="descr">
+					${ k.descr }
+					${ htmlHref }
+				</div>
+			</div>`;
+		});
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+		if ( k.id ) {
+			if ( objListSheriffLaws[ k.id ] ) {
+
+				if ( objListSheriffLaws[ k.id ].doc ) 
+					title += `${ objListSheriffLaws[ k.id ].doc } `;
+
+				if ( objListSheriffLaws[ k.id ].title ) 
+					title += `"${ objListSheriffLaws[ k.id ].title }"`;
+
+				if ( objListSheriffLaws[ k.id ].href ) 
+					href =  objListSheriffLaws[ k.id ].href;
+
+			}
+		}
+
+		html += `<div class="each" data-id="law_${ k.id }">
+
+			<div class="title-law">
+				<a href="${ href }" target="_blank">${ title }${ symbolLink }</a>
+			</div>
+			<div class="law-arts">${ Component( k.cmp ) }</div>
+		</div>`;
+
+*/
+
+
+
+
+
+
+
+/*
 		let html = `
 			<div class="each" data-id="${ objData.id }">
 				<div class="title">
@@ -57,9 +181,9 @@ class ComponentSpoilerArt {
 				</div>
 			</div>
 		`; 
+*/
 
-
-		console.log( 'objData: ', objData ); 
+		//console.log( 'objData: ', objData ); 
 
 
 
@@ -73,12 +197,12 @@ class ComponentSpoilerArt {
 	static clc( elem ) { 
 		const fooName = this.name + '.clc()'; 
 
-		//console.log( 'fooName: ', fooName ); 
+		console.log( 'fooName: ', fooName ); 
 		//console.log( 'dataset.id: ', elem.dataset.id ); 
 		//console.log( 'dataset.tf: ', elem.dataset.tf ); 
 		//console.log( 'parentNode: ', elem.parentNode ); 
 
-
+/*
 		let parent = elem.parentNode;
 		let tf = parent.dataset.tf; 	// тут тільки через додаткову змінну
 
@@ -94,6 +218,10 @@ class ComponentSpoilerArt {
 			parent.querySelector( '.body' ).style.display = 'none'; 
 			parent.dataset.tf = 'close';
 		}
+
+*/
+
+
 
 
 	} 

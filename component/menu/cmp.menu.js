@@ -17,7 +17,6 @@ class ComponentMenu {
 
 		{ title: 'Головна' 					, id: 'index' 			, href: '?', },
 		{ title: 'Фабули' 					, id: 'fabuly' 			, href: '?fabuly', },
-		{ title: 'Права та обов\'язки' 		, id: 'rights' 			, href: '?rights', },
 		{ title: 'Закони' 					, id: 'laws' 			, href: '?laws', },
 		{ title: 'Термінологія' 			, id: 'terminology' 	, href: '?terminology', },
 

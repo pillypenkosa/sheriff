@@ -19,19 +19,19 @@ const arrListSheriffFabulyType = [
 	{ id: 'kupap_a122_p2' 		, title: 'КУпАП ст. 122 ч. 2' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a122_p3' 		, title: 'КУпАП ст. 122 ч. 3' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a122_p4' 		, title: 'КУпАП ст. 122 ч. 4' 			, hash: { pdr_postanova: 1,  }, },
-	//{ id: 'kupap_a122_p6' 		, title: 'КУпАП ст. 122 ч. 6' 			, hash: { pdr_postanova: 1,  }, },
+	{ id: 'kupap_a122_p6' 		, title: 'КУпАП ст. 122 ч. 6' 			, hash: { pdr_postanova: 1,  }, },
+
+
 	//{ id: 'kupap_a123_p1' 		, title: 'КУпАП ст. 123 ч. 1' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a126_p1' 		, title: 'КУпАП ст. 126 ч. 1' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a126_p2' 		, title: 'КУпАП ст. 126 ч. 2' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a126_p4' 		, title: 'КУпАП ст. 126 ч. 4' 			, hash: { pdr_postanova: 1,  }, },
 	{ id: 'kupap_a127_p1' 		, title: 'КУпАП ст. 127 ч. 1' 			, hash: { pdr_postanova: 1,  }, },
 
-
+	{ id: 'kupap_a130' 			, title: 'КУпАП ст. 130' 				, hash: { pdr_protokol: 1 } },
+	//{ id: 'kupap_a130_p1' 		, title: 'КУпАП ст. 130 ч. 1' 			, hash: { pdr_protokol: 1 } },
+	
 	{ id: 'gb' 					, title: 'ГБ' 		, hash: { gb: 1 } },
-
-
-
-	//{ id: 'kupap_a130_p1' 	, title: 'КУпАП ст. 130 ч. 1' 			, hash: { pdr_protokol: 1 } },
 	//{ id: 'kupap_a175_1_p1' 	, title: 'КУпАП ст. 175-1 ч. 1' 		, hash: { gb_postanova: 1 } },
 	//{ id: 'kupap_a178_p1' 	, title: 'КУпАП ст. 178 ч. 1' 			, hash: { gb_postanova: 1 } },
 	//{ id: 'speed' 			, title: 'Швидкість' 					, },
@@ -53,13 +53,42 @@ arrListSheriffFabulyType.forEach( k => {
 
 const objSheriffdictionary = {
 
-	intro 			: '16.05.2023 р. о 12:00 в м.Харків, вул.Сумська, біля буд.38а',
+	intro 			: '16.05.2023 р. о 12:00 в м. Харків, вул. Сумська, біля буд. 38а',
+	citizen 		: 'гр.',
 	pedestrian 		: 'пішохід',
 	driver 			: 'водій',
+	driver2 		: 'водію',
 	name 			: 'Прізвищев Ім\'ян Побатькович',
-	acting 			: 'керуючи',
+	name2 			: 'Кумов\'яненко Сусід Дружбанович',
+	dbirth 			: '13.04.1990 р.н.',
+ 	acting 			: 'керуючи',
 	acted 			: 'керував',
 	car 			: 'транспортним засобом «Daewoo Lanos» д.н.з. АХ 1234 АВ',
+	moto 			: '<span class="marker">[ --мотоциклом; --мопедом; ]</span> «Honda» д.н.з. АХ 1234 АВ',
+
+	alco_symptom 	: 'з ознаками алкогольного сп\'яніння <span class="marker">[ --запах алкоголю з порожнини рота; --порушення координації рухів; --порушення мови; --виражене тремтіння пальців рук; --різка зміна забарвлення шкірного покриву обличчя; --поведінка, що не відповідає обстановці; ]</span>',
+	alco_state  	: 'в стані алкогольного сп’яніння',
+	
+
+
+
+	alco_analyzer 		: '<span class="marker">«Drager Alcotest 6810» № 1234</span>',
+	alco_ppm 			: '<span class="marker">0.36</span> &#8240; проміле',
+	
+	alco_inspection1 	: ', який у присутності двох свідків проводився на місці зупинки ТЗ за допомогою газоаналізатора ',
+	alco_inspection2 	: ' та результати якого становлять ',
+
+
+
+
+	//alco_confirm 		: ', що підтверджується тестом  ',
+
+	alco_doc_n 			: '<span class="marker">№ 123 від 28.11.2023 р</span>.',
+
+
+	transfer_control 	: 'передав керування ',
+
+
 
 	//smoke175 		: 'чим порушив ст.13 ЗУ \"Про заходи щодо попередження та зменшення вживання тютюнових виробів і їх шкідливого впливу на здоров\'я населення\"',
 	//booze178 		: 'чим порушив ст.15-2 ЗУ \"Про державне регулювання виробництва і обігу спирту етилового, спиртових дистилятів, алкогольних напоїв, тютюнових виробів, рідин, що використовуються в електронних сигаретах, та пального\"',
@@ -91,8 +120,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a121_p1',
 	pdr 	: 'pdr_c31_a1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'на вітровому склі якого є [ --сколи, --тріщини, ] в зоні роботи склоочисників',
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'на вітровому склі якого є <span class="marker">[ --сколи, --тріщини, ]</span> в зоні роботи склоочисників,', ],
 	},
 	descr 	: 'ТРІЩИНА СКЛА',
 	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, disrepair: 1, },
@@ -103,9 +133,10 @@ const arrListSheriffFabuly = [
 	img		: 'light_left_no', 
 	kupap 	: 'kupap_a121_p1',
 	pdr 	: 'pdr_c31_a4_p3_i3',
-	txt  	: {
-		wrap: [ 'intro', 'driver', 'name', 'acted', 'car', '$', ],
-		fabula: 'на якому не горіла лампа лівої фари в режимі ближнього світла',
+	txt 	: {
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'на якому не горіла лампа лівої фари в режимі ближнього світла,', ],
 	},
 	descr 	: 'ЛІВА ФАРА', 
 	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, light: 1, disrepair: 1, }, 
@@ -116,9 +147,10 @@ const arrListSheriffFabuly = [
 	img		: 'mirror', 
 	kupap 	: 'kupap_a121_p1',
 	pdr 	: 'pdr_c31_a4_p7_i1',
-	txt  	: {
-		wrap: [ 'intro', 'driver', 'name', 'acted', 'car', '$', ],
-		fabula: 'на якому було відсутнє дзеркало заднього виду з правого боку',
+	txt 	: {
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'на якому було відсутнє дзеркало заднього виду з правого боку,', ],
 	},
 	descr 	: 'ДЗЕРКАЛО', 
 	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, disrepair: 1, }, 
@@ -130,8 +162,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a121_p1',
 	pdr 	: 'pdr_c31_a4_p7_i7',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acted', 'car', '$', ],
-		fabula: 'який має задній привід та на якому був відсутній задній правий бризковик',
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'який має задній привід та на якому був відсутній задній правий бризковик,', ],
 	},
 	descr 	: 'БРИЗКОВИКИ',
 	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, disrepair: 1, },
@@ -143,11 +176,12 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a121_p1',
 	pdr 	: 'pdr_c31_a6_p2',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acted', 'car', '$', ],
-		fabula: 'на якому не горіли задні габаритні ліхтарі в темну пору доби',
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'на якому не горіли задні габаритні ліхтарі в темну пору доби,', ],
 	},
 	descr 	: 'ЗАДНІ ГАБАРИТИ',
-	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, disrepair: 1, },
+	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, disrepair: 1, light: 1, },
 	edit 	: '21.11.2023',
 },
 { 
@@ -156,8 +190,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a121_p1',
 	pdr 	: 'pdr_c31_a6_p3',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acted', 'car', '$', ],
-		fabula: 'на якому не працював склоочисник з боку розміщення керма під час [ --дощу; --снігопаду ]',
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'на якому не працював склоочисник з боку розміщення керма під час <span class="marker">[ --дощу; --снігопаду ]</span>,', ],
 	},
 	descr 	: 'ДВІРНИКИ',
 	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, disrepair: 1, },
@@ -176,8 +211,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a121_p2',
 	pdr 	: 'pdr_c31_a4_p3_i3',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acted', 'car', '$', ],
-		fabula: 'який використовується для надання послуг з перевезення пасажирів та на якому не горіла лампа лівої фари в режимі ближнього світла в темну пору доби',
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ ', який використовується для надання послуг з перевезення пасажирів та на якому не горіла лампа лівої фари в режимі ближнього світла в темну пору доби,', ],
 	},
 	descr 	: 'ЛІВА ФАРА,  МАРШРУТНІ ТЗ',
 	hash 	: { pdr_postanova: 1, kupap_a121_p2: 1, move: 1, light: 1, disrepair: 1, },
@@ -196,8 +232,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a121_p5',
 	pdr 	: 'pdr_c2_a3_p3',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'під час руху не був пристебнутий ременем безпеки',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'під час руху не був пристебнутий ременем безпеки,', ],
 	},
 	descr 	: 'РЕМІНЬ',
 	hash 	: { pdr_postanova: 1, kupap_a121_p5: 1, move: 1, },
@@ -209,8 +246,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a121_p5',
 	pdr 	: 'pdr_c2_a3_p4',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'під час руху не був в мотошоломі',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'moto', ],
+		wrap: [ '$1', ],
+		fabula: [ 'під час руху не був в мотошоломі,', ],
 	},
 	descr 	: 'ШОЛОМ',
 	hash 	: { pdr_postanova: 1, kupap_a121_p5: 1, move: 1, },
@@ -230,8 +268,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a121_3_p1',
 	pdr 	: 'pdr_c2_a9_p3',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acted', 'car', '$', ],
-		fabula: 'з забрудненим номерним знаком, що не дає змоги чітко визначити символи знака з відстані 20 м',
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'з забрудненим номерним знаком, що не дає змоги чітко визначити символи знака з відстані 20 м,', ],
 	},
 	descr 	: 'БРУДНИЙ НОМЕР',
 	hash 	: { pdr_postanova: 1, kupap_a121_3_p1: 1, move: 1, },
@@ -243,8 +282,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a121_3_p1',
 	pdr 	: 'pdr_c2_a9_p3',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acted', 'car', '$', ],
-		fabula: 'з неосвітленим номерним знаком [ --у темну пору доби; --в умовах недостатньої видимості ]',
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'з неосвітленим номерним знаком <span class="marker">[ --у темну пору доби; --в умовах недостатньої видимості; ]</span>,', ],
 	},
 	descr 	: 'НЕОСВІТЛЕНИЙ НОМЕР',
 	hash 	: { pdr_postanova: 1, kupap_a121_3_p1: 1, move: 1, },
@@ -263,8 +303,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p2_sign_2_2',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух без зупинки',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух без зупинки,', ],
 	},
 	descr 	: 'ЗНАК СТОП',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -276,8 +317,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p3_sign_3_1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух в зону дії знаку',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух в зону дії знаку,', ],
 	},
 	descr 	: 'РУХ ЗАБОРОНЕНО',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -289,8 +331,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p3_sign_3_2',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух в зону дії знаку',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух в зону дії знаку,', ],
 	},
 	descr 	: 'РУХ МЕХАНІЧНИХ ТЗ ЗАБОРОНЕНО',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -302,8 +345,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p3_sign_3_21',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух в зону дії знаку',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух в зону дії знаку,', ],
 	},
 	descr 	: 'В\'ЇЗД ЗАБОРОНЕНО, «кирпич»',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -315,8 +359,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p3_sign_3_22',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши поворот праворуч',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши поворот праворуч,', ],
 	},
 	descr 	: 'ПОВОРОТ ЗАБОРОНЕНО',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -328,8 +373,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',	
 	pdr 	: 'pdr_c8_a4_p3_sign_3_25',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши обгін в зоні дії знаку',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши обгін в зоні дії знаку,', ],
 	},
 	descr 	: 'ОБГІН',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -341,8 +387,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p3_sign_3_34',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши зупинку в зоні дії знаку',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши зупинку в зоні дії знаку,', ],
 	},
 	descr 	: 'ЗУПИНКА під ЗНАКОМ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, sign: 1, },
@@ -354,8 +401,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p3_sign_3_35',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши стоянку в зоні дії знаку',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши стоянку в зоні дії знаку,', ],
 	},
 	descr 	: 'СТОЯНКА під ЗНАКОМ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, sign: 1, },
@@ -367,8 +415,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p3_sign_3_41',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух без зупинки',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух без зупинки,', ],
 	},
 	descr 	: 'СТОП-Контроль',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -380,8 +429,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a5_p1_mark_c1_a1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'перетнув суцільну лінію 1.1 дорожньої горизонтальної розмітки, яка поділяє транспортні потоки протилежних напрямків на дорозі',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'перетнув суцільну лінію {marking} дорожньої горизонтальної розмітки, яка поділяє транспортні потоки протилежних напрямків на дорозі,', ],
 	},
 	descr 	: 'ПЕРЕТИН СУЦІЛЬНОЇ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, },
@@ -393,8 +443,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a5_p1_mark_c1_a3',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'перетнув подвійну суцільну лінію 1.3 дорожньої горизонтальної розмітки, яка поділяє транспортні потоки протилежних напрямків на дорозі, що має [ --три; --чотири; ] смуги руху',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'перетнув подвійну суцільну лінію {marking} дорожньої горизонтальної розмітки, яка поділяє транспортні потоки протилежних напрямків на дорозі, що має <span class="marker">[ --три; --чотири; ]</span> смуги руху,', ],
 	},
 	descr 	: 'ПОДВІЙНА СУЦІЛЬНА',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, },
@@ -406,8 +457,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p4_sign_4_1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши поворот [ --ліворуч, ]',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши поворот <span class="marker">[ --ліворуч; ]</span>,', ],
 	},
 	descr 	: 'НАПРЯМКИ РУХУ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -419,8 +471,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p4_sign_4_2',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши [ --рух прямо; --поворот ліворуч; ]',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши <span class="marker">[ --рух прямо; --поворот ліворуч; ]</span>,', ],
 	},
 	descr 	: 'НАПРЯМКИ РУХУ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -432,8 +485,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p4_sign_4_5',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши [ --поворот праворуч; ]',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши <span class="marker">[ --поворот праворуч; ]</span>,', ],
 	},
 	descr 	: 'НАПРЯМКИ РУХУ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -445,8 +499,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p4_sign_4_6',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух прямо',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух прямо,', ],
 	},
 	descr 	: 'НАПРЯМКИ РУХУ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -458,8 +513,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p4_sign_4_7',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши об\'їзд перешкоди з лівого боку',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши об\'їзд перешкоди з лівого боку,', ],
 	},
 	descr 	: 'ОБ\'ЇЗД ПЕРЕШКОДИ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -471,8 +527,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c8_a4_p5_sign_5_16',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух [ --прямо; --ліворуч; --праворуч; ] зі смуги з якої дозволено рух тільки [ --прямо; --прямо або ліворуч; --прямо або праворуч; --ліворуч; --праворуч; ]',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, здійснивши рух <span class="marker">[ --прямо; --ліворуч; --праворуч; ]</span> зі смуги з якої дозволено рух тільки <span class="marker">[ --прямо; --прямо або ліворуч; --прямо або праворуч; --ліворуч; --праворуч; ]</span>,', ],
 	},
 	descr 	: 'РУХ ПО СМУГАХ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -484,8 +541,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c12_a9_p2_sign_3_29_20',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'перевищів встановлене обмеження швидкості руху ТЗ більш ніж на двадцять кілометрів на годину в зоні дії знаку {sign}. Швидкість руху вимірювалась приладом [ --назва, №... ]',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'перевищів встановлене обмеження швидкості руху ТЗ більш ніж на двадцять кілометрів на годину в зоні дії знаку {sign}. Швидкість руху вимірювалась приладом <span class="marker">[ --назва, №... ]</span>,', ],
 	},
 	descr 	: 'ПЕРЕВИЩЕННЯ на 20 км/год',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, sign: 1, },
@@ -497,8 +555,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c15_a4',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснив зупинку на проїзній частині, ставши другим рядом',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив зупинку на проїзній частині, ставши другим рядом,', ],
 	},
 	descr 	: 'ЗУПИНКА ДРУГИМ РЯДОМ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1,  },
@@ -510,8 +569,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c15_a9_p4_sign_5_38_1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснив зупинку ближче 10 м від пішохідного переходу, позначеного знаком {sign}',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив зупинку ближче 10 м від пішохідного переходу, позначеного знаком {sign},', ],
 	},
 	descr 	: 'ЗУПИНКА на ПЕРЕХОДІ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, sign: 1, },
@@ -523,8 +583,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c15_a9_p5',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснив зупинку ближче 10 м від краю перехрещуваної проїзної частини перехрестя',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив зупинку ближче 10 м від краю перехрещуваної проїзної частини перехрестя,', ],
 	},
 	descr 	: 'ЗУПИНКА на ПЕРЕХРЕСТІ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, },
@@ -536,8 +597,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c15_a9_p7_sign_5_45_1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснив зупинку ближче 30 м від посадкового майданчику для зупинки маршрутних ТЗ, позначеного знаком {sign}',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив зупинку ближче 30 м від посадкового майданчику для зупинки маршрутних ТЗ, позначеного знаком {sign},', ],
 	},
 	descr 	: 'СТОЯНКА на ЗУПИНЦІ АВТОБУСА',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, sign: 1, },
@@ -549,8 +611,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c15_a9_p7_sign_5_46_1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснив зупинку ближче 30 м від посадкового майданчику для зупинки маршрутних ТЗ, позначеного знаком {sign}',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив зупинку ближче 30 м від посадкового майданчику для зупинки маршрутних ТЗ, позначеного знаком {sign},', ],
 	},
 	descr 	: 'СТОЯНКА на ЗУПИНЦІ ТРАМВАЯ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, sign: 1, },
@@ -562,8 +625,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c15_a9_p7_sign_5_47_1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснив зупинку ближче 30 м від посадкового майданчику для зупинки маршрутних ТЗ, позначеного знаком {sign}',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив зупинку ближче 30 м від посадкового майданчику для зупинки маршрутних ТЗ, позначеного знаком {sign},', ],
 	},
 	descr 	: 'СТОЯНКА на ЗУПИНЦІ ТРОЛЕЙБУСА',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, sign: 1, },
@@ -575,8 +639,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c15_a9_p7_sign_5_48',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснив зупинку ближче 30 м від посадкового майданчику для зупинки маршрутних ТЗ, позначеного знаком {sign}',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив зупинку ближче 30 м від посадкового майданчику для зупинки маршрутних ТЗ, позначеного знаком {sign},', ],
 	},
 	descr 	: 'СТОЯНКА на ЗУПИНЦІ ТАКСІ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, sign: 1, },
@@ -588,10 +653,11 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c15_a9_p11',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснив зупинку ближче 10 м від виїзду з прилеглої території',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив зупинку ближче 10 м від виїзду з прилеглої території,', ],
 	},
-	descr 	: 'СТОЯНКА на ВИЇЗДІ з ПРИЛЕГЛОЇ ТЕРИТОРІЙ',
+	descr 	: 'СТОЯНКА на ВИЇЗДІ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, },
 	edit 	: '21.11.2023',
 },
@@ -601,8 +667,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c11_a13',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснював рух по тротуару',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснював рух по тротуару,', ],
 	},
 	descr 	: 'РУХ по ТРОТУАРАХ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1, },
@@ -614,8 +681,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p1',
 	pdr 	: 'pdr_c15_a10_p3',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'зупинився на тротуарі, де для руху пішоходів залишалося менше 2 м',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив зупинку на тротуарі, де для руху пішоходів залишалося менше 2 м,', ],
 	},
 	descr 	: 'СТОЯНКА на ТРОТУАРІ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1, },
@@ -634,49 +702,37 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p2',
 	pdr 	: 'pdr_c2_a9_p6',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'під час руху користувався засобами зв’язку, тримаючи їх у руці',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'під час руху користувався засобами зв’язку, тримаючи їх у руці,', ],
 	},
 	descr 	: 'МОБІЛЬНИЙ ТЕЛЕФОН',
 	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, },
 	edit 	: '21.11.2023',
 },
-
-
-
-
-
-
-
 { 
 	id 		: 'fabula_kupap_a122_p2_pdr_c8_a4_p2_sign_2_1', 
 	img 	: 'sign_2.1', 
 	kupap 	: 'kupap_a122_p2',
 	pdr 	: 'pdr_c8_a4_p2_sign_2_1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, не надавши перевагу в русі ТЗ, яке рухалося по головній дорозі',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, не надавши перевагу в русі ТЗ, яке рухалося по головній дорозі,', ],
 	},
 	descr 	: 'ДАТИ ДОРОГУ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, sign: 1, },
 	edit 	: '19.11.2023',
 },
-
-
-
-
-
-
-
-
 { 
 	id 		: 'fabula_kupap_a122_p2_pdr_c8_a4_p2_sign_2_5', 
 	img 	: 'sign_2.5', 
 	kupap 	: 'kupap_a122_p2',
 	pdr 	: 'pdr_c8_a4_p2_sign_2_5',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожнього знаку {sign}, не надавши перевагу в русі зустрічному ТЗ на вузькій ділянці',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, не надавши перевагу в русі зустрічному ТЗ на вузькій ділянці,', ],
 	},
 	descr 	: 'ПЕРЕВАГА в РУСІ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, sign: 1, },
@@ -688,8 +744,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p2',
 	pdr 	: 'pdr_c8_a7_p3_i5',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснив рух на заборонений жовтий сигнал світлофора',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив рух на заборонений жовтий сигнал світлофора,', ],
 	},
 	descr 	: 'ЖОВТИЙ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, traffic_light: 1, },
@@ -701,8 +758,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p2',
 	pdr 	: 'pdr_c8_a7_p3_i7',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснив рух на заборонений червоний сигнал світлофора',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив рух на заборонений червоний сигнал світлофора,', ],
 	},
 	descr 	: 'ЧЕРВОНИЙ',
 	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, traffic_light: 1, },
@@ -713,8 +771,9 @@ const arrListSheriffFabuly = [
 	img 	: 'traffic_light_arrow',
 	kupap 	: 'kupap_a122_p2',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснив рух ( --прямо, --ліворуч, --праворуч ) на вимкнений сигнал додаткової секції світлофора',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив рух <span class="marker">[ --праворуч; ]</span> на вимкнений сигнал додаткової секції світлофора,', ],
 	},
 	descr 	: 'ВИМКНЕНА СЕКЦІЯ',
 	pdr 	: 'pdr_c8_a7_p3_i10',
@@ -726,8 +785,9 @@ const arrListSheriffFabuly = [
 	img 	: 'rod_up', 
 	kupap 	: 'kupap_a122_p2',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснив рух на заборонений жест регулювальника (рука піднята вгору)',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив рух на заборонений жест регулювальника (рука піднята вгору),', ],
 	},
 	descr 	: 'ЖЕЗЛ',
 	kupap 	: 'kupap_a122_p2',
@@ -740,8 +800,9 @@ const arrListSheriffFabuly = [
 	img 	: 'turn_signal_no_a', 
 	kupap 	: 'kupap_a122_p2',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не подав сигнал світловими покажчиками повороту відповідного напрямку перед  [ --початком руху;  --зупинкою; ]',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не подав сигнал світловими покажчиками повороту відповідного напрямку перед <span class="marker">[ --початком руху;  --зупинкою; ]</span>,', ],
 	},
 	descr 	: 'ПОВОРОТНИКИ, ПОЧАТОК РУХУ, ЗУПИНКА',
 	pdr 	: 'pdr_c9_a2_p1',
@@ -753,8 +814,9 @@ const arrListSheriffFabuly = [
 	img 	: 'turn_signal_no_b', 
 	kupap 	: 'kupap_a122_p2',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не подав сигнал світловими покажчиками повороту відповідного напрямку перед  [ --перестроюванням;  --поворотом;  --розворотом; ]',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не подав сигнал світловими покажчиками повороту відповідного напрямку перед <span class="marker">[ --перестроюванням;  --поворотом;  --розворотом; ]</span>,', ],
 	},
 	descr 	: 'ПОВОРОТНИКИ, ЗМІНА НАПРЯМКУ',
 	pdr 	: 'pdr_c9_a2_p2',
@@ -766,12 +828,13 @@ const arrListSheriffFabuly = [
 	img 	: 'pdr_11.4', 
 	kupap 	: 'kupap_a122_p2',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'на дорозі з двостороннім рухом, яка має [ --дві; --три; --чотири; ] смуги для руху в одному напрямку, здійснив виїзд на призначений для зустрічного руху бік дороги',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'на дорозі з двостороннім рухом, яка має <span class="marker">[ --дві; --три; --чотири; ]</span> смуги для руху в одному напрямку, здійснив виїзд на призначений для зустрічного руху бік дороги,', ],
 	},
 	descr 	: 'ВИЇЗД на ЗУСТРІЧНУ',
 	pdr 	: 'pdr_c11_a4',
-	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, light: 1, },
+	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, },
 	edit 	: '26.11.2023',
 },
 { 
@@ -779,8 +842,9 @@ const arrListSheriffFabuly = [
 	img 	: 'light_night_no', 
 	kupap 	: 'kupap_a122_p2',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'на якому не горіли фари ближнього світла, здійснював рух в темну пору доби',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'на якому не горіли фари ближнього світла, здійснював рух в темну пору доби,', ],
 	},
 	descr 	: 'БЛИЖНІ ФАРИ в ТЕМНУ ПОРУ ДОБИ',
 	pdr 	: 'pdr_c19_a1_p1',
@@ -792,18 +856,15 @@ const arrListSheriffFabuly = [
 	img 	: 'stop_line', 
 	kupap 	: 'kupap_a122_p2',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожньої горизонтальної розмітки, перетнувши лінію 1.12, за наявності [ --забороненого червоного сигналу світлофора; ]',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожньої горизонтальної розмітки, перетнувши лінію {marking}, за наявності <span class="marker">[ --забороненого червоного сигналу світлофора; ]</span>,', ],
 	},
 	descr 	: 'СТОП-ЛІНІЯ',
 	pdr 	: 'pdr_c8_a5_p1_mark_c1_a12',
-	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, light: 1, },
+	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, },
 	edit 	: '26.11.2023',
 },
-
-
-
-
 
 
 
@@ -812,55 +873,59 @@ const arrListSheriffFabuly = [
 // --- 122.3 ----------------------------------------------------------------------------------------------------------------------------
 
 { 
-	id 		: 'fabula_kupap_a122_p3_pdr_c17_a1_sign_5_8_move',
+	id 		: 'fabula_kupap_a122_p1_pdr_c17_a1_sign_5_8_move',
 	img 	: 'sign_5.8', 
-	kupap 	: 'kupap_a122_p3',
+	kupap 	: 'kupap_a122_p1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'на дорозі із виділеною смугою для маршрутних ТЗ, позначеній дорожнім знаком {sign}, здійснював рух по цій смузі',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'рухався по смузі, призначеній для маршрутних ТЗ, на дорозі, позначеній дорожнім знаком {sign},', ],
 	},
 	descr 	: 'РУХ по СМУЗІ МАРШРУТНИХ ТЗ',
 	pdr 	: 'pdr_c17_a1_sign_5_8',
-	hash 	: { pdr_postanova: 1, kupap_a122_p3: 1, move: 1,  },
+	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1,  },
 	edit 	: '26.11.2023',
 },
 { 
-	id 		: 'fabula_kupap_a122_p3_pdr_c17_a1_sign_5_8_stop',
+	id 		: 'fabula_kupap_a122_p1_pdr_c17_a1_sign_5_8_stop',
 	img 	: 'sign_5.8', 
-	kupap 	: 'kupap_a122_p3',
+	kupap 	: 'kupap_a122_p1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'на дорозі із виділеною смугою для маршрутних ТЗ, позначеній дорожнім знаком {sign}, здійснив зупинку на цій смузі',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив зупинку на смузі, призначеній для маршрутних ТЗ, на дорозі, позначеній дорожнім знаком {sign},', ],
 	},
 	descr 	: 'ЗУПИНКА на СМУЗІ МАРШРУТНИХ ТЗ',
 	pdr 	: 'pdr_c17_a1_sign_5_8',
-	hash 	: { pdr_postanova: 1, kupap_a122_p3: 1, stop: 1,  },
+	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1,  },
 	edit 	: '26.11.2023',
 },
 { 
-	id 		: 'fabula_kupap_a122_p3_pdr_c17_a1_sign_5_11_move',
+	id 		: 'fabula_kupap_a122_p1_pdr_c17_a1_sign_5_11_move',
 	img 	: 'sign_5.11', 
-	kupap 	: 'kupap_a122_p3',
+	kupap 	: 'kupap_a122_p1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'на дорозі із виділеною смугою для маршрутних ТЗ, позначеній дорожнім знаком {sign}, здійснював рух по цій смузі',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'рухався по смузі, призначеній для маршрутних ТЗ, позначеній дорожнім знаком {sign},', ],
 	},
 	descr 	: 'РУХ по СМУЗІ МАРШРУТНИХ ТЗ',
 	pdr 	: 'pdr_c17_a1_sign_5_11',
-	hash 	: { pdr_postanova: 1, kupap_a122_p3: 1, move: 1,  },
+	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, move: 1,  },
 	edit 	: '26.11.2023',
 },
 { 
-	id 		: 'fabula_kupap_a122_p3_pdr_c17_a1_sign_5_11_stop',
+	id 		: 'fabula_kupap_a122_p1_pdr_c17_a1_sign_5_11_stop',
 	img 	: 'sign_5.11', 
-	kupap 	: 'kupap_a122_p3',
+	kupap 	: 'kupap_a122_p1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'на дорозі із виділеною смугою для маршрутних ТЗ, позначеній дорожнім знаком {sign}, здійснив зупинку на цій смузі',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'здійснив зупинку на смузі, призначеній для маршрутних ТЗ, позначеній дорожнім знаком {sign},', ],
 	},
 	descr 	: 'ЗУПИНКА по СМУЗІ МАРШРУТНИХ ТЗ',
 	pdr 	: 'pdr_c17_a1_sign_5_11',
-	hash 	: { pdr_postanova: 1, kupap_a122_p3: 1, stop: 1,  },
+	hash 	: { pdr_postanova: 1, kupap_a122_p1: 1, stop: 1,  },
 	edit 	: '26.11.2023',
 },
 
@@ -876,15 +941,14 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p4',
 	pdr 	: 'pdr_c12_a9_p2_sign_3_29_50',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'перевищів встановлене обмеження швидкості руху ТЗ більш ніж на п\'ятдесят кілометрів на годину в зоні дії знаку {sign}. Швидкість руху вимірювалась приладом [ --назва, №... ]',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'перевищів встановлене обмеження швидкості руху ТЗ більш ніж на п\'ятдесят кілометрів на годину в зоні дії знаку {sign}. Швидкість руху вимірювалась приладом <span class="marker">[ --назва, №... ]</span>,', ],
 	},
 	descr 	: 'ПЕРЕВИЩЕННЯ на 50 км/год',
 	hash 	: { pdr_postanova: 1, kupap_a122_p4: 1, move: 1, },
 	edit 	: '19.11.2023',
 },
-
-
 
 
 
@@ -898,17 +962,14 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a122_p6',
 	pdr 	: 'pdr_c8_a5_p1_mark_c1_a35',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'не виконав вимогу дорожньої розмітки 1.35, здійснивши стоянку на місці для паркування індивідуального транспорту осіб з інвалідністю',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не виконав вимогу дорожньої розмітки {marking}, здійснивши стоянку на місці для паркування індивідуального транспорту осіб з інвалідністю,', ],
 	},
 	descr 	: 'МІСЦЯ для ІНВАЛІДІВ',
-	hash 	: { pdr_postanova: 1, kupap_a122_p4: 1, stop: 1, marking: 1, },
+	hash 	: { pdr_postanova: 1, kupap_a122_p6: 1, stop: 1, marking: 1, },
 	edit 	: '26.11.2023',
 },
-
-
-
-
 
 
 
@@ -922,8 +983,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a126_p1',
 	pdr 	: 'pdr_c2_a1_p1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: '[ --не мав при собі; --не пред’явив; ] посвідчення водія на право керування ТЗ відповідної категорії',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ '<span class="marker">[ --не мав при собі; --не пред’явив; ]</span> посвідчення водія на право керування ТЗ відповідної категорії,', ],
 	},
 	descr 	: 'ПВ, НЕ МАВ при СОБІ',
 	hash 	: { pdr_postanova: 1, kupap_a126_p1: 1, move: 1, doc: 1, },
@@ -935,8 +997,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a126_p1',
 	pdr 	: 'pdr_c2_a1_p2',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: '[ --не мав при собі; --не пред’явив; ] реєстраційного документа на транспортний засіб',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ '<span class="marker">[ --не мав при собі; --не пред’явив; ]</span> реєстраційного документа на транспортний засіб,', ],
 	},
 	descr 	: 'СВІДОЦТВО',
 	hash 	: { pdr_postanova: 1, kupap_a126_p1: 1, move: 1, doc: 1, },
@@ -948,8 +1011,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a126_p1',
 	pdr 	: 'pdr_c2_a1_p5',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: '[ --не мав при собі; --не пред’явив; ] поліса обов’язкового страхування цивільно-правової відповідальності власників наземних ТЗ',
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ '<span class="marker">[ --не мав при собі; --не пред’явив; ]</span> поліса обов’язкового страхування цивільно-правової відповідальності власників наземних ТЗ,', ],
 	},
 	descr 	: 'СТРАХОВКА',
 	hash 	: { pdr_postanova: 1, kupap_a126_p1: 1, move: 1, doc: 1, },
@@ -960,24 +1024,36 @@ const arrListSheriffFabuly = [
 
 
 
-
-
 // --- 126.2 ----------------------------------------------------------------------------------------------------------------------------
 
 { 
-	id 		: 'fabula_kupap_a126_p2_pdr_c2_a1_p1', 
+	id 		: 'fabula_kupap_a126_p2_pdr_c2_a1_p1_nolicense', 
 	img 	: 'doc_license',
 	kupap 	: 'kupap_a126_p2',
 	pdr 	: 'pdr_c2_a1_p1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснював рух, не маючи права керування таким ТЗ',
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'не маючи права керування таким ТЗ,', ],
 	},
 	descr 	: 'ПВ, ніколи не було...',
 	hash 	: { pdr_postanova: 1, kupap_a126_p2: 1, move: 1, doc: 1, },
 	edit 	: '26.11.2023',
 },
-
+{ 
+	id 		: 'fabula_kupap_a126_p2_pdr_c2_a9_p5', 
+	img 	: 'doc_license',
+	kupap 	: 'kupap_a126_p2',
+	pdr 	: 'pdr_c2_a9_p5',
+	txt 	: {
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'передав керування ТЗ особі, яка не має права керування таким ТЗ,', ],
+	},
+	descr 	: 'ПВ, ПЕРЕДАВ КЕРУВАННЯ',
+	hash 	: { pdr_postanova: 1, kupap_a126_p2: 1, move: 1, doc: 1, },
+	edit 	: '26.11.2023',
+},
 
 
 
@@ -991,16 +1067,14 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a126_p4',
 	pdr 	: 'pdr_c2_a1_p1',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'здійснював рух, будучи позбавленим права керування транспортними засобами',
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'будучи позбавленим права керування транспортними засобами,', ],
 	},
 	descr 	: 'ПВ, ПОЗБАВЛЕНИЙ',
 	hash 	: { pdr_postanova: 1, kupap_a126_p4: 1, move: 1, doc: 1, },
 	edit 	: '26.11.2023',
 },
-
-
-
 
 
 
@@ -1014,8 +1088,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a127_p1',
 	pdr 	: 'pdr_c4_a7',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'перейшов проїзну частину у невстановленому місті, поза пішохідним переходом',
+		intro : [ 'intro', 'pedestrian', 'name', ],
+		wrap: [ '$1', ],
+		fabula: [ 'перейшов проїзну частину у невстановленому місті, <span class="marker">[ --поза пішохідним переходом; ]</span>,', ],
 	},
 	descr 	: 'ПЕРЕХІД в НЕВСТАНОВЛЕНИХ МІСЦЯХ',
 	hash 	: { pdr_postanova: 1, kupap_a127_p1: 1, pedestrian: 1, },
@@ -1027,8 +1102,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a127_p1',
 	pdr 	: 'pdr_c8_a7_p7',
 	txt 	: {
-		wrap: [ 'intro', 'driver', 'name', 'acting', 'car', '$', ],
-		fabula: 'перейшов проїзну частину на заборонений червоний сигнал світлофора',
+		intro : [ 'intro', 'pedestrian', 'name', ],
+		wrap: [ '$1', ],
+		fabula: [ 'перейшов проїзну частину на заборонений червоний сигнал світлофора,', ],
 	},
 	descr 	: 'ПЕРЕХІД на ЧЕРВОНИЙ',
 	hash 	: { pdr_postanova: 1, kupap_a127_p1: 1, pedestrian: 1, traffic_light: 1, },
@@ -1039,7 +1115,99 @@ const arrListSheriffFabuly = [
 
 
 
+// --- 130.1 ----------------------------------------------------------------------------------------------------------------------------
 
+{ 
+	id 		: 'fabula_kupap_a130_p1_pdr_c2_a9_p1_inplace', 
+	img 	: 'alco',
+	kupap 	: 'kupap_a130_p1',
+	pdr 	: 'pdr_c2_a9_p1',
+	txt 	: {
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [  'alco_state', '$1', 'alco_doc_n', 'alco_inspection1', 'alco_analyzer', 'alco_inspection2', 'alco_ppm', '$2', ],
+		fabula: [ ', що підтверджується тестом ', ',', ],
+	},
+	descr 	: 'на МІСЦІ',
+	hash 	: { pdr_protokol: 1, kupap_a130: 1, kupap_a130_p1: 1, move: 1, alco: 1, },
+	edit 	: '28.11.2023',
+},
+{ 
+	id 		: 'fabula_kupap_a130_p1_pdr_c2_a9_p1_ond', 
+	img 	: 'alco',
+	kupap 	: 'kupap_a130_p1',
+	pdr 	: 'pdr_c2_a9_p1',
+	txt 	: {
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [  'alco_state', '$1', 'alco_doc_n', ],
+		fabula: [ ', що підтверджується висновком на стан алкогольного сп\'яніння ' ],
+	},
+	descr 	: 'в МЕД.ЗАКЛАДІ',
+	hash 	: { pdr_protokol: 1, kupap_a130: 1, kupap_a130_p1: 1, move: 1, alco: 1, },
+	edit 	: '28.11.2023',
+},
+{ 
+	id 		: 'fabula_kupap_a130_p1_pdr_c2_a5_refuse_inplace', 
+	img 	: 'alco',
+	kupap 	: 'kupap_a130_p1',
+	pdr 	: 'pdr_c2_a5',
+	txt 	: {
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		//wrap: [  'alco_symptom', '$1', 'alco_analyzer', '$2', ],
+		wrap: [  'alco_symptom', '$1', ],
+		fabula: [ 
+			//'. Від проходження медичного огляду на визначення стану алкогольного сп\'яніння на місці зупинки ТЗ за допомогою газоаналізатора ',
+			//' та проведення такого огляду у мед.закладі відмовився у присутності двох свідків,',
+
+			'. Від проходження медичного огляду на визначення стану алкогольного сп\'яніння за допомогою газоаналізатора на місці зупинки ТЗ та проведення такого огляду у мед.закладі відмовився у присутності двох свідків,',
+		],
+	},
+	descr 	: 'ВІДМОВА...',
+	hash 	: { pdr_protokol: 1, kupap_a130: 1, kupap_a130_p1: 1, move: 1, alco: 1, },
+	edit 	: '28.11.2023',
+},
+{ 
+	id 		: 'fabula_kupap_a130_p1_pdr_c2_a5_inplace_not_agree_ond', 
+	img 	: 'alco',
+	kupap 	: 'kupap_a130_p1',
+	pdr 	: 'pdr_c2_a5',
+	txt 	: {
+		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
+		wrap: [  'alco_symptom', 'alco_inspection1', 'alco_analyzer', 'alco_inspection2', 'alco_ppm', '$1', ],
+		fabula: [ 
+			'. З результати огляду гр. <span class="marker"> --(П.І.Б. водія)</span> не згоден. Від проходження огляду у медичному закладі з метою підтвердження стану алкогольного сп\'яніння відмовився у присутності двох свідків,',
+		],
+	},
+	descr 	: 'НЕ ЗГОДЕН з результатами',
+	hash 	: { pdr_protokol: 1, kupap_a130: 1, kupap_a130_p1: 1, move: 1, alco: 1, },
+	edit 	: '28.11.2023',
+},
+{ 
+	id 		: 'fabula_kupap_a130_p1_pdr_c2_a9_p4', 
+	img 	: 'alco',
+	kupap 	: 'kupap_a130_p1',
+	pdr 	: 'pdr_c2_a9_p4',
+	txt 	: {
+		intro : [ 'intro', 'driver', 'name', ],
+		//wrap: [  'alco_state', '$1', 'alco_doc_n', 'alco_inspection1', 'alco_analyzer', 'alco_inspection2', 'alco_ppm', '$1', ],
+		wrap: [ 'transfer_control', 'car', '$1', 'driver2', '$1', 'name2', '$2', 'dbirth', '$2', '$3', ],
+		fabula: [ ' ', ', ', 'який керував цим транспортним засобом в стані алкогольного сп’яніння.',  ],
+	},
+	descr 	: 'ПЕРЕДАЧА КЕРУВАННЯ',
+	hash 	: { pdr_protokol: 1, kupap_a130: 1, kupap_a130_p1: 1, move: 1, alco: 1, },
+	edit 	: '3.12.2023',
+},
+
+
+
+
+
+
+
+
+
+
+
+// ГБ ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // --- 109 --------------------------------------------------------------------------------------------------------------------------
 
@@ -1048,10 +1216,10 @@ const arrListSheriffFabuly = [
 	img 		: 'cross_rail', 
 	kupap 		: 'kupap_a109_p3',
 	railroad 	: 'rr_a2_p1',
-
 	txt 		: {
-		wrap: [ 'intro', 'name', '$', ],
-		fabula: 'перейшов залізничну колію у невстановленому місці',
+		intro : [ 'intro', 'citizen', 'name', ],
+		wrap: [ '$1', ],
+		fabula: [ 'перейшов залізничну колію у невстановленому місці', ],
 	},
 	descr 	: 'ПЕРЕХіД КОЛІЙ',
 	hash 	: { gb: 1, gb_postanova: 1, kupap_a175_1_p1: 1, },
@@ -1070,8 +1238,9 @@ const arrListSheriffFabuly = [
 	kupap 	: 'kupap_a175_1_p1',
 	smoking : 'smoking_13',
 	txt 	: {
-		wrap: [ 'intro', 'name', '$', ],
-		fabula: 'курив тютюнові вироби на зупинці маршрутних транспортних засобів',
+		intro : [ 'intro', 'citizen', 'name', ],
+		wrap: [ '$1', ],
+		fabula: [ 'курив тютюнові вироби на зупинці громадського транспорту', ],
 	},
 	descr 	: 'КУРІННЯ',
 	hash 	: { gb: 1, gb_postanova: 1, kupap_a175_1_p1: 1, },
@@ -1085,18 +1254,48 @@ const arrListSheriffFabuly = [
 // --- 178.1 --------------------------------------------------------------------------------------------------------------------------
 
 { 
-	id 		: 'fabula_kupap_a178_p1', 
+	id 		: 'fabula_kupap_a178_p1_drank', 
 	img 	: 'booze', 
 	kupap 	: 'kupap_a178_p1',
 	alco 	: 'alco_a15_2',
 	txt 	: {
-		wrap: [ 'intro', 'name', '$', ],
-		fabula: 'знаходився в громадському місці (автостанція), у п\'яному вигляді, що ображає людську гідність та громадську мораль',
+		intro : [ 'intro', 'citizen', 'name', ],
+		wrap: [ '$1', ],
+		fabula: [ 'розпивав <span class="marker">[ --пиво; ]</span> на зупинці громадського транспорту,', ],
 	},
-	descr 	: 'ПИЯЦТВО',
+	descr 	: 'РОЗПИВАВ',
 	hash 	: {gb: 1,  gb_postanova: 1, kupap_a178_p1: 1, },
 	edit 	: '23.11.2023',
 },
+{ 
+	id 		: 'fabula_kupap_a178_p1_drunk', 
+	img 	: 'booze', 
+	kupap 	: 'kupap_a178_p1',
+	alco 	: 'alco_a15_2',
+	txt 	: {
+		intro : [ 'intro', 'citizen', 'name', ],
+		wrap: [ '$1', ],
+		fabula: [ 'знаходився на зупинці громадського транспорту у п\'яному вигляді, що ображає людську гідність та громадську мораль,', ],
+	},
+	descr 	: 'ХОДИВ П\'ЯНИЙ',
+	hash 	: {gb: 1,  gb_postanova: 1, kupap_a178_p1: 1, },
+	edit 	: '23.11.2023',
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1213,11 +1412,6 @@ const arrListSheriffFabuly = [
 
 
 
-
-
-
-
-
 { 
 	id 		: 'sign_5.11_move_evacuation', img: 'sign_5.11', edit: { d: '19', m: '10', y: '2023', }, 
 	fabula 	: 'на дорозі із виділеною смугою для маршрутних ТЗ, позначеній дорожнім знаком {sign}, здійснював рух по цій смузі, створивши суттеву перешкоду руху громадському маршрутному транспорту',
@@ -1251,11 +1445,6 @@ const arrListSheriffFabuly = [
 
 
 
-
-
-
-
-
 // --- 124 ------------------------------------------------------------------------------------------------------------------------------
 { 
 	id 		: 'dtp_124', img: 'dtp', edit: { d: '16', m: '10', y: '2023', }, 
@@ -1265,60 +1454,6 @@ const arrListSheriffFabuly = [
 	pdr 	: '',
 	hash 	: { pdr_protokol: 1, kupap_a124: 1, },
 },
-
-
-
-
-
-
-
-
-
-
-
-// --- 130.1 ----------------------------------------------------------------------------------------------------------------------------
-{ 
-	id 		: 'alco_', img: 'alco', edit: { d: '16', m: '10', y: '2023', }, 
-	fabula 	: '',
-	descr 	: 'ВІДМОВА',
-	kupap 	: { art: '130', part: '', },
-	pdr 	: '2.5',
-	hash 	: { pdr_protokol: 1, },
-},
-{ 
-	id 		: 'alco_', img: 'alco', edit: { d: '16', m: '10', y: '2023', }, 
-	fabula 	: '',
-	descr 	: 'НЕЗГОДА',
-	kupap 	: { art: '130', part: '', },
-	pdr 	: '2.5',
-	hash 	: { pdr_protokol: 1, },
-},
-{ 
-	id 		: 'alco_130_1', img: 'alco', edit: { d: '16', m: '10', y: '2023', }, 
-	fabula 	: 'в стані алкогольного сп\'яніння. Огляд проводився на місці зупинки ТЗ за допомогою газоаналізатора «Alcotest №... » у присутності двох свідків, що підтверджується тестом № ______ від _______, результати огляду становлять 0,36 % проміле.  ',
-	descr 	: 'ТЕСТ на МІСЦІ',
-	kupap 	: { art: '130', part: '1', },
-	pdr 	: '2.9.а',
-	hash 	: { pdr_protokol: 1, kupap_a130_p1: 1, },
-},
-{ 
-	id 		: 'alco_', img: 'alco', edit: { d: '16', m: '10', y: '2023', }, 
-	fabula 	: '',
-	descr 	: 'ТЕСТ у МЕД.ЗАКЛАДІ',
-	kupap 	: { art: '130', part: '', },
-	pdr 	: '2.9.а',
-	hash 	: { pdr_protokol: 1, },
-},
-
-
-
-
-
-
-
-
-
-
 
 
 

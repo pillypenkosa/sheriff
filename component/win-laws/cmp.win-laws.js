@@ -12,26 +12,32 @@ class ComponentWinLaws {
 
 
 
+	static tfArtsLaws = {}; 
+
+
+
+
 	static laws = [
 
-		{ id: 'ku' 				, name: 'Law-Ku' 			, title: 'Конституція України', href: 'https://zakon.rada.gov.ua/laws/show/254%D0%BA/96-%D0%B2%D1%80#Text', },
-		//{ id: 'npu' 			, name: 'Law-Npu' 			, title: 'ЗУ \"Про Національну поліцію\"', href: 'https://zakon.rada.gov.ua/laws/show/580-19#Text', },
-		//{ id: 'kupap' 			, name: 'Law-Kupap' 		, title: 'Кодекс України про адміністративні правопорушення', href: 'https://zakon.rada.gov.ua/laws/show/80731-10#Text', },
-		//{ id: 'kku' 			, name: 'Law-Kku' 			, title: 'Кримінальний Кодекс України', href: 'https://zakon.rada.gov.ua/laws/show/2341-14#Text', },
-		{ id: 'smoking' 		, name: 'Law-Smoking' 		, title: 'ЗУ \"Про заходи щодо попередження та зменшення вживання тютюнових виробів і їх шкідливого впливу на здоров\'я населення\"', href: 'https://zakon.rada.gov.ua/laws/show/2899-15#Text', },
-		{ id: 'alco' 			, name: 'Law-Alco' 			, title: 'ЗУ \"Про державне регулювання виробництва і обігу спирту етилового, коньячного і плодового, алкогольних напоїв, тютюнових виробів, рідин, що використовуються в електронних сигаретах, та пального\"', href: 'https://zakon.rada.gov.ua/laws/show/481/95-%D0%B2%D1%80#Text', },
-
+		{ id: 'npu' 		, },
+		{ id: 'ku' 			, },
+		{ id: 'kupap' 		, },
+		{ id: 'smoking' 	, },
+		{ id: 'alco' 		, },
+	
 	]; 
 
 
 
- 
- 
- 
+
+
+
+
+
 	static html( objData = {} ) { 
 		const fooName = this.name + '.html()'; 
  
-		this.args = objData.args ? objData.args : {}; 
+		//this.args = objData.args ? objData.args : {}; 
  
  
  
@@ -46,39 +52,58 @@ class ComponentWinLaws {
 		}; 
  
  
- 
- /*
-		let html = `
+
+		//let tfLaws = {};
+
+
+		//console.log( 'tfArtsLaws: ', this.tfArtsLaws );
 
 
 
-			<div>${ Component( 'Law-Constitution' ) }</div>
-			<div>${ Component( 'Law-Npu' ) }</div>
-			<div>${ Component( 'Law-Kupap' ) }</div>
-			<div>${ Component( 'Law-Kku' ) }</div>
-
-			<div>${ Component( 'Law-Alco' ) }</div>
-			<div>${ Component( 'Law-Smoking' ) }</div>
-		`; 
- 
- */
 
 		let html = '';
 		this.laws.forEach( k => {
 
-			html += `<div class="each">
+			//let doc 			= '';
+			//let title 			= '';
+			//let href 			= '';
+			let htmlLawTitle 	= '';
 
-				<div class="title-law">
-					<a href="${ k.href }" target="_blank">${ k.title }${ symbolLink }</a>
-				</div>
-				<div class="law-arts">${ Component( k.name ) }</div>
+
+			if ( k.id == 'alco' || k.id == 'ku' || k.id == 'smoking' || k.id == 'kupap' || k.id == 'npu' ) {
+
+				if ( objListSheriffLaws[ k.id ].doc ) 
+					htmlLawTitle += objListSheriffLaws[ k.id ].doc
+				
+				if ( objListSheriffLaws[ k.id ].title ) 
+					htmlLawTitle += `<br/>"${ objListSheriffLaws[ k.id ].title }"`;
+
+				if ( objListSheriffLaws[ k.id ].href ) 
+					htmlLawTitle = `<a href="${ objListSheriffLaws[ k.id ].href }" target="_blank">${ htmlLawTitle }</a>`;
+
+			}
+
+
+
+
+
+
+
+
+
+			
+			html += `<div class="law-each">
+				<div class="law-title">${ htmlLawTitle }</div>
+				<div class="law-descr">${ Component( 'Spoiler-Art', k.id ) }</div>
 			</div>`;
+
 		});
 
 
 
+		//console.log( 'tfArtsLaws: ', this.tfArtsLaws );
 
- 
+
 		setMeta({ 
 			title 			: 'Закони', 
 			description 	: 'Опис...', 
@@ -93,12 +118,52 @@ class ComponentWinLaws {
  
  
  
+ 	// клік по тітлу конкретної статті
+	static clcArt( elem ) { 
+		const fooName = this.name + '.clcArt()'; 
  
-	static clc( data ) { 
-		const fooName = this.name + '.clc()'; 
- 
-		console.log( 'fooName', fooName ); 
-		console.log( 'data', data ); 
+		console.log( 'fooName: ', fooName ); 
+		console.log( 'elem: ', elem ); 
+
+
+		//let elemParent = elem.parentNode;
+		let elemParent = elem.closest( '.art-each' );
+
+		const ID = elemParent.dataset.id;
+
+		console.log( 'ID: ', ID ); 
+
+
+		let elemDescr = elemParent.querySelector( '.descr' );
+
+		let htmlArrow = '';
+
+
+		if ( this.tfArtsLaws[ ID ] ) { // сховати
+			elemDescr.style.display = 'none';
+			htmlArrow = '&#8680;';
+
+		} else { // відобразити
+			elemDescr.style.display = 'block';
+			htmlArrow = '&#8681;';
+
+		}
+
+		this.tfArtsLaws[ ID ] = !this.tfArtsLaws[ ID ];
+
+		console.log( 'elemParent: ', elemParent ); 
+
+		elemParent.querySelector( '.title .pm' ).innerHTML = htmlArrow;
+
+
+
+		//элемент.closest('селектор');
+
+
+
+
+
+
 
 
 		//alert( fooName );

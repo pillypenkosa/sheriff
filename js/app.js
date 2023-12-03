@@ -81,7 +81,6 @@ function isErr() {
 
 		//if ( errConsole.err.length ) {
 		if ( errConsole.length ) {
-			//cns( 'Бля буду, помилки хуярять... ', 'шось', 'err' );
 
 			errConsole.forEach( k => {
 				//console.log( k );
