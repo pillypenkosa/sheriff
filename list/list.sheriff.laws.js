@@ -26,7 +26,7 @@ const arrListSheriffLaws = [
 {
 	id: 'npu',
 	doc: 'ЗАКОН УКРАЇНИ',
-	title: 'Про Національну поліцію ',
+	title: 'Про Національну поліцію',
 	href: 'https://zakon.rada.gov.ua/laws/show/580-19#Text',
 },
 {
