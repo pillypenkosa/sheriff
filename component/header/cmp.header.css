@@ -9,6 +9,7 @@ cmp-header {
 	left: 0;
 	right: 0;
 	background: linear-gradient( to bottom, #009, #099 );	
+	z-index: 9;
 }
 
 

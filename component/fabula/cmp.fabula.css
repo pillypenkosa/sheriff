@@ -3,7 +3,7 @@
  
  
 cmp-fabula { 
-
+	/*position: relative;*/
 	margin: -4px 15px 30px 15px;
 	padding: 10px;
 	background-color: #fff;
@@ -12,22 +12,12 @@ cmp-fabula {
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
 } 
-	cmp-fabula .back-close {
-		position: absolute;
-		top: 15px;
-		font-weight: bold;
-	}
-		cmp-fabula .back-close.back {
-			left: 15px;
-		}
-		cmp-fabula .back-close.close {
-			right: 15px;
-		}
+
 
 
 
 	cmp-fabula .vstup {
-
+		position: relative;
 	}
 		cmp-fabula .vstup .info {
 			margin: 0 0 0 5px;
@@ -35,6 +25,23 @@ cmp-fabula {
 			cmp-fabula .vstup .info div {
 				margin: 0 0 5px 0;
 			}
+
+		cmp-fabula .vstup .close {
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			font-weight: bold;
+		}
+
+
+
+
+
+
+
+
+
+
 
 
 	cmp-fabula .item-border {

@@ -381,10 +381,15 @@ class ComponentFabula {
 
 
 			html = `
-				<div class="back-close close pointer" onclick="ComponentFabula.close( this )">
-					<img src="img/pic/cross.png" alt="close">
-				</div>
 				<div class="vstup">
+
+					<div class="back-close close pointer" onclick="ComponentFabula.close( this )">
+						<img src="img/pic/cross.png" alt="close">
+					</div>
+
+
+
+				
 					<div class="info">
 						${ htmlKupapInfo }
 						${ htmlPdrInfo }
