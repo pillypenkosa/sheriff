@@ -12,23 +12,11 @@ class ComponentFabula {
  
  
  
-	static html( ID ) { 
-		const fooName = this.name + '.html()'; 
-
-
-
-		console.log( 'fooName: ', fooName ); 
-		console.log( 'ID: ', ID ); 
-
-
-
-
-
-
-
-
+	static html( objData = {} ) { 
  
-		//this.args = objData.args ? objData.args : {}; 
+		const name = this.name + '.html()'; 
+ 
+		this.args = objData.args ? objData.args : {}; 
  
  
  
@@ -44,8 +32,47 @@ class ComponentFabula {
  
  
  
-		let html = '';
-		//html = fooName;
+		//let html = '';
+		let html = ''; 
+ 
+		return { html, tagParam };  
+	} 
+ 
+ 
+ 
+ 
+ 
+	static clc( data ) { 
+		const name = this.name + '.clc()'; 
+ 
+		//cns( 'var', 'data', data ); 
+ 
+	} 
+ 
+ 
+
+ 	// перехыд за посиланням в новому вікні
+ 	static clcLink( data ) { 
+		const name = this.name + '.clcLink()'; 
+ 
+		//cns( 'var', 'data', data ); 
+		window.open( data.dataset.href );
+	} 
+
+
+
+	static close( data ) { 
+		const name = this.name + '.close()'; 
+
+		document.querySelector( 'cmp-fabula' ).innerHTML = '';
+	} 
+ 
+ 
+
+	static insFabula( elem ) { 
+
+
+		let id = elem.dataset.id;
 
 
 
@@ -54,9 +81,19 @@ class ComponentFabula {
 
 
 
-		if ( objListSheriffFabuly[ ID ] ) {
 
-			let objFabula = objListSheriffFabuly[ ID ];
+
+
+
+		const fooName = this.name + '.insFabula()'; 
+
+		//console.log( 'fooName: ', fooName );
+		//console.log( 'id: ', id );
+
+
+		if ( objListSheriffFabuly[ id ] ) {
+
+			let objFabula = objListSheriffFabuly[ id ];
 
 
 			// порушення конкретного закону, наказу чи правил
@@ -98,7 +135,7 @@ class ComponentFabula {
 					htmlInfoPenalty 	= `<div>${ this.wrapPenalty( objKupap ) } грн</div>`;
 					htmlKupapN 			= this.wrapKupap( objKupap );
 					htmlKupapInfo 		= `<div>КУпАП:${ htmlKupapN }</div>`;
-					htmlViolationKupap = `<div class="violation violation-kupap">чим скоїв адміністративне правопорушення, передбачене ${ htmlKupapN } КУпАП.</div>`;
+					htmlViolationKupap = `<div class="violation-kupap">чим скоїв адміністративне правопорушення, передбачене ${ htmlKupapN } КУпАП.</div>`;
 				}
 			}
 
@@ -175,7 +212,7 @@ class ComponentFabula {
 
 			htmlIntroFabula = htmlIntroFabula ? `<div class="fabula-intro">${ htmlIntroFabula }</div>` : '';
 
-			//console.log( 'htmlIntroFabula: ', htmlIntroFabula );
+			console.log( 'htmlIntroFabula: ', htmlIntroFabula );
 
 
 			let htmlPdrN 			= '';
@@ -308,7 +345,7 @@ class ComponentFabula {
 
 
 			// порушення конкретного закону
-			htmlViolationLaw = htmlViolationLaw ? `<div class="violation violation-law">${ htmlViolationLaw }</div>` : '';
+			htmlViolationLaw = htmlViolationLaw ? `<div class="violation-law">${ htmlViolationLaw }</div>` : '';
 
 
 			// розглядають справу ------------------------------------------------------------------------------------------------
@@ -357,7 +394,7 @@ class ComponentFabula {
 			// дата останього редагування ----------------------------------------------------------------------------------------------
 			let htmlEdited = objFabula.edit ? `<div class="edited">Оновлено: ${ objFabula.edit }</div>` : '';
 
-			//console.log( 'objFabula: ', objFabula );
+			console.log( 'objFabula: ', objFabula );
 
 
 
@@ -376,51 +413,68 @@ class ComponentFabula {
 				if ( objFabula.hash.gb_protokol ) 
 					htmlBlankName = '<span class="gb-protokol">ПРОТОКОЛ ГБ</span>';
 				
+
+
+
+
+
+
 			}
 
 
 
-			html = `
-				<div class="back-close close pointer" onclick="ComponentFabula.close( this )">
+			let html = `
+				<div class="back-close back" onclick="ComponentFabula.close()">
+					<img src="img/pic/arrow-left.png" alt="close">
+				</div>
+				<div class="back-close close" onclick="ComponentFabula.close()">
 					<img src="img/pic/cross.png" alt="close">
 				</div>
-				<div class="vstup">
-					<div class="info">
-						${ htmlKupapInfo }
-						${ htmlPdrInfo }
-						${ htmlSignInfo }
-						${ htmlMarkN }
-						${ htmlDstu }
-						${ htmlSmokingFabula }
-						${ htmlAlcoFabula }
-						${ htmlRailroadInfo }
-						${ htmlInfoMinMax }
-						${ htmlInfoPenalty }
+
+				<div class="fabula-title">Фабула</div>
+				<div class="fabula-body">
+					<div class="vstup">
+						<div class="img">
+							<img src="img/fabuly/${ objFabula.img }.jpg" alt="">
+						</div>
+						<div class="info">
+							${ htmlKupapInfo }
+							${ htmlPdrInfo }
+							${ htmlSignInfo }
+							${ htmlMarkN }
+							${ htmlDstu }
+							${ htmlSmokingFabula }
+							${ htmlAlcoFabula }
+							${ htmlRailroadInfo }
+							${ htmlInfoMinMax }
+							${ htmlInfoPenalty }
+						</div>
 					</div>
-				</div>
-				<div class="blank-name">${ htmlBlankName }</div>
-				<div class="fabula-txt">
-					<div>${ htmlIntroFabula }</div>	
 
-					${ htmlViolationLaw }
-					${ htmlViolationKupap }
+					<div class="blank-name">${ htmlBlankName }</div>
+					
+					<div class="fabula-txt">
+						<div>${ htmlIntroFabula }</div>	
 
-					${ htmlEvacuation }
-					<div>---</div>
-					${ htmlOrgan }
+						${ htmlViolationLaw }
+						${ htmlViolationKupap }
+
+						${ htmlEvacuation }
+						<div>---</div>
+						${ htmlOrgan }
+					</div>
+					${ htmlRepeat }
+					${ htmlEdited }
 				</div>
-				${ htmlRepeat }
-				${ htmlEdited }
 			`;
 
 
 			//document.querySelector( 'cmp-fabula').innerHTML = html;
 
-/*
 			let elem4ins = document.querySelector( `cmp-each-select-fabula[data-id="${ id }"] .full` );
 			console.log( 'elem4ins: ', elem4ins );
 			elem4ins.innerHTML = html;
-*/
+
 
 
 
@@ -429,61 +483,16 @@ class ComponentFabula {
 
 
 
+
+
+
+
+
+
 		} else 
 			console.log( 'Дивна помилка...', );
-
-
-		return { html, tagParam };  
 	} 
  
- 
- 
- 
- 
-	static clc( data ) { 
-		const name = this.name + '.clc()'; 
- 
-		//cns( 'var', 'data', data ); 
- 
-	} 
- 
- 
-/*
- 	// перехыд за посиланням в новому вікні
- 	static clcLink( data ) { 
-		const name = this.name + '.clcLink()'; 
- 
-		//cns( 'var', 'data', data ); 
-		window.open( data.dataset.href );
-	} 
-*/
-
-
-	static close( elem ) { 
-		const fooName = this.name + '.close()'; 
-		console.log( 'fooName: ', fooName );
-
-
-
-		let elemParent = elem.closest( 'cmp-each-select-fabula' );
-		console.log( 'elemParent: ', elemParent );
-
-
-
-		// поиск дитя в родителе по селектору, наприклад по класу
-		let elemFind = elemParent.querySelector( '.full' );
-
-
-		console.log( 'elemFind: ', elemFind );
-
-
-		elemFind.innerHTML = '';
-
-
-	} 
- 
- 
-
 
 
 

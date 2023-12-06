@@ -30,18 +30,9 @@ class ComponentMenuSelectFabula {
 		}; 
  
  
- 		//cns( 'var', 'fooName', fooName ); 
-		//cns( 'var', 'objData', objData );
-
-
-
-
 		let html = fooName; 
 
-
 		html = this.getFabulySelect( 'all' );
-
-
 
 
 /*		
@@ -54,16 +45,11 @@ class ComponentMenuSelectFabula {
 		*/
 
 
-
-
- 
 		//cns( 'var', 'html', html );
  
 
 		//<div class="menu-select-fabuly">${ ComponentWinFabulyPostanovPdr.showFabuly( 'all' ) }</div>
- 
- 
- 
+
 		return { html, tagParam };  
 	} 
  
@@ -76,7 +62,6 @@ class ComponentMenuSelectFabula {
  
 		//cns( 'var', 'fooName', fooName ); 
 		//cns( 'var', 'data', data ); 
- 
 	} 
  
 
@@ -91,15 +76,8 @@ class ComponentMenuSelectFabula {
 		//console.log( 'elem.data.blank: ', elem.dataset.blank ); 
 
 
-
 		//document.querySelector( 'cmp-menu-select-fabula' ).innerHTML = this.getFabulySelect( elem.dataset.blank, elem.value );
 		document.querySelector( 'cmp-menu-select-fabula' ).innerHTML = this.getFabulySelect( elem.value );
-
-
-
-
-
-
  	}
 
 
@@ -117,39 +95,23 @@ class ComponentMenuSelectFabula {
 
 
 
-
-
 		let htmlSelectFabula = ''; 
-
-
 
 
 		arrListSheriffFabuly.forEach( k => {
 
-
 			if ( hash == 'all' ) {
 
 				//console.log( 'all: ', 555 )
-
 				htmlSelectFabula += Component( 'Each-Select-Fabula', k.id );
 
-
 			} else {
-
 
 				if ( k.hash ) {
 					if ( k.hash[ hash ] ) 
 						htmlSelectFabula += Component( 'Each-Select-Fabula', k.id );
 				} 
-
-
-
 			}
-
-
-
-
-
 
 		});
 

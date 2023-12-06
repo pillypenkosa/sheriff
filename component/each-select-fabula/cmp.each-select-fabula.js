@@ -28,7 +28,8 @@ class ComponentEachSelectFabula {
 			'data-id' 		: fabulaID, 
 			//'onclick' 		: objData.clc, 
 			//'onclick' 		: `ComponentFabula.insFabula( '${ objData.id }' )`, 
-			'onclick' 		: `ComponentFabula.insFabula( '${ fabulaID }' )`, 
+			//'onclick' 		: `ComponentFabula.insFabula( '${ fabulaID }' )`, 
+			//'onclick' 		: `ComponentEachSelectFabula.clc( this )`, 
 			
 			//'class' 		: '', 
 			//'name' 		: '', 
@@ -112,22 +113,25 @@ class ComponentEachSelectFabula {
 
 
 
-
+		//  ${ this.name }.clc( this )
 
 
 		let html = `
-			<div class="img">
-				<img src="img/fabuly/${ objFabula.img }.jpg" alt="">
-			</div>
+			<div class="intro" onclick="${ this.name }.clc( this )">
+				<div class="img">
+					<img src="img/fabuly/${ objFabula.img }.jpg" alt="">
+				</div>
 
-			<div class="info">
-				<div><b>КУпАП</b>: ст.<b>${ objKupap.a }</b> ч.<b>${ objKupap.p }</b></div>
-				${ htmlPdrN }
-				${ htmlSign }
-				${ htmlMark }
-				${ htmlDstu }
-				${ htmlDescr }
+				<div class="info">
+					<div><b>КУпАП</b>: ст.<b>${ objKupap.a }</b> ч.<b>${ objKupap.p }</b></div>
+					${ htmlPdrN }
+					${ htmlSign }
+					${ htmlMark }
+					${ htmlDstu }
+					${ htmlDescr }
+				</div>
 			</div>
+			<div class="full"></div>
 		`; 
 
 
@@ -138,12 +142,30 @@ class ComponentEachSelectFabula {
  
  
  
-	static clc( data ) { 
+	static clc( elem ) { 
 		const fooName = this.name + '.clc()'; 
+
  
-		//cns( 'var', 'fooName', fooName ); 
-		//cns( 'var', 'data', data ); 
- 
+		//console.log( 'fooName: ', fooName ); 
+		//console.log( 'elem: ', elem ); 
+
+
+
+		let elemParent = elem.closest( 'cmp-each-select-fabula' );
+
+
+
+
+		let ID = elemParent.dataset.id;
+		console.log( 'ID: ', ID ); 
+
+
+		let elem4ins = document.querySelector( `cmp-each-select-fabula[ data-id="${ ID }" ] .full` );
+
+		//console.log( 'elem4ins: ', elem4ins ); 
+
+
+		elem4ins.innerHTML = Component( 'Fabula', ID );
 	} 
  
  

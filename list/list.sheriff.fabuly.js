@@ -1,39 +1,53 @@
 const arrListSheriffFabulyType = [
 
-	{ id: 'all' 				, title: 'Категорії порушень' 			, hash: { pdr_postanova: 1, pdr_protokol: 1 }, },
-	{ id: 'move' 				, title: 'Рух ТЗ' 						, hash: { pdr_postanova: 1,  }, },
-	{ id: 'stop' 				, title: 'Зупинка/стоянка ТЗ' 			, hash: { pdr_postanova: 1,  }, },
-	{ id: 'disrepair' 			, title: 'Несправності ТЗ' 				, hash: { pdr_postanova: 1,  }, },
-	{ id: 'light' 				, title: 'Світлові прилади ТЗ' 			, hash: { pdr_postanova: 1,  }, },
-	{ id: 'traffic_light' 		, title: 'Світлофори / регулювальник' 	, hash: { pdr_postanova: 1,  }, },
-	{ id: 'sign' 				, title: 'Знаки' 						, hash: { pdr_postanova: 1,  }, },
-	{ id: 'doc' 				, title: 'Документи' 					, hash: { pdr_postanova: 1,  }, },
+	{ id: 'all' 				, title: 'Категорії (всі)' 				, },
+
+	{ id: 'pdr_postanova' 		, title: 'Постанови ПДР' 				, },
+	{ id: 'pdr_protokol' 		, title: 'Протоколи ПДР ' 				, },
+
+	{ id: 'move' 				, title: 'Рух ТЗ' 						, },
+	{ id: 'stop' 				, title: 'Зупинка/стоянка ТЗ' 			, },
+	{ id: 'disrepair' 			, title: 'Несправності ТЗ' 				, },
+	{ id: 'light' 				, title: 'Світлові прилади ТЗ' 			, },
+	{ id: 'traffic_light' 		, title: 'Світлофори / регулювальник' 	, },
+	{ id: 'sign' 				, title: 'Знаки' 						, },
+	{ id: 'emergency' 			, title: 'Аварійна ситуація' 			, },
+	{ id: 'doc' 				, title: 'Документи' 					, },
 	
-	//{ id: 'evacuation' 			, title: 'Евакуація' 					, hash: { pdr_postanova: 1,  }, },
+	//{ id: 'evacuation' 			, title: 'Евакуація' 				, },
 
-	{ id: 'kupap_a121_p1' 		, title: 'КУпАП ст. 121 ч. 1' 			, hash: { pdr_postanova: 1,  }, },
-	{ id: 'kupap_a121_p2' 		, title: 'КУпАП ст. 121 ч. 2' 			, hash: { pdr_postanova: 1,  }, },
-	{ id: 'kupap_a121_p5' 		, title: 'КУпАП ст. 121 ч. 5' 			, hash: { pdr_postanova: 1,  }, },
-	{ id: 'kupap_a121_3_p1' 	, title: 'КУпАП ст. 121-3 ч. 1' 		, hash: { pdr_postanova: 1,  }, },
-	{ id: 'kupap_a122_p1' 		, title: 'КУпАП ст. 122 ч. 1' 			, hash: { pdr_postanova: 1,  }, },
-	{ id: 'kupap_a122_p2' 		, title: 'КУпАП ст. 122 ч. 2' 			, hash: { pdr_postanova: 1,  }, },
-	{ id: 'kupap_a122_p3' 		, title: 'КУпАП ст. 122 ч. 3' 			, hash: { pdr_postanova: 1,  }, },
-	{ id: 'kupap_a122_p4' 		, title: 'КУпАП ст. 122 ч. 4' 			, hash: { pdr_postanova: 1,  }, },
-	{ id: 'kupap_a122_p6' 		, title: 'КУпАП ст. 122 ч. 6' 			, hash: { pdr_postanova: 1,  }, },
+	{ id: 'kupap_a121_p1' 		, title: 'КУпАП ст. 121 ч. 1' 			, },
+	{ id: 'kupap_a121_p2' 		, title: 'КУпАП ст. 121 ч. 2' 			, },
+	{ id: 'kupap_a121_p5' 		, title: 'КУпАП ст. 121 ч. 5' 			, },
+	{ id: 'kupap_a121_3_p1' 	, title: 'КУпАП ст. 121-3 ч. 1' 		, },
+	{ id: 'kupap_a122_p1' 		, title: 'КУпАП ст. 122 ч. 1' 			, },
+	{ id: 'kupap_a122_p2' 		, title: 'КУпАП ст. 122 ч. 2' 			, },
+	{ id: 'kupap_a122_p3' 		, title: 'КУпАП ст. 122 ч. 3' 			, },
+	{ id: 'kupap_a122_p4' 		, title: 'КУпАП ст. 122 ч. 4' 			, },
+	{ id: 'kupap_a122_p5' 		, title: 'КУпАП ст. 122 ч. 5' 			, },
+	{ id: 'kupap_a122_p6' 		, title: 'КУпАП ст. 122 ч. 6' 			, },
 
 
-	//{ id: 'kupap_a123_p1' 		, title: 'КУпАП ст. 123 ч. 1' 			, hash: { pdr_postanova: 1,  }, },
-	{ id: 'kupap_a126_p1' 		, title: 'КУпАП ст. 126 ч. 1' 			, hash: { pdr_postanova: 1,  }, },
-	{ id: 'kupap_a126_p2' 		, title: 'КУпАП ст. 126 ч. 2' 			, hash: { pdr_postanova: 1,  }, },
-	{ id: 'kupap_a126_p4' 		, title: 'КУпАП ст. 126 ч. 4' 			, hash: { pdr_postanova: 1,  }, },
-	{ id: 'kupap_a127_p1' 		, title: 'КУпАП ст. 127 ч. 1' 			, hash: { pdr_postanova: 1,  }, },
+	//{ id: 'kupap_a123_p1' 		, title: 'КУпАП ст. 123 ч. 1' 		, },
+	{ id: 'kupap_a126_p1' 		, title: 'КУпАП ст. 126 ч. 1' 			, },
+	{ id: 'kupap_a126_p2' 		, title: 'КУпАП ст. 126 ч. 2' 			, },
+	{ id: 'kupap_a126_p4' 		, title: 'КУпАП ст. 126 ч. 4' 			, },
+	{ id: 'kupap_a127_p1' 		, title: 'КУпАП ст. 127 ч. 1' 			, },
 
-	{ id: 'kupap_a130' 			, title: 'КУпАП ст. 130' 				, hash: { pdr_protokol: 1 } },
-	//{ id: 'kupap_a130_p1' 		, title: 'КУпАП ст. 130 ч. 1' 			, hash: { pdr_protokol: 1 } },
+	{ id: 'kupap_a130' 			, title: 'КУпАП ст. 130' 				, },
+	//{ id: 'kupap_a130_p1' 		, title: 'КУпАП ст. 130 ч. 1' 		, },
 	
-	{ id: 'gb' 					, title: 'ГБ' 		, hash: { gb: 1 } },
-	//{ id: 'kupap_a175_1_p1' 	, title: 'КУпАП ст. 175-1 ч. 1' 		, hash: { gb_postanova: 1 } },
-	//{ id: 'kupap_a178_p1' 	, title: 'КУпАП ст. 178 ч. 1' 			, hash: { gb_postanova: 1 } },
+	{ id: 'gb' 					, title: 'ГБ' 							,  },
+	//{ id: 'gb_postanova' 		, title: 'Постанови ГБ' 				, },
+	//{ id: 'gb_protokol' 		, title: 'Протоколи ГБ ' 				, },
+
+
+
+
+
+
+	//{ id: 'kupap_a175_1_p1' 	, title: 'КУпАП ст. 175-1 ч. 1' 		, },
+	//{ id: 'kupap_a178_p1' 	, title: 'КУпАП ст. 178 ч. 1' 			, },
 	//{ id: 'speed' 			, title: 'Швидкість' 					, },
 	//{ id: 'pedestrian' 		, title: 'Пішоходи' 					, },
 ];
@@ -241,7 +255,7 @@ const arrListSheriffFabuly = [
 	edit 	: '21.11.2023',
 },
 { 
-	id 		: 'fabula_kupap_a121_p5_  pdr_c2_a3_p4', 
+	id 		: 'fabula_kupap_a121_p5_pdr_c2_a3_p4', 
 	img 	: 'helmet', 
 	kupap 	: 'kupap_a121_p5',
 	pdr 	: 'pdr_c2_a3_p4',
@@ -711,34 +725,6 @@ const arrListSheriffFabuly = [
 	edit 	: '21.11.2023',
 },
 { 
-	id 		: 'fabula_kupap_a122_p2_pdr_c8_a4_p2_sign_2_1', 
-	img 	: 'sign_2.1', 
-	kupap 	: 'kupap_a122_p2',
-	pdr 	: 'pdr_c8_a4_p2_sign_2_1',
-	txt 	: {
-		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
-		wrap: [ '$1', ],
-		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, не надавши перевагу в русі ТЗ, яке рухалося по головній дорозі,', ],
-	},
-	descr 	: 'ДАТИ ДОРОГУ',
-	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, sign: 1, },
-	edit 	: '19.11.2023',
-},
-{ 
-	id 		: 'fabula_kupap_a122_p2_pdr_c8_a4_p2_sign_2_5', 
-	img 	: 'sign_2.5', 
-	kupap 	: 'kupap_a122_p2',
-	pdr 	: 'pdr_c8_a4_p2_sign_2_5',
-	txt 	: {
-		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
-		wrap: [ '$1', ],
-		fabula: [ 'не виконав вимогу дорожнього знаку {sign}, не надавши перевагу в русі зустрічному ТЗ на вузькій ділянці,', ],
-	},
-	descr 	: 'ПЕРЕВАГА в РУСІ',
-	hash 	: { pdr_postanova: 1, kupap_a122_p2: 1, move: 1, sign: 1, },
-	edit 	: '21.11.2023',
-},
-{ 
 	id 		: 'fabula_kupap_a122_p2_pdr_c8_a7_p3_i5', 
 	img 	: 'traffic_light_yellow', 
 	kupap 	: 'kupap_a122_p2',
@@ -954,6 +940,41 @@ const arrListSheriffFabuly = [
 
 
 
+// --- 122.5 ----------------------------------------------------------------------------------------------------------------------------
+
+{ 
+	id 		: 'fabula_kupap_a122_p5_pdr_c8_a4_p2_sign_2_1', 
+	img 	: 'sign_2.1', 
+	kupap 	: 'kupap_a122_p5',
+	pdr 	: 'pdr_c8_a4_p2_sign_2_1',
+	txt 	: {
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'створив аварійну ситуацію, не виконавши вимогу дорожнього знаку {sign} та не надавши перевагу в русі ТЗ, яке рухалося по головній дорозі, змусивши водія ТЗ, що рухалося по головній дорозі [ --застосувати екстренне гальмування, --різко змінити напрямок руху; ] для уникнення зіткнення', ],
+	},
+	descr 	: 'ДАТИ ДОРОГУ, аварійка',
+	hash 	: { pdr_protokol: 1, kupap_a122_p5: 1, move: 1, sign: 1, emergency: 1, },
+	edit 	: '19.11.2023',
+},
+{ 
+	id 		: 'fabula_kupap_a122_p5_pdr_c8_a4_p2_sign_2_5', 
+	img 	: 'sign_2.5', 
+	kupap 	: 'kupap_a122_p5',
+	pdr 	: 'pdr_c8_a4_p2_sign_2_5',
+	txt 	: {
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'створив аварійну ситуацію, не виконавши вимогу дорожнього знаку {sign} та не надавши перевагу в русі зустрічному ТЗ на вузькій ділянці, змусивши водія ТЗ, що рухалося назустріч [ --застосувати екстренне гальмування, --різко змінити напрямок руху; ] для уникнення зіткнення', ],
+	},
+	descr 	: 'ПЕРЕВАГА в РУСІ, аварійка',
+	hash 	: { pdr_protokol: 1, kupap_a122_p5: 1, move: 1, sign: 1, emergency: 1, },
+	edit 	: '21.11.2023',
+},
+
+
+
+
+
 // --- 122.6 ----------------------------------------------------------------------------------------------------------------------------
 
 { 
@@ -1006,7 +1027,7 @@ const arrListSheriffFabuly = [
 	edit 	: '26.11.2023',
 },
 { 
-	id 		: 'fabula_kupap_a126_p1_ pdr_c2_a1_p5', 
+	id 		: 'fabula_kupap_a126_p1_pdr_c2_a1_p5', 
 	img 	: 'doc_policy',
 	kupap 	: 'kupap_a126_p1',
 	pdr 	: 'pdr_c2_a1_p5',
@@ -1236,7 +1257,7 @@ const arrListSheriffFabuly = [
 	id 		: 'fabula_kupap_a175_1_p1', 
 	img 	: 'dont_smoke', 
 	kupap 	: 'kupap_a175_1_p1',
-	smoking : 'smoking_13',
+	smoking : 'a13',
 	txt 	: {
 		intro : [ 'intro', 'citizen', 'name', ],
 		wrap: [ '$1', ],
@@ -1257,7 +1278,7 @@ const arrListSheriffFabuly = [
 	id 		: 'fabula_kupap_a178_p1_drank', 
 	img 	: 'booze', 
 	kupap 	: 'kupap_a178_p1',
-	alco 	: 'alco_a15_2',
+	alco 	: 'a15_2',
 	txt 	: {
 		intro : [ 'intro', 'citizen', 'name', ],
 		wrap: [ '$1', ],
@@ -1271,7 +1292,7 @@ const arrListSheriffFabuly = [
 	id 		: 'fabula_kupap_a178_p1_drunk', 
 	img 	: 'booze', 
 	kupap 	: 'kupap_a178_p1',
-	alco 	: 'alco_a15_2',
+	alco 	: 'a15_2',
 	txt 	: {
 		intro : [ 'intro', 'citizen', 'name', ],
 		wrap: [ '$1', ],
@@ -1281,25 +1302,6 @@ const arrListSheriffFabuly = [
 	hash 	: {gb: 1,  gb_postanova: 1, kupap_a178_p1: 1, },
 	edit 	: '23.11.2023',
 },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

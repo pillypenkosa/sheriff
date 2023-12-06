@@ -1,0 +1,243 @@
+/* © 2023 DJS */ 
+ 
+ 
+ 
+cmp-fabula { 
+
+	background-color: #fff;
+
+	display: block;
+
+
+	background-color: #fff;
+	
+} 
+
+
+
+/*
+
+	cmp-fabula .clc { 
+
+	} 
+		cmp-fabula .clc:hover { 
+			color: yellow; 
+		} 
+ 
+ 
+
+cmp-fabula .modal {
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 5px;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #fff;
+	z-index: 1;
+}
+
+
+
+
+	cmp-fabula .modal .fabula-body .blank-name {
+		margin: 10px;
+		font-weight: bold;
+		font-size: 130%;
+		text-align: center;
+	}
+
+		cmp-fabula .modal .fabula-body .blank-name .pdr-postanova,
+		cmp-fabula .modal .fabula-body .blank-name .gb-postanova {
+			color: #00f;
+		}
+
+		cmp-fabula .modal .fabula-body .blank-name .pdr-protokol,
+		cmp-fabula .modal .fabula-body .blank-name .gb-protokol {
+			color: #f00;
+		}
+
+
+
+
+
+
+
+
+
+
+	cmp-fabula .modal .fabula-body .img img {
+		border-radius: 10px;
+	}
+
+
+	cmp-fabula .modal .fabula-body .fabula-txt {
+		margin: 0 0 5px 0;
+	}
+		cmp-fabula .modal .fabula-body .fabula-txt .fabula-action {
+			margin: 5px 0;
+			font-weight: bold;
+		}
+		cmp-fabula .modal .fabula-body .fabula-txt .no-fabula {
+			font-style: oblique;
+			background-color: #f00;
+		}
+		cmp-fabula .modal .fabula-body .fabula-txt .evacuation {
+			margin: 10px 0;
+			font-weight: bold;
+			color: #f00;
+		}
+
+
+
+	cmp-fabula .modal .reapeat {
+		margin: 20px 0 0 0;
+	}
+		cmp-fabula .modal .reapeat div {
+			margin: 0 0 7px 0;
+		}
+
+		cmp-fabula .modal .reapeat .repeat-warning {
+			padding: 0 5px;	
+			font-weight: bold;
+			font-style: oblique;
+			color: #f00;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	cmp-fabula .modal .item-border {
+			padding: 0 10px;
+			border-radius: 5px;
+			font-weight: bold;
+			color: #fff;
+	}
+
+	cmp-fabula .modal .item-pdr {
+		background-color: #009;
+	}
+	cmp-fabula .modal .sign {
+		background-color: #909;
+	}
+	cmp-fabula .modal .marking {
+		background-color: #333;
+	}
+
+
+
+
+	cmp-fabula .modal .part-kupap {
+		background-color: #090;
+	}
+
+	cmp-fabula .modal .min {
+		background-color: #09f;
+	}
+
+
+	cmp-fabula .modal .penalty {
+		background-color: #f00;
+	}
+
+
+
+
+
+
+	cmp-fabula .modal .fabula-body .vstup {
+		display: flex;
+	}
+		cmp-fabula .modal .fabula-body .vstup .info {
+			margin: 0 0 0 5px;
+		}
+			cmp-fabula .modal .fabula-body .vstup .info div {
+				margin: 0 0 5px 0;
+			}
+
+
+
+
+
+	cmp-fabula .modal .fabula-body .edited {
+		font-weight: bold;
+		font-style: oblique;
+		color: #00f;
+	}
+
+
+
+
+ 
+	cmp-fabula .fabula-title {
+		margin: 0 0 20px 0;
+		padding: 0 0 10px 0;
+
+
+		border-bottom: 1px solid #00f;
+
+
+		text-align: center;
+		font-size: 200%;
+		font-weight: bold;
+
+		color: #009;
+	}
+
+
+
+
+
+
+
+cmp-fabula .back-close {
+	position: absolute;
+	top: 15px;
+	font-weight: bold;
+}
+	cmp-fabula .back-close.back {
+		left: 15px;
+	}
+	cmp-fabula .back-close.close {
+		right: 15px;
+	}
+
+
+
+
+
+
+
+
+	cmp-fabula .marker {
+		color: #00f;
+	}
+
+
+
+
+
+
+
+
+
+
+*/
+
+
+ 
+ 
+ 

@@ -53,8 +53,8 @@ class ComponentWinFabuly {
 
 
 		//${ Component( 'Menu-Select-Fabula', { typeBlank } ) }
+		//${ Component( 'Fabula' ) }
 		let html = `
-			${ Component( 'Fabula' ) }
 			${ Component( 'Fabula-Head', {} ) }
 			${ Component( 'Menu-Select-Fabula', { typeBlank } ) }
 		`;

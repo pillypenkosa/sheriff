@@ -13,38 +13,41 @@ cmp-each-select-fabula {
 		} 
  
  
- 
- 
 
-cmp-each-select-fabula {
-	display: flex;
-	margin: 0 5px 5px 5px;
-	padding: 5px;
-	border-radius: 10px;
-	background: linear-gradient( to bottom, #fff, #ccc );
-	cursor: pointer;
-}
-	cmp-each-select-fabula .img {
-		height: 100px;
-		width: 100px;
 
-		flex-shrink: 0;
+	cmp-each-select-fabula .intro { 
+		display: flex;
+		margin: 0 5px 5px 5px;
+		padding: 5px;
+		border-radius: 10px;
+		background: linear-gradient( to bottom, #fff, #ddd );
+		cursor: pointer;
 	}
-		cmp-each-select-fabula .img img {
-			height: 100%;
-			width: 100%;
-			border-radius: 10px;
+		cmp-each-select-fabula .intro .img {
+			height: 100px;
+			width: 100px;
+			flex-shrink: 0;
+		}
+			cmp-each-select-fabula .intro  .img img {
+				height: 100%;
+				width: 100%;
+				border-radius: 10px;
+			}
+
+		cmp-each-select-fabula .intro .info {
+			margin: 0 0 0 10px;
+		}
+		cmp-each-select-fabula .intro .info .descr {
+			font-weight: bold;
+			font-style: oblique;
+			color: #00f;
 		}
 
-	cmp-each-select-fabula .info {
-		margin: 0 0 0 10px;
-	}
-	cmp-each-select-fabula .info .descr {
-		font-weight: bold;
-		font-style: oblique;
-		color: #00f;
-	}
 
+
+
+	cmp-each-select-fabula .full { 
+	} 
 
 
 
