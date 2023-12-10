@@ -15,6 +15,26 @@ cmp-win-laws {
 
 		}
 
+	cmp-win-laws .keyword,
+	cmp-win-laws .danger {
+		padding: 0 10px;
+		font-weight: bold;
+		border-radius: 5px;
+	}
+		cmp-win-laws .keyword {
+			background-color: #9ff;
+			color: #00f;
+		}
+		cmp-win-laws .danger {
+			background-color: #f00;
+			color: #fff;
+		}
+
+
+
+
+
+
 
 
 
