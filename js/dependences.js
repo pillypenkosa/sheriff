@@ -17,21 +17,20 @@ const dependences = [
 
 	// масиви-списки з ЦЬОГО проекту ( свої ) -------------------------------------------------------------------------------------
 
-	{ arr: 'sheriff.laws' 			, }, 	
-	{ arr: 'sheriff.terminology' 	, }, 	
+	{ arr: 'sheriff.laws' 				, }, 	
+	{ arr: 'sheriff.terminology' 		, }, 	
 
-	{ arr: 'sheriff.alco' 			, }, 	
-	{ arr: 'sheriff.npu' 			, }, 	
-	{ arr: 'sheriff.kupap' 			, }, 	
-	{ arr: 'sheriff.kku' 			, }, 	
-	{ arr: 'sheriff.ku' 			, }, 	
-	{ arr: 'sheriff.railroad' 		, }, 
-	{ arr: 'sheriff.pdr' 			, },
-	{ arr: 'sheriff.smoking' 		, }, 
+	{ arr: 'sheriff.alco' 				, }, 	
+	{ arr: 'sheriff.npu' 				, }, 	
+	{ arr: 'sheriff.kupap' 				, }, 	
+	{ arr: 'sheriff.kku' 				, }, 	
+	{ arr: 'sheriff.ku' 				, }, 	
+	{ arr: 'sheriff.railroad' 			, }, 
+	{ arr: 'sheriff.pdr' 				, },
+	{ arr: 'sheriff.smoking' 			, }, 
+	{ arr: 'sheriff.dstu_3649_2010' 	, }, 
 	
-	{ arr: 'sheriff.fabuly' 		, }, 
-
-
+	{ arr: 'sheriff.fabuly' 			, }, 
 
 
 

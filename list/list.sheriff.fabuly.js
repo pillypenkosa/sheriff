@@ -178,7 +178,7 @@ const arrListSheriffFabuly = [
 	txt 	: {
 		intro : [ 'intro', 'driver', 'name', 'acted', 'car', ],
 		wrap: [ '$1', ],
-		fabula: [ 'який має задній привід та на якому був відсутній задній правий бризковик,', ],
+		fabula: [ 'який має задній привід та на якому був відсутній задній <span class="marker">[ --лівий; --правий; ]</span> бризковик,', ],
 	},
 	descr 	: 'БРИЗКОВИКИ',
 	hash 	: { pdr_postanova: 1, kupap_a121_p1: 1, move: 1, disrepair: 1, },
@@ -267,6 +267,27 @@ const arrListSheriffFabuly = [
 	descr 	: 'ШОЛОМ',
 	hash 	: { pdr_postanova: 1, kupap_a121_p5: 1, move: 1, },
 	edit 	: '21.11.2023',
+},
+
+
+
+
+
+// --- 121.10 ---------------------------------------------------------------------------------------------------------------------------
+
+{ 
+	id 		: 'fabula_kupap_a121_p10_pdr_c21_a11_p2', 
+	img 	: 'children', 
+	kupap 	: 'kupap_a121_p10',
+	pdr 	: 'pdr_c21_a11_p2',
+	txt 	: {
+		intro : [ 'intro', 'driver', 'name', 'acting', 'car', ],
+		wrap: [ '$1', ],
+		fabula: [ 'перевозив дитину, зріст якої менше 150 см, без використання дитячої утримуючої системи', ],
+	},
+	descr 	: 'ДІТИ',
+	hash 	: { pdr_postanova: 1, kupap_a121_p10: 1, move: 1, },
+	edit 	: '10.12.2023',
 },
 
 

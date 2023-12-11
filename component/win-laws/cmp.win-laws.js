@@ -19,12 +19,14 @@ class ComponentWinLaws {
 
 	static laws = [
 
-		{ id: 'npu' 		, },
-		{ id: 'ku' 			, },
-		{ id: 'kupap' 		, },
-		{ id: 'smoking' 	, },
-		{ id: 'alco' 		, },
-	
+		{ id: 'npu' 			, },
+		{ id: 'ku' 				, },
+		{ id: 'kupap' 			, },
+		{ id: 'kku' 			, },
+		{ id: 'smoking' 		, },
+		{ id: 'alco' 			, },
+		{ id: 'railroad' 		, },
+		{ id: 'dstu_3649_2010' 	, },
 	]; 
 
 
@@ -70,7 +72,7 @@ class ComponentWinLaws {
 			let htmlLawTitle 	= '';
 
 
-			if ( k.id == 'alco' || k.id == 'ku' || k.id == 'smoking' || k.id == 'kupap' || k.id == 'npu' ) {
+			if ( k.id == 'alco' || k.id == 'dstu_3649_2010' || k.id == 'ku' || k.id == 'kku' || k.id == 'smoking' || k.id == 'kupap' || k.id == 'npu' || k.id == 'railroad' ) {
 
 				if ( objListSheriffLaws[ k.id ].doc ) 
 					htmlLawTitle += objListSheriffLaws[ k.id ].doc
@@ -80,18 +82,10 @@ class ComponentWinLaws {
 
 				if ( objListSheriffLaws[ k.id ].href ) 
 					htmlLawTitle = `<a href="${ objListSheriffLaws[ k.id ].href }" target="_blank">${ htmlLawTitle }</a>`;
-
 			}
 
 
 
-
-
-
-
-
-
-			
 			html += `<div class="law-each">
 				<div class="law-title">${ htmlLawTitle }</div>
 				<div class="law-descr">${ Component( 'Spoiler-Art', k.id ) }</div>

@@ -37,9 +37,15 @@ class ComponentSpoilerArt {
 
 		if ( objData == 'alco' ) 
 			objLaw4show = arrListSheriffAlco;
-		
+
+		if ( objData == 'dstu_3649_2010' ) 
+			objLaw4show = arrListSheriffDstu_3649_2010;
+
 		if ( objData == 'ku' ) 
 			objLaw4show = arrListSheriffKu;
+
+		if ( objData == 'kku' ) 
+			objLaw4show = arrListSheriffKku;
 
 		if ( objData == 'smoking' ) 
 			objLaw4show = arrListSheriffSmoking;
@@ -47,6 +53,13 @@ class ComponentSpoilerArt {
 		if ( objData == 'npu' ) 
 			objLaw4show = arrListSheriffNpu;
 			
+		if ( objData == 'railroad' ) 
+			objLaw4show = arrListSheriffRailroad;
+			
+
+
+
+
 
 
 

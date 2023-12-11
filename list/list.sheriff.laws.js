@@ -19,9 +19,15 @@ const arrListSheriffLaws = [
 },
 {
 	id: 'kupap',
-	doc: 'Кодекс України',
+	doc: 'КОДЕКС УКРАЇНИ',
 	title: 'Про адміністративні правопорушення',
 	href: 'https://zakon.rada.gov.ua/laws/show/80731-10#Text',
+},
+{
+	id: 'kku',
+	doc: 'КРИМІНАЛЬНИЙ КОДЕКС УКРАЇНИ',
+	title: '',
+	href: 'https://zakon.rada.gov.ua/laws/show/2341-14#Text',
 },
 {
 	id: 'npu',
@@ -35,6 +41,31 @@ const arrListSheriffLaws = [
 	title: 'Про заходи щодо попередження та зменшення вживання тютюнових виробів і їх шкідливого впливу на здоров\'я населення',
 	href: 'https://zakon.rada.gov.ua/laws/show/2899-15#Text',
 },
+{
+	id: 'dstu_3649_2010',
+	doc: 'ДСТУ 3649:2010 <br/>КОЛІСНІ ТРАНСПОРТНІ ЗАСОБИ',
+	title: 'Вимоги щодо безпечності технічного стану та методи контролювання',
+	href: 'https://patrul.in.ua/pdf/dstu-3649.pdf',
+},
+{
+	id: 'railroad',
+	doc: 'НАКАЗ №54',
+	title: 'Про затвердження Правил безпеки громадян на залізничному транспорті України',
+	href: 'https://zakon.rada.gov.ua/laws/show/z0193-98#Text',
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
