@@ -29,13 +29,9 @@ cmp-win-laws {
 			background-color: #f00;
 			color: #fff;
 		}
-
-
-
-
-
-
-
+		cmp-win-laws p.sanction {
+			margin: 0 0 0 20px;
+		}
 
 
 
