@@ -19,6 +19,13 @@ const arrListSheriffFabulyType = [
 	{ id: 'kupap_a121_p1' 		, title: 'КУпАП ст. 121 ч. 1' 			, },
 	{ id: 'kupap_a121_p2' 		, title: 'КУпАП ст. 121 ч. 2' 			, },
 	{ id: 'kupap_a121_p5' 		, title: 'КУпАП ст. 121 ч. 5' 			, },
+
+
+	{ id: 'kupap_a121_p10' 		, title: 'КУпАП ст. 121 ч. 10' 			, },
+	
+
+
+
 	{ id: 'kupap_a121_3_p1' 	, title: 'КУпАП ст. 121-3 ч. 1' 		, },
 	{ id: 'kupap_a122_p1' 		, title: 'КУпАП ст. 122 ч. 1' 			, },
 	{ id: 'kupap_a122_p2' 		, title: 'КУпАП ст. 122 ч. 2' 			, },
