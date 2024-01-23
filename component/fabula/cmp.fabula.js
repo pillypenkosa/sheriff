@@ -261,7 +261,7 @@ class ComponentFabula {
 					htmlSmokingN = this.wrapSmoking( objSmoking );
 					htmlSmokingFabula = `<div>ЗУ: ст.${ htmlSmokingN }</div>`;
 
-					htmlViolationLaw = `чим порушив ст.${ htmlSmokingN } ЗУ \"Про заходи щодо попередження та зменшення вживання тютюнових виробів і їх шкідливого впливу на здоров'я населення\",`;
+					htmlViolationLaw = `чим порушив <span class="marker">п.[ --1, --2, .. --16, ]</span> ч.2 ст.${ htmlSmokingN } ЗУ \"Про заходи щодо попередження та зменшення вживання тютюнових виробів і їх шкідливого впливу на здоров'я населення\",`;
 				
 				}
 			}
