@@ -1154,7 +1154,7 @@ const arrListSheriffFabuly = [
 	id 		: 'fabula_kupap_a127_p1_pdr_c4_a7', 
 	img 	: 'pedestrian_crosswalk',
 	kupap 	: 'kupap_a127_p1',
-	pdr 	: 'pdr_c4_a7',
+	pdr 	: 'pdr_c4_a14_p4',
 	txt 	: {
 		intro : [ 'intro', 'pedestrian', 'name', ],
 		wrap: [ '$1', ],
