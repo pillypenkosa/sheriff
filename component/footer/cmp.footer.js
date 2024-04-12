@@ -34,8 +34,9 @@ class ComponentFooter {
 			//'defer' 		: '',
 		};
 
-		let html = '© 2023 pillypenkosa@gmail.com';
 
+
+		let html = `© ${ TotalApp.year } pillypenkosa@gmail.com`;
 
 
 		return { html, tagParam };
