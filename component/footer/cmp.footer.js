@@ -36,7 +36,7 @@ class ComponentFooter {
 
 
 
-		let html = `© ${ TotalApp.year } pillypenkosa@gmail.com`;
+		let html = `© ${ Total.year } pillypenkosa@gmail.com`;
 
 
 		return { html, tagParam };
